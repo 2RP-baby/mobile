@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
         marginRight :10,
         color:'#111111',
     }
-})
+})   
 
 export default Header;

@@ -6,7 +6,7 @@ const Mybutton1 = () => {
     return (
         <View>
              <TouchableOpacity
-                onPress={()=>navigation.navigate('Login')}>
+                >
                 <Image style={styles.image} source={back} />
             </TouchableOpacity>
         </View>
