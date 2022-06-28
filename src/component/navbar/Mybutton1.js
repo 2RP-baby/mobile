@@ -1,14 +1,18 @@
 import React from 'react';
 import { Image, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import back from '../../../assets/icon/back.png';
+import Login from '../../page/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Mybutton1 = () => {
+const Mybutton1 = ({navigation}) => {
     return (
         <View>
-             <TouchableOpacity
-                >
+             <TouchableOpacity>
+                {/* onPress={()=>navigation.navigate('Login')}> */}
                 <Image style={styles.image} source={back} />
             </TouchableOpacity>
+            {/* <Login/> */}
         </View>
     );
 };
