@@ -31,8 +31,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginTop: 30,
     }
-    
-
 })
 
 export default Body;
