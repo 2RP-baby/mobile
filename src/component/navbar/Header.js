@@ -5,12 +5,12 @@ import {mainBlue} from '../../../assets/color';
 import Mybutton1 from './Mybutton1';
 import Mybutton2 from './Mybutton2';
 
-const Header = () => {
+const Header = ({title}) => {
     return (
         <View style={styles.header}>
-            <Mybutton1></Mybutton1>
-            <Text style={styles.text}>화면명</Text>
-            <Mybutton2></Mybutton2>
+            <Mybutton1/>
+            <Text style={styles.text}>{title}</Text>
+            <Mybutton2/>
         </View>
 );
 };
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: 50,
-        // backgroundColor: {mainBlue},
         backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
