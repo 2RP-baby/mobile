@@ -9,6 +9,7 @@ import DeliverySubmit from '../page/DeliverySubmit';
 import Menu from '../page/Menu';
 // import Mybutton2 from '../component/navbar/Mybutton2';
 import Hamburger from '../../assets/icon/menu.png'
+
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
@@ -30,7 +31,6 @@ const StackNavigation = ({navigation}) => {
         </View>
           ),
         }}
-        
       /> 
       <Stack.Screen
         name="Home"

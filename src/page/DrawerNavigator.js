@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
+import {Stack} from '../navigations/Stack';
 
 const DrawerNavigator = () => {
   const HomeScreen = () => {

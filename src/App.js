@@ -30,12 +30,12 @@ const App = () => {
 
   return(
     <>
-  <NavigationContainer>
+  {/* <NavigationContainer>
     <DrawerNavigator/>
-   </NavigationContainer>  
-   {/* <NavigationContainer>
+  </NavigationContainer>   */}
+   <NavigationContainer>
     <StackNavigation/> 
-  </NavigationContainer> */}
+  </NavigationContainer>
   </>  
   );
 };
