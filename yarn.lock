@@ -1317,7 +1317,7 @@
     "query-string" "^7.0.0"
     "react-is" "^16.13.0"
 
-"@react-navigation/drawer@^6.4.2":
+"@react-navigation/drawer@6.4.2":
   "integrity" "sha512-BlUHkvNDZ/dgaG4hPB3a/80t0IjAkllNgA8ehmWx0vivt3x6yZ0K/X4C3q/0rOoWt6ZbE38b6TMxrTolz5HLxg=="
   "resolved" "https://registry.npmjs.org/@react-navigation/drawer/-/drawer-6.4.2.tgz"
   "version" "6.4.2"
