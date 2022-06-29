@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         marginLeft: 50,
     },
-})
+    button: {
+        marginRight :10,
+        color:'#111111',
+    }
+})   
 
 export default Header;
