@@ -1,17 +1,10 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
-import Login from './page/Login';
-import Menu from './page/Menu';
-import NavBar from './page/NavBar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import StackNavigation from './navigations/Stack';
-import DeliveryInsert from './page/DeliveryInsert';
-import DeliverySubmit from './page/DeliverySubmit';
-import SideVar from './page/DrawerNavigator';
-import DrawerNavigator from './page/DrawerNavigator';
 
-const App = () => {
+
+const DrawerNavigator = () => {
   const HomeScreen = () => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -29,15 +22,11 @@ const App = () => {
   const Drawer = createDrawerNavigator();
 
   return(
-    <>
-  <NavigationContainer>
-    <DrawerNavigator/>
-   </NavigationContainer>  
-   {/* <NavigationContainer>
-    <StackNavigation/> 
-  </NavigationContainer> */}
-  </>  
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Profile" component={ProfileScreen} />
+    </Drawer.Navigator>
   );
 };
 
-export default App;
+export default DrawerNavigator;
