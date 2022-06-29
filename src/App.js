@@ -6,6 +6,7 @@ import NavBar from './page/NavBar';
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigations/Stack';
 import DeliveryInsert from './page/DeliveryInsert';
+import DeliverySubmit from './page/DeliverySubmit';
 
 const App = () => {
   return(
@@ -14,6 +15,7 @@ const App = () => {
         {/* <Menu/> */}
         {/* <NavBar/> */}
         {/* <DeliveryInsert/> */}
+        {/* <DeliverySubmit/> */}
     <StackNavigation/>
   </NavigationContainer> 
   );
