@@ -11,7 +11,7 @@ import DeliverySubmit from './page/DeliverySubmit';
 const App = () => {
   return(
   <NavigationContainer>
-      {/* <Login/>*/}
+      <Login/>
         {/* <Menu/> */}
         {/* <NavBar/> */}
         {/* <DeliveryInsert/> */}

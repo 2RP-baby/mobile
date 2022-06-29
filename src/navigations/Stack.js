@@ -2,23 +2,36 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
 import List from '../screens/List';
-import { Button, Platform, Text, View } from 'react-native';
+import { Image,TouchableOpacity,Button, Platform, Text, View,StyleSheet } from 'react-native';
 import DeliveryInsert from '../page/DeliveryInsert';
 import DeliverySubmit from '../page/DeliverySubmit';
 import Menu from '../page/Menu';
-
+// import Mybutton2 from '../component/navbar/Mybutton2';
+import Hamburger from '../../assets/icon/menu.png'
 const Stack = createStackNavigator();
 
-const StackNavigation = () => {
+const StackNavigation = ({navigation}) => {
   return (
     <>
     <Stack.Navigator>
-      {/* <Stack.Screen
+       <Stack.Screen
         name="Menu"
         component={Menu}
-        options={{headerTitle: 'Menu'}}
+        options={{
+          headerTitle: 'Menu',
+          headerRight: () => (
+            <View>
+             <TouchableOpacity>
+                {/* onPress={()=>navigation.navigate('Login')}> */}
+                <Image style={styles.image} source={Hamburger} />
+            </TouchableOpacity>
+            {/* <Login/> */}
+        </View>
+          ),
+        }}
+        
       /> 
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Home"
         component={Home}
         options = {{headerTitle : 'SCC납품신청대상조회'}}              
@@ -27,7 +40,7 @@ const StackNavigation = () => {
         name="List"
         component={List}
         options = {{headerTitle : 'SCC납품신청대상'}}
-      /> */}
+      /> 
       <Stack.Screen
         name="DeliveryInsert"
         component={DeliveryInsert}
@@ -38,14 +51,16 @@ const StackNavigation = () => {
         component={DeliverySubmit}
         options={{headerTitle: 'SCC 납품신청'}}
       />
-      <Stack.Screen
-        name="Menu"
-        component={Menu}
-        options={{headerTitle: 'Menu'}}
-      />
+      
     </Stack.Navigator>
     </>
   );
 };
-
+const styles = StyleSheet.create({
+  image: {
+      width: 30,
+      height: 30,
+      marginRight:20,
+  },
+})
 export default StackNavigation;

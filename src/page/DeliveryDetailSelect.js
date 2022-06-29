@@ -6,7 +6,7 @@ import Body from '../component/deliveryDetailSelect/Body';
 const DeliveryDetailSelect = ({navigation}) => {
     return (
         <View style={styles.view}>
-            <Body style={styles.body}/>
+            <Body style={styles.body} navigation={navigation}/>
         </View>
     );
 };

@@ -5,33 +5,7 @@ import DeliveryDetailSelect from '../page/DeliveryDetailSelect';
 const List = ({navigation}) => {
   return (
     <View style={styles.view}>
-      <DeliveryDetailSelect/>
-      <View style={styles.containerRow}>
-        <View style={styles.textContainer}>
-            <Text style={styles.text}
-                  onPress={() => navigation.navigate('DeliveryInsert')}
-                  >466197-10
-            </Text>
-        </View>
-        <View style={styles.textContainer1}>
-            <Text
-                  onPress={() => navigation.navigate('DeliveryInsert')}
-                  >(주)포스코케미칼
-            </Text>
-        </View>
-      </View>
-        <View style={styles.textContainer2}>
-                <Text>[BPA' 20] 양소 RH용 (건명)</Text>
-        </View>
-        <View style={styles.textContainer2}>
-                <Text>PEZ21EQ PSC12 2021-09-30 이은행(부서코드,..,..)</Text>
-        </View>
-
-      <View style={styles.button}>
-        <Button title="더보기" color="#005386" 
-         onPress={() => Alert.alert("더 보고 싶으면 500원")}/>
-      </View>      
-
+      <DeliveryDetailSelect navigation={navigation}/>
     </View>
   );
 };

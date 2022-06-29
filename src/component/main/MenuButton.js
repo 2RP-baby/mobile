@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet} from "react-native"
 
-const MenuButton = () => {
+const MenuButton = ({navigation}) => {
     return(
         <>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>alert('납품신청 버튼 클릭')}>
+                onPress={()=>navigation.navigate('Home')}>
                 <Text style={styles.text1}>납품신청</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container2}
