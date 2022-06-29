@@ -13,9 +13,12 @@ const App = () => {
   return(
   <NavigationContainer>
     <StackNavigation/>
-    {/* <Login/> */}        
-      {/* <Menu/> */}
-      {/* <NavBar/> */}
+      {/* <View> */}
+        {/* <Login/>    */}
+        {/* <Menu/> */}
+        {/* <NavBar/>  */}
+      
+      {/* </View> */}
   </NavigationContainer> 
       
          
