@@ -12,7 +12,7 @@ const Header = ({title}) => {
             <Text style={styles.text}>{title}</Text>
             <Mybutton2/>
         </View>
-);
+    );
 };
 const styles = StyleSheet.create({
     header:{
@@ -22,15 +22,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
-        // borderRadius: 8,
-        // marginTop: 20,
-        // paddingTop: 20,
     },
     text: {
+        width: 250,
         fontSize: 20,
         color: '#FFFFFF',
-        marginLeft: 120,
-        marginRight: 120,
+        marginLeft: 50,
     },
     button: {
         marginRight :10,

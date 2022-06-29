@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import Body from '../component/navbar/Body';
 import Header from '../component/navbar/Header';
 import Tail from '../component/navbar/Tail';
-const NavBar = () => {
+const NavBar = ({title}) => {
     return (
         <View>
-            <Header title={"화면명"}/>
+            <Header title={title}/>
             <Body/>
             <Tail/>
         </View>
