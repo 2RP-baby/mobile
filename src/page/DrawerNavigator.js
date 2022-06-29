@@ -24,13 +24,6 @@ const DrawerNavigator = () => {
     screenOptions={{
         drawerPosition: 'right',
         drawerType: 'back',
-        // headerRight: () => (
-        //     <TouchableOpacity
-        //         onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
-        //         <Image style={styles.image} source={hamburger} />
-        //     </TouchableOpacity>
-        //   ),
-
         drawerStyle: {
           backgroundColor: '#c6cbef',
           width: 240,
