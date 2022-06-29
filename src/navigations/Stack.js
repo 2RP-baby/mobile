@@ -9,33 +9,34 @@ import DeliverySubmit from '../page/DeliverySubmit';
 import Menu from '../page/Menu';
 // import Mybutton2 from '../component/navbar/Mybutton2';
 import Hamburger from '../../assets/icon/menu.png'
+import { DrawerActions } from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
   return (
     <>
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        // 메뉴바
+        headerRight: () => (
+          <View>
+           <TouchableOpacity
+              onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
+              <Image style={styles.image} source={Hamburger}/>
+            </TouchableOpacity>
+          </View>
+        )
+      }}
+    >
        <Stack.Screen
         name="Menu"
         component={Menu}
-        options={{
-          headerTitle: 'Menu',
-          headerRight: () => (
-            <View>
-             <TouchableOpacity>
-                {/* onPress={()=>navigation.navigate('Login')}> */}
-                <Image style={styles.image} source={Hamburger} />
-            </TouchableOpacity>
-            {/* <Login/> */}
-        </View>
-          ),
-        }}
-        
       /> 
       <Stack.Screen
         name="Home"
         component={Home}
-        options = {{headerTitle : 'SCC납품신청대상조회'}}              
+        options = {{headerTitle : 'SCC납품신청대상조회',
+      }}              
       />
       <Stack.Screen
         name="List"
@@ -52,7 +53,6 @@ const StackNavigation = ({navigation}) => {
         component={DeliverySubmit}
         options={{headerTitle: 'SCC 납품신청'}}
       />
-      
     </Stack.Navigator>
     </>
   );
