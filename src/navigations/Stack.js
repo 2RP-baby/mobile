@@ -31,6 +31,8 @@ const StackNavigation = ({navigation}) => {
        <Stack.Screen
         name="Menu"
         component={Menu}
+        options = {{headerTitle : 'e-Pro4',
+      }}  
       /> 
       <Stack.Screen
         name="Home"

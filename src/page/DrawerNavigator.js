@@ -7,7 +7,7 @@ import Menu from '../page/Menu';
 import Stack from '../navigations/Stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import hamburger from '../../assets/icon/menu.png';
-
+import CustomDrawer from '../component/CustomDrawer';
 
 const DrawerNavigator = () => {
   const ProfileScreen = () => {
@@ -21,6 +21,7 @@ const DrawerNavigator = () => {
 
   return(
     <Drawer.Navigator
+    drawerContent={props =><CustomDrawer{...props}/>}
     screenOptions={{
         drawerPosition: 'right',
         drawerType: 'back',
