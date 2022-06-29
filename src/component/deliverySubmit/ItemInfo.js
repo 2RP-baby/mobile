@@ -18,7 +18,7 @@ const ItemInfo = () => {
     // const _onChange = event => setSendData(event.nativeEvent.text);
 
     return (
-            <View>
+            <View style={styles.header}>
                 <Text style={styles.text1}>{data.item_id} / ea / {data.total} 원 </Text>
                 <Text style={styles.text2}>{data.name}</Text>      
                 <View style={styles.text3_warrap}>
@@ -37,6 +37,10 @@ const ItemInfo = () => {
 };
 
 const styles = StyleSheet.create({
+    header:{
+        marginTop: 5,
+        marginLeft: 10,
+    },
     check:{
         width: '8%',
         // backgroundColor: '#676767',

@@ -5,6 +5,7 @@ import List from '../screens/List';
 import { Button, Platform, Text, View } from 'react-native';
 import DeliveryInsert from '../page/DeliveryInsert';
 import DeliverySubmit from '../page/DeliverySubmit';
+import Menu from '../page/Menu';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +13,12 @@ const StackNavigation = () => {
   return (
     <>
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
+        name="Menu"
+        component={Menu}
+        options={{headerTitle: 'Menu'}}
+      /> 
+      {/* <Stack.Screen
         name="Home"
         component={Home}
         options = {{headerTitle : 'SCC납품신청대상조회'}}              
@@ -21,7 +27,7 @@ const StackNavigation = () => {
         name="List"
         component={List}
         options = {{headerTitle : 'SCC납품신청대상'}}
-      />
+      /> */}
       <Stack.Screen
         name="DeliveryInsert"
         component={DeliveryInsert}
@@ -31,6 +37,11 @@ const StackNavigation = () => {
         name="DeliverySubmit"
         component={DeliverySubmit}
         options={{headerTitle: 'SCC 납품신청'}}
+      />
+      <Stack.Screen
+        name="Menu"
+        component={Menu}
+        options={{headerTitle: 'Menu'}}
       />
     </Stack.Navigator>
     </>
