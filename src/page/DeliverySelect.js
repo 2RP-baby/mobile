@@ -3,10 +3,10 @@ import {View, StyleSheet} from 'react-native';
 import Body from '../component/deliverySelect/Body';
 
 
-const DeliverySelect = () => {
+const DeliverySelect = ({navigation}) => {
     return (
         <View style={styles.view}>
-            <Body style={styles.body}/>
+            <Body style={styles.body} navigation={navigation}/>
         </View>
     );
 };
