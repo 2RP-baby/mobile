@@ -6,12 +6,7 @@ import DeliverySelect from '../page/DeliverySelect';
 const Home = ({navigation}) => {
   return (
     <View style={styles.view}>
-      <DeliverySelect/>    
-      <View style={styles.button}>
-        <Button title="주문조회" color="#005386" 
-         onPress={() => navigation.navigate('List')}/>
-      </View>
-        
+      <DeliverySelect navigation={navigation}/>    
     </View>
   );
 };

@@ -37,7 +37,7 @@ const DrawerNavigator = () => {
         headerShown: false,
       }}
         >
-      <Drawer.Screen name=" 00" component={Stack} 
+      <Drawer.Screen name="0" component={Stack} 
         options={{
             drawerLabel: 'HOME',
             // drawerActiveBackgroundColor: 'red',

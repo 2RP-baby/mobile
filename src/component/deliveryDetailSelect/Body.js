@@ -3,7 +3,6 @@ import {View, Text, Button, StyleSheet, Alert, Linking} from 'react-native';
 
 
 const Body = ({navigation}) => {   
-
     return (
         <View style={styles.view}> 
             {/* <Text>Body</Text> */}

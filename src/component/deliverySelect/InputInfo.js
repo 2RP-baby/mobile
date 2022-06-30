@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import {mainBlue} from '../../../../assets/color';
 
-const InputInfo = ({labelContext, replaceContext}) => {
-    const [text, setText] = useState('');
-    const _onChange = event => setText(event.nativeEvent.text);
+const InputInfo = ({id, labelContext, replaceContext, handleCondition}) => {
+    const _onChange = event => setText(...event.nativeEvent.text);
 
     return (
         <View style={styles.container}>
@@ -14,7 +13,9 @@ const InputInfo = ({labelContext, replaceContext}) => {
             <TextInput
                 style={styles.input}
                 placeholder={replaceContext}
-                onChange={_onChange}/>
+                // onChange={event => setText(...event.nativeEvent.text)}/>
+                onChange={event => handleCondition(id, event.nativeEvent.text)}/>
+                {/* onChange={(e) => handleCondition(id, e.target.value)} */}
         </View>
     );
 };
