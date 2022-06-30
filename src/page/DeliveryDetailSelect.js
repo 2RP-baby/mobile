@@ -2,8 +2,11 @@ import React from 'react';
 import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 
 
-const DeliveryDetailSelect = ({navigation, route}) => {
-    console.log("route: 2 ", route.params.sendData);
+const DeliveryDetailSelect = ({navigation}) => {
+    // console.log("route111 ", route);
+    // console.log("route.params222 ", route.params);
+    // console.log("route.params.sendData333 ", route.params.sendData);
+    // console.log("route.params.sendData.comments444", route.params.sendData.comments);
     return (
         <View style={styles.view}>
             <View style={styles.view}> 

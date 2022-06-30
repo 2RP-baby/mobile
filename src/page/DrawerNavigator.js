@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import {View, Text, Button, StyleSheet, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import Home from '../screens/Home';
 import Menu from '../page/Menu';
 import Stack from '../navigations/Stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
