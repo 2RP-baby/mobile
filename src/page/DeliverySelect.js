@@ -65,22 +65,15 @@ const DeliverySelect = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-    view1:{
+    view:{
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 20,
     },
-    view2:{
-        justifyContent: 'center',
-        alignItems: "center",
-        marginTop: 10,
+    body:{  
+       
     },
-    button:{
-        width: 100,
-        height: 40,
-        borderRadius: 50,
-        marginTop: 30,
-    }
+
 })
 
 export default DeliverySelect;

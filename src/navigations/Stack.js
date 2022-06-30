@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Home from '../screens/Home';
+import List from '../screens/List';
 import { Image,TouchableOpacity,Button, Platform, Text, View,StyleSheet } from 'react-native';
 import DeliveryInsert from '../page/DeliveryInsert';
 import DeliverySubmit from '../page/DeliverySubmit';
@@ -8,8 +10,6 @@ import Menu from '../page/Menu';
 // import Mybutton2 from '../component/navbar/Mybutton2';
 import Hamburger from '../../assets/icon/menu.png'
 import { DrawerActions } from '@react-navigation/native';
-import DeliveryDetailSelect from '../page/DeliveryDetailSelect';
-import DeliverySelect from '../page/DeliverySelect';
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
@@ -37,14 +37,14 @@ const StackNavigation = ({navigation}) => {
       }}  
       /> 
       <Stack.Screen
-        name="DeliverySelect"
-        component={DeliverySelect}
+        name="Home"
+        component={Home}
         options = {{headerTitle : 'SCC납품신청대상조회',
       }}              
       />
       <Stack.Screen
-        name="DeliveryDetailSelect"
-        component={DeliveryDetailSelect}
+        name="List"
+        component={List}
         options = {{headerTitle : 'SCC납품신청대상'}}
       /> 
       <Stack.Screen

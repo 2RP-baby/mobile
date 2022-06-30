@@ -6,7 +6,7 @@ const MenuButton = ({navigation}) => {
         <>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>navigation.navigate('DeliverySelect')}>
+                onPress={()=>navigation.navigate('Home')}>
                 <Text style={styles.text1}>납품신청</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container2}
