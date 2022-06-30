@@ -2,7 +2,11 @@ import React, { useLayoutEffect } from 'react';
 import { Text, View ,StyleSheet, Alert, Button} from 'react-native';
 import DeliveryDetailSelect from '../page/DeliveryDetailSelect';
 
-const List = ({navigation}) => {
+const List = ({navigation, route}) => {
+  // setTimeout(() => {
+    
+  // }, 1000);
+  // console.log("route: ", route.params.sendData);
   return (
     <View style={styles.view}>
       <DeliveryDetailSelect navigation={navigation}/>
