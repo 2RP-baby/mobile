@@ -53,11 +53,11 @@ const DeliverySelect = ({navigation}) => {
                 <Button title="주문조회" color="#005386" 
                 onPress={ () =>{ 
                     selectDeliveryList();
-                    // console.log("button click");
+                    console.log("button click");
                     navigation.navigate('DeliveryDetailSelect')
                     // Alert.alert('전송 버튼 클릭');
                     // navigation.navigate('List')
-                    // navigation.navigate('List', {sendData: test})
+                    // navigation.navigate('DeliveryDetailSelect', {sendData: test})
                 }}/>
             </View>
         </View>

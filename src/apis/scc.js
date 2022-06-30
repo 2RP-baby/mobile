@@ -8,8 +8,9 @@ export const getSearchList = async (test) => {
     const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchList`, test);
     return data;
   } catch (err) {
-    throw new Error("Failed to load");
-    // throw err;
+    // console.log("fail");
+    // throw new Error("Failed to load");
+    throw err;
   }
 };
 

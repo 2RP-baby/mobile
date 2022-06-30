@@ -13,6 +13,8 @@ import DeliverySelect from '../page/DeliverySelect';
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
+  console.log("start");
+
   return (
     <>
     <Stack.Navigator
