@@ -2,9 +2,9 @@ import { observable, runInAction } from 'mobx';
 
 const createStore = () => {
     const searchedListStore = {
-        vocaData: observable.box('selectVoca'),
+        searchedList: observable.box('selectVoca'),
 
-        changeVocaData: (data) => runInAction(()=> searchedListStore.searchedList.set(data))
+        changeSearchedList: (data) => runInAction(()=> searchedListStore.searchedList.set(data))
     };
 
     return searchedListStore;
