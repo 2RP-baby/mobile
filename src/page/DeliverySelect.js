@@ -47,7 +47,6 @@ const DeliverySelect = ({navigation}) => {
 
         // mobx에 저장하기
         changeSearchedList(data);
-        return data;
     };
     // console.log("select 결과 2 : ", selectResult);
     const test = {test1:1}
@@ -65,6 +64,7 @@ const DeliverySelect = ({navigation}) => {
                 onPress={ () =>{ 
                     selectDeliveryList();
                     navigation.navigate('DeliveryDetailSelect');
+                    // navigation.navigate('DeliveryDetailSelect', {searchedList:searchedList} );
                 }}/>
             </View>
         </View>
