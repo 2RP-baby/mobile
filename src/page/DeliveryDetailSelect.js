@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 
-const DeliveryDetailSelect = ({navigation}) => {
-    console.log("detail page");
+const DeliveryDetailSelect = ({navigation, route}) => {
     const {
         searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
         changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
@@ -12,6 +11,10 @@ const DeliveryDetailSelect = ({navigation}) => {
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
     }));
+    
+    console.log("detail page");
+    // const [searchedList, changeSearchedList] = useState({route.params.searchedList});
+
     console.log("searchedList@@@@@@@@@@@@",searchedList);
     // console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
 
@@ -22,36 +25,39 @@ const DeliveryDetailSelect = ({navigation}) => {
         // mobx에 저장하기
         changeSearchedList(data);
         return data;
-    };
+    };  
 
     return (
         <View style={styles.view}>
-            {searchedList.map(searchedlist=>(
-                <View style={styles.view}> 
-                <View style={styles.containerRow}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.text}
-                            onPress={() => navigation.navigate('DeliveryInsert')}
-                            >{searchedlist.po_num}
-                        </Text>
+            {/* {test()} */}
+            {
+                searchedList.map((searchedlist, index)=>(
+                    <View key={index} style={styles.view}>
+                        <View style={styles.containerRow}>
+                            <View style={styles.textContainer}>
+                                <Text style={styles.text}
+                                    onPress={() => navigation.navigate('DeliveryInsert')}
+                                    >{searchedlist.po_num}
+                                </Text>
+                            </View>
+                            <View style={styles.textContainer1}>
+                                <Text
+                                    onPress={() => navigation.navigate('DeliveryInsert')}
+                                    >{searchedlist.vendor_name}
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={styles.textContainer2}>
+                                <Text>{searchedlist.comments}</Text>
+                        </View>
+                        <View style={styles.textContainer2}>
+                            <Text>
+                                {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
+                            </Text>
+                        </View>
                     </View>
-                    <View style={styles.textContainer1}>
-                        <Text
-                            onPress={() => navigation.navigate('DeliveryInsert')}
-                            >{searchedlist.vendor_name}
-                        </Text>
-                    </View>
-                </View>
-                <View style={styles.textContainer2}>
-                        <Text>{searchedlist.comments}</Text>
-                </View>
-                <View style={styles.textContainer2}>
-                    <Text>
-                        {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
-                    </Text>
-                </View>
-            </View>
-            ))}
+                ))
+            }
              <View style={styles.button}>
                     <Button title="더보기" color="#005386" 
                     onPress={() => {
