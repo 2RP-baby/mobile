@@ -4,7 +4,7 @@ import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 
-const DeliveryDetailSelect = ({navigation, route}) => {
+const DeliveryDetailSelect = ({navigation}) => {
     const {
         searchedList, 
         changeSearchedList, 
@@ -12,22 +12,28 @@ const DeliveryDetailSelect = ({navigation, route}) => {
         changeDeliveryInsertInfo,
         callChangeApi
     } = useRootData(({searchedListStore, deliveryInsertStore}) => ({
+        deliveryCondition,
+        changeDeliveryCondition, 
+        deliveryCondition: deliverySelectStore.deliveryCondition.get(),
+        changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
         deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
         callChangeApi: deliveryInsertStore.callChangeApi
     }));
- 
-    
 
-    console.log("detail page");
-    // const [searchedList, changeSearchedList] = useState({route.params.searchedList});
+    // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
+    const moreInfo = () => {
+        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
+        console.log("page++", deliveryCondition);
+        selectMoreList();
+    }
 
-    console.log("searchedList@@@@@@@@@@@@",searchedList);
-    // console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
-
-
+    const selectMoreList = async () => {
+        const data = await getSearchList(deliveryCondition);
+        changeSearchedList(data);
+    };
     const selectDeliveryInsert =  async (po_num) => {
         const data = await getDeliveryInsertInfo(po_num);
         changeDeliveryInsertInfo(data);
@@ -71,8 +77,8 @@ const DeliveryDetailSelect = ({navigation, route}) => {
              <View style={styles.button}>
                     <Button title="더보기" color="#005386" 
                     onPress={() => {
-                        Alert.alert("더 보고 싶으면 500원")
-                    
+                        moreInfo();
+                        // Alert.alert("더 보고 싶으면 500원")
                     }
                     
                     }/>
@@ -97,54 +103,35 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 0,
     },
-    containerColumn:{
-      // flexDirection: 'column',
-      // justifyContent: 'center',
-      // alignItems: "center",
-      // marginBottom: 0,
-    },
     textContainer:{
-      width: 100,
-      height: 40,
-      // backgroundColor: '#005386',
-      justifyContent: 'center',
-      alignItems: "center",
-      borderWidth: 1,
-      // marginTop: 20,
-      // paddingTop: 20,
+        width: 100,
+        height: 40,
+        // backgroundColor: '#005386',
+        justifyContent: 'center',
+        alignItems: "center",
+        borderWidth: 1,
     },
     textContainer1:{
-      width: 250,
-      height: 40,
-      // backgroundColor: '#005386',
-      justifyContent: 'center',
-      alignItems: "center",
-      borderWidth: 1,
-      // marginTop: 20,
-      // paddingTop: 20,
+        width: 250,
+        height: 40,
+        // backgroundColor: '#005386',
+        justifyContent: 'center',
+        alignItems: "center",
+        borderWidth: 1,
     },
     textContainer2:{
-      width: 350,
-      height: 40,
-      // backgroundColor: '#005386',
-      justifyContent: 'center',
-      alignItems: "center",
-      borderWidth: 1,
-      // marginTop: 20,
-      // paddingTop: 20,
+        width: 350,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: "center",
+        borderWidth: 1,
     },
-    //   view:{
-    //       justifyContent: 'center',
-    //       alignItems: "center",
-    //       marginTop: 10,
-    //   },
-      button:{
-          width: 100,
-          height: 40,
-          borderRadius: 50,
-          marginTop: 30,
-      }
-
+    button:{
+        width: 100,
+        height: 40,
+        borderRadius: 50,
+        marginTop: 30,
+    }
 })
 
 export default DeliveryDetailSelect;
