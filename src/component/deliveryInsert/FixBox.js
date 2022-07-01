@@ -1,16 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import useRootData from '../../hooks/useRootData';
+
 
 const FixBox = () => {
     const data={
-        item_id:'466197-10',
-        vendor_name:'(주) 포스칼케미컬',
         total:'590,000'
     }
+    const {
+        deliveryInsertInfo,
+        changeDeliveryInsertInfo,
+    } = useRootData(({deliveryInsertStore}) => ({
+        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+    }));
+    
     return (
         <View style={styles.header}>
-            <Text style={styles.text}>주문 번호 : {data.item_id}</Text>
-            <Text style={styles.text}>공급사 명 : {data.vendor_name}</Text>
+            <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
+            <Text style={styles.text}>공급사 명 : {deliveryInsertInfo[0].vendor_name}</Text>
             <Text style={styles.text}>총 금액 : {data.total} 원</Text>
         </View>
     );

@@ -2,8 +2,17 @@ import React from 'react';
 import { View, StyleSheet, Button} from 'react-native';
 import FixBox from '../component/deliveryInsert/FixBox';
 import ItemInsert from '../component/deliveryInsert/ItemInsert';
+import useRootData from '../hooks/useRootData';
 
 const DeliveryInsert = ({navigation}) => {
+    const {
+        deliveryInsertInfo,
+        changeDeliveryInsertInfo,
+    } = useRootData(({deliveryInsertStore}) => ({
+        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+    }));
+    
     return (
         <View style={styles.header}>
             <FixBox/>

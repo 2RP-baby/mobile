@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-
+import useRootData from '../../hooks/useRootData';
 
 const ItemInsert = () => {
     const data = {
@@ -11,11 +11,14 @@ const ItemInsert = () => {
         주문수량: "1384",
         주문잔량: "424",
     }
-
+    const {
+        deliveryInsertInfo,
+        changeDeliveryInsertInfo,
+    } = useRootData(({deliveryInsertStore}) => ({
+        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+    }));
     const [isSelected, setSelection] = useState(false);
-    // const [sendData, setSendData] = useState({});
-    // const _onChange = event => setSendData(event.nativeEvent.text);
-
     return (
         <View style={styles.header}>
             <View style={styles.check}>

@@ -17,7 +17,8 @@ export const getSearchList = async (test) => {
 
 export const getDeliveryInsertInfo = async (num) => {
   try {
-    const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchOne`, num);
+    const sendData = {po_num : num};
+    const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchOne`, sendData);
     return data;
   } catch (err) {
     console.log("fail", err);

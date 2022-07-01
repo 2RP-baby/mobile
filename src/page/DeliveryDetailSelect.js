@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
+import {getDeliveryInsertInfo} from '../apis/scc';
 
 const DeliveryDetailSelect = ({navigation, route}) => {
     const {
-        searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
-        changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
-    } = useRootData(({searchedListStore}) => ({
+        searchedList, 
+        changeSearchedList, 
+        deliveryInsertInfo,
+        changeDeliveryInsertInfo,
+        callChangeApi
+    } = useRootData(({searchedListStore, deliveryInsertStore}) => ({
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
-    }));
-    const {
-        deliveryInsertInfo, 
-        changeDeliveryInsertInfo,
-    } = useRootData(({deliveryInsertStore}) => ({
         deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+        callChangeApi: deliveryInsertStore.callChangeApi
     }));
+ 
     
 
     console.log("detail page");
@@ -27,11 +28,9 @@ const DeliveryDetailSelect = ({navigation, route}) => {
     // console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
 
 
-    // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const selectDeliveryInsert =  async (po_num) => {
-        console.log("피오번호가 잘 넘어가는지 볼까? tlqkf~~~@@@@@@@~~~~~",po_num);
-        // const data = await getDeliveryInsertInfo({po_num});
-        // changeDeliveryInsertInfo(data);
+        const data = await getDeliveryInsertInfo(po_num);
+        changeDeliveryInsertInfo(data);
     };  
 
     return (
@@ -43,9 +42,10 @@ const DeliveryDetailSelect = ({navigation, route}) => {
                         <View style={styles.containerRow}>
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
-                                    onPress={() => {
-                                        selectDeliveryInsert(searchedlist.po_num)
-                                        navigation.navigate('DeliveryInsert')
+                                    onPress={async () => {
+                                        // await callChangeApi(searchedList.po_num);
+                                        await selectDeliveryInsert(searchedlist.po_num);
+                                        navigation.navigate('DeliveryInsert');
                                         }
                                     }
                                     >{searchedlist.po_num}
