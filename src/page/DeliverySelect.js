@@ -3,7 +3,7 @@ import {View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
 
-
+import useRootData from '../hooks/useRootData';
 
 const DeliverySelect = ({navigation}) => {
     const [deliveryCondition, setDeliveryCondition] = useState({
@@ -15,6 +15,15 @@ const DeliverySelect = ({navigation}) => {
         item_name:"",
         page:1
     });
+
+    const {
+        searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
+        changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
+    } = useRootData(({searchedListStore}) => ({
+        searchedList: searchedListStore.searchedList.get(),
+        changeSearchedList: searchedListStore.changeSearchedList,
+    }));
+
     const [selectResult, setSelectResult] = useState([]);
 
     const handleDeliveryCondition = (key, value) => {
@@ -25,11 +34,11 @@ const DeliverySelect = ({navigation}) => {
 
     const selectDeliveryList = async () => {
         const data = await getSearchList(deliveryCondition);
-        console.log(data);
-        setSelectResult(data);
-        // return data;
+        // mobx에 저장하기
+        changeSearchedList(data);
+        return data;
     };
-    console.log("select 결과 2 : ", selectResult);
+
     const test = {test1:1}
 
     return (
@@ -44,11 +53,7 @@ const DeliverySelect = ({navigation}) => {
                 <Button title="주문조회" color="#005386" 
                 onPress={ () =>{ 
                     selectDeliveryList();
-                    // console.log("button click");
-                    navigation.navigate('DeliveryDetailSelect', {sendData: selectResult})
-                    // Alert.alert('전송 버튼 클릭');
-                    // navigation.navigate('List')
-                    // navigation.navigate('List', {sendData: test})
+                    navigation.navigate('DeliveryDetailSelect');
                 }}/>
             </View>
         </View>
