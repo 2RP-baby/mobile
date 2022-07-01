@@ -11,20 +11,27 @@ const DeliveryDetailSelect = ({navigation, route}) => {
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
     }));
+    const {
+        deliveryInsertInfo, 
+        changeDeliveryInsertInfo,
+    } = useRootData(({deliveryInsertStore}) => ({
+        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+    }));
     
+
     console.log("detail page");
     // const [searchedList, changeSearchedList] = useState({route.params.searchedList});
 
     console.log("searchedList@@@@@@@@@@@@",searchedList);
     // console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
 
-    // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
-    const selectDeliveryList = async ({num}) => {
-        const data = await getSearchList();
 
-        // mobx에 저장하기
-        changeSearchedList(data);
-        return data;
+    // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
+    const selectDeliveryInsert =  async (po_num) => {
+        console.log("피오번호가 잘 넘어가는지 볼까? tlqkf~~~@@@@@@@~~~~~",po_num);
+        // const data = await getDeliveryInsertInfo({po_num});
+        // changeDeliveryInsertInfo(data);
     };  
 
     return (
@@ -36,13 +43,16 @@ const DeliveryDetailSelect = ({navigation, route}) => {
                         <View style={styles.containerRow}>
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
-                                    onPress={() => navigation.navigate('DeliveryInsert')}
+                                    onPress={() => {
+                                        selectDeliveryInsert(searchedlist.po_num)
+                                        navigation.navigate('DeliveryInsert')
+                                        }
+                                    }
                                     >{searchedlist.po_num}
                                 </Text>
                             </View>
                             <View style={styles.textContainer1}>
                                 <Text
-                                    onPress={() => navigation.navigate('DeliveryInsert')}
                                     >{searchedlist.vendor_name}
                                 </Text>
                             </View>
