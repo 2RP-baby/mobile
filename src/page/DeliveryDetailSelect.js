@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
+import {getDeliveryInsertInfo} from '../apis/scc';
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
-        // select 조건
+        searchedList, 
+        changeSearchedList, 
+        deliveryInsertInfo,
+        changeDeliveryInsertInfo,
+        callChangeApi
+    } = useRootData(({searchedListStore, deliveryInsertStore}) => ({
         deliveryCondition,
         changeDeliveryCondition, 
-
-        // select 결과
-        searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
-        changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
-    } = useRootData(({searchedListStore, deliverySelectStore }) => ({
         deliveryCondition: deliverySelectStore.deliveryCondition.get(),
         changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
+        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+        callChangeApi: deliveryInsertStore.callChangeApi
     }));
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
@@ -30,6 +34,10 @@ const DeliveryDetailSelect = ({navigation}) => {
         const data = await getSearchList(deliveryCondition);
         changeSearchedList(data);
     };
+    const selectDeliveryInsert =  async (po_num) => {
+        const data = await getDeliveryInsertInfo(po_num);
+        changeDeliveryInsertInfo(data);
+    };  
 
     return (
         <View style={styles.view}>
@@ -40,9 +48,10 @@ const DeliveryDetailSelect = ({navigation}) => {
                         <View style={styles.containerRow}>
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
-                                    onPress={() => {
-                                        // selectDeliveryInsert(searchedlist.po_num)
-                                        navigation.navigate('DeliveryInsert')
+                                    onPress={async () => {
+                                        // await callChangeApi(searchedList.po_num);
+                                        await selectDeliveryInsert(searchedlist.po_num);
+                                        navigation.navigate('DeliveryInsert');
                                         }
                                     }
                                     >{searchedlist.po_num}
