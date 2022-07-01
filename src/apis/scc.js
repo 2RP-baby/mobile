@@ -9,6 +9,7 @@ export const getSearchList = async (test) => {
     return data;
   } catch (err) {
     console.log("fail", err);
+    console.log("status", error.response.status);
     // throw new Error("Failed to load");
     // throw err;
   }

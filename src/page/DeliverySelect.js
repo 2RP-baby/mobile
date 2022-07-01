@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
+import useRootData from '../hooks/useRootData';
 
 const DeliverySelect = ({navigation}) => {
     const [deliveryCondition, setDeliveryCondition] = useState({
@@ -14,6 +15,16 @@ const DeliverySelect = ({navigation}) => {
         page:1
     });
 
+    // select 조건
+    // const {
+    //     deliveryCondition, 
+    //     changeDeliveryCondition, 
+    // } = useRootData(({deliverySelectStore}) => ({
+    //     deliveryCondition: deliverySelectStore.deliveryCondition.get(),
+    //     changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
+    // }));
+
+    // select 결과
     const {
         searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
         changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
@@ -22,12 +33,13 @@ const DeliverySelect = ({navigation}) => {
         changeSearchedList: searchedListStore.changeSearchedList,
     }));
 
-    const [selectResult, setSelectResult] = useState([]);
+    // const [selectResult, setSelectResult] = useState([]);
 
     const handleDeliveryCondition = (key, value) => {
         const tempCondition = { ...deliveryCondition };
         tempCondition[key] = value;
         setDeliveryCondition(tempCondition);
+        // changeDeliveryCondition(tempCondition);
     };
 
     const selectDeliveryList = async () => {
@@ -37,7 +49,7 @@ const DeliverySelect = ({navigation}) => {
         changeSearchedList(data);
         return data;
     };
-    console.log("select 결과 2 : ", selectResult);
+    // console.log("select 결과 2 : ", selectResult);
     const test = {test1:1}
 
     return (
@@ -52,7 +64,6 @@ const DeliverySelect = ({navigation}) => {
                 <Button title="주문조회" color="#005386" 
                 onPress={ () =>{ 
                     selectDeliveryList();
-
                     navigation.navigate('DeliveryDetailSelect');
                 }}/>
             </View>
