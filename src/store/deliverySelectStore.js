@@ -15,7 +15,7 @@ const createStore = () => {
         deliveryCondition: observable.box(
             deliveryCondition
         ),
-        changeDeliveryCondition: (data) => runInAction(()=> deliverySelectStore.deliveryCondition.set(data))
+        changeDeliveryCondition: (data) => runInAction(()=> deliverySelectStore.deliveryCondition.set(data)),
     };
 
     return deliverySelectStore;

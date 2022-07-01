@@ -19,14 +19,17 @@ const DeliveryDetailSelect = ({navigation}) => {
         changeSearchedList: searchedListStore.changeSearchedList,
     }));
 
-    console.log("detail page");
-
-    console.log("searchedList@@@@@@@@@@@@",searchedList);
-    // console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
-
-
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
-    
+    const moreInfo = () => {
+        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
+        console.log("page++", deliveryCondition);
+        selectMoreList();
+    }
+
+    const selectMoreList = async () => {
+        const data = await getSearchList(deliveryCondition);
+        changeSearchedList(data);
+    };
 
     return (
         <View style={styles.view}>
@@ -38,7 +41,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
                                     onPress={() => {
-                                        selectDeliveryInsert(searchedlist.po_num)
+                                        // selectDeliveryInsert(searchedlist.po_num)
                                         navigation.navigate('DeliveryInsert')
                                         }
                                     }
@@ -65,9 +68,8 @@ const DeliveryDetailSelect = ({navigation}) => {
              <View style={styles.button}>
                     <Button title="더보기" color="#005386" 
                     onPress={() => {
-                        
-                        Alert.alert("더 보고 싶으면 500원")
-                        
+                        moreInfo();
+                        // Alert.alert("더 보고 싶으면 500원")
                     }
                     
                     }/>
