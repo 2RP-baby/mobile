@@ -5,41 +5,27 @@ import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 
 const DeliverySelect = ({navigation}) => {
-    const [deliveryCondition, setDeliveryCondition] = useState({
-        po_num:"", 
-        staff_name:"", 
-        staff_dept_code:"",
-        subinventory:"",
-        vendor_name:"",
-        item_name:"",
-        page:1
-    });
 
-    // select 조건
-    // const {
-    //     deliveryCondition, 
-    //     changeDeliveryCondition, 
-    // } = useRootData(({deliverySelectStore}) => ({
-    //     deliveryCondition: deliverySelectStore.deliveryCondition.get(),
-    //     changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
-    // }));
-
-    // select 결과
     const {
+        // select 조건
+        deliveryCondition,
+        changeDeliveryCondition, 
+
+        // select 결과
         searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
         changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
-    } = useRootData(({searchedListStore}) => ({
+    } = useRootData(({searchedListStore, deliverySelectStore }) => ({
+        deliveryCondition: deliverySelectStore.deliveryCondition.get(),
+        changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
     }));
 
-    // const [selectResult, setSelectResult] = useState([]);
-
     const handleDeliveryCondition = (key, value) => {
         const tempCondition = { ...deliveryCondition };
         tempCondition[key] = value;
-        setDeliveryCondition(tempCondition);
-        // changeDeliveryCondition(tempCondition);
+        // setDeliveryCondition(tempCondition);
+        changeDeliveryCondition(tempCondition);
     };
 
     const selectDeliveryList = async () => {
@@ -48,8 +34,8 @@ const DeliverySelect = ({navigation}) => {
         // mobx에 저장하기
         changeSearchedList(data);
     };
-    // console.log("select 결과 2 : ", selectResult);
-    const test = {test1:1}
+    console.log("select 조건 ! : ", deliveryCondition);
+    console.log("select 결과 ! : ", searchedList);
 
     return (
         <View style={styles.view1}>
@@ -64,7 +50,6 @@ const DeliverySelect = ({navigation}) => {
                 onPress={ () =>{ 
                     selectDeliveryList();
                     navigation.navigate('DeliveryDetailSelect');
-                    // navigation.navigate('DeliveryDetailSelect', {searchedList:searchedList} );
                 }}/>
             </View>
         </View>

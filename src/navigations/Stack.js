@@ -13,8 +13,6 @@ import { DrawerActions } from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
-  console.log("start");
-
   return (
     <>
     <Stack.Navigator
