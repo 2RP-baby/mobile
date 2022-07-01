@@ -1,9 +1,9 @@
-import screenModeStore from './screenModeStore'
+import searchedListStore from './searchedListStore'
 import vocaDataStore from './vocaDataStore'
 
 const createRootStore = () => {
   return {
-    screenModeStore,
+    searchedListStore,
     vocaDataStore
   };
 };

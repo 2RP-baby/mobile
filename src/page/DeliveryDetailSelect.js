@@ -1,9 +1,18 @@
 import React from 'react';
 import {View, StyleSheet, Text, Button, Alert} from 'react-native';
+import useRootData from '../hooks/useRootData';
 
+const DeliveryDetailSelect = ({navigation}) => {
+    const {
+        searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
+        changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
+    } = useRootData(({searchedListStore}) => ({
+        searchedList: searchedListStore.searchedList.get(),
+        changeSearchedList: searchedListStore.changeSearchedList,
+    }));
+    console.log("searchedList@@@@@@@@@@@@",searchedList);
+    console.log("searchedList@@@@@@@@@@@@",searchedList[1].po_num);
 
-const DeliveryDetailSelect = ({navigation, route}) => {
-    console.log("route: 2 ", route.params.sendData);
     return (
         <View style={styles.view}>
             <View style={styles.view}> 
@@ -12,21 +21,23 @@ const DeliveryDetailSelect = ({navigation, route}) => {
                 <View style={styles.textContainer}>
                     <Text style={styles.text}
                         onPress={() => navigation.navigate('DeliveryInsert')}
-                        >466197-10
+                        >{searchedList[1].po_num}
                     </Text>
                 </View>
                 <View style={styles.textContainer1}>
                     <Text
                         onPress={() => navigation.navigate('DeliveryInsert')}
-                        >(주)포스코케미칼
+                        >{searchedList[1].vendor_name}
                     </Text>
                 </View>
             </View>
                 <View style={styles.textContainer2}>
-                        <Text>[BPA' 20] 양소 RH용 (건명)</Text>
+                        <Text>{searchedList[1].comments}</Text>
                 </View>
                 <View style={styles.textContainer2}>
-                        <Text>PEZ21EQ PSC12 2021-09-30 이은행(부서코드,..,..)</Text>
+                        <Text>
+                            {searchedList[1].staff_dept_code +" /"+ searchedList[1].subinventory+ " /"+searchedList[1].promised_date+" /"+searchedList[1].staff_name}
+                        </Text>
                 </View>
 
             <View style={styles.button}>
