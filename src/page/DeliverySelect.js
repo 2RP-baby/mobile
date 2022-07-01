@@ -3,8 +3,6 @@ import {View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
 
-import useRootData from '../hooks/useRootData';
-
 const DeliverySelect = ({navigation}) => {
     const [deliveryCondition, setDeliveryCondition] = useState({
         po_num:"", 
@@ -15,15 +13,6 @@ const DeliverySelect = ({navigation}) => {
         item_name:"",
         page:1
     });
-    const {
-        screenMode, //screenModeStore에 있는 screenMode의 값을 가져온다
-        changeScreenMode, //screenModeStore에 있는 changeScreenMode 함수를 가져온다.
-    } = useRootData(({screenModeStore, vocaDataStore}) => ({
-        screenMode: screenModeStore.screenMode.get(),
-        changeScreenMode: screenModeStore.changeScreenMode,
-
-        // vocaData: vocaDataStore.vocaData.get()
-    }));
     const [selectResult, setSelectResult] = useState([]);
 
     const handleDeliveryCondition = (key, value) => {
@@ -34,11 +23,11 @@ const DeliverySelect = ({navigation}) => {
 
     const selectDeliveryList = async () => {
         const data = await getSearchList(deliveryCondition);
-        // console.log(data);
+        console.log(data);
         setSelectResult(data);
         // return data;
     };
-    // console.log("select 결과 2 : ", selectResult);
+    console.log("select 결과 2 : ", selectResult);
     const test = {test1:1}
 
     return (
@@ -53,11 +42,11 @@ const DeliverySelect = ({navigation}) => {
                 <Button title="주문조회" color="#005386" 
                 onPress={ () =>{ 
                     selectDeliveryList();
-                    console.log("button click");
-                    navigation.navigate('DeliveryDetailSelect')
+                    // console.log("button click");
+                    navigation.navigate('DeliveryDetailSelect', {sendData: selectResult})
                     // Alert.alert('전송 버튼 클릭');
                     // navigation.navigate('List')
-                    // navigation.navigate('DeliveryDetailSelect', {sendData: test})
+                    // navigation.navigate('List', {sendData: test})
                 }}/>
             </View>
         </View>
@@ -65,15 +54,22 @@ const DeliverySelect = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-    view:{
+    view1:{
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 20,
     },
-    body:{  
-       
+    view2:{
+        justifyContent: 'center',
+        alignItems: "center",
+        marginTop: 10,
     },
-
+    button:{
+        width: 100,
+        height: 40,
+        borderRadius: 50,
+        marginTop: 30,
+    }
 })
 
 export default DeliverySelect;

@@ -5,6 +5,8 @@ import Home from '../screens/Home';
 import List from '../screens/List';
 import { Image,TouchableOpacity,Button, Platform, Text, View,StyleSheet } from 'react-native';
 import DeliveryInsert from '../page/DeliveryInsert';
+import DeliveryDetailSelect from '../page/DeliveryDetailSelect';
+import DeliverySelect from '../page/DeliverySelect';
 import DeliverySubmit from '../page/DeliverySubmit';
 import Menu from '../page/Menu';
 // import Mybutton2 from '../component/navbar/Mybutton2';
@@ -37,14 +39,14 @@ const StackNavigation = ({navigation}) => {
       }}  
       /> 
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="DeliverySelect"
+        component={DeliverySelect}
         options = {{headerTitle : 'SCC납품신청대상조회',
       }}              
       />
       <Stack.Screen
-        name="List"
-        component={List}
+        name="DeliveryDetailSelect"
+        component={DeliveryDetailSelect}
         options = {{headerTitle : 'SCC납품신청대상'}}
       /> 
       <Stack.Screen
