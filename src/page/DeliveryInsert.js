@@ -29,6 +29,7 @@ const DeliveryInsert = ({navigation}) => {
 const styles = StyleSheet.create({
     header:{
         alignItems: "center",
+        marginBottom: 200,
     },
     button:{
         width: 100,

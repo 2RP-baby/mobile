@@ -10,10 +10,10 @@ const DeliveryDetailSelect = ({navigation}) => {
         changeSearchedList, 
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-        callChangeApi
-    } = useRootData(({searchedListStore, deliveryInsertStore}) => ({
+        callChangeApi,
         deliveryCondition,
-        changeDeliveryCondition, 
+        changeDeliveryCondition
+    } = useRootData(({searchedListStore, deliveryInsertStore, deliverySelectStore}) => ({
         deliveryCondition: deliverySelectStore.deliveryCondition.get(),
         changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
         searchedList: searchedListStore.searchedList.get(),
@@ -32,6 +32,7 @@ const DeliveryDetailSelect = ({navigation}) => {
 
     const selectMoreList = async () => {
         const data = await getSearchList(deliveryCondition);
+        console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
     const selectDeliveryInsert =  async (po_num) => {
