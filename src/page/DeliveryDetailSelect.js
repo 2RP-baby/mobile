@@ -10,8 +10,10 @@ const DeliveryDetailSelect = ({navigation}) => {
         changeSearchedList, 
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-        callChangeApi
-    } = useRootData(({searchedListStore, deliveryInsertStore}) => ({
+        callChangeApi,
+        deliveryCondition,
+        changeDeliveryCondition
+    } = useRootData(({searchedListStore, deliveryInsertStore, deliverySelectStore}) => ({
         deliveryCondition,
         changeDeliveryCondition, 
         deliveryCondition: deliverySelectStore.deliveryCondition.get(),
