@@ -19,13 +19,13 @@ const FixBox = () => {
         changeCheckedList: checkedListStore.changeCheckedList,
     }));
     // const [total, setTotal] = useState();
-    const totalState = (a, b) => {
-        setTotal(a * b);
-    }
-    const [num, setNum] = useState(0);
-    useEffect(()=>{
+    // const totalState = (a, b) => {
+    //     setTotal(a * b);
+    // }
+    // const [num, setNum] = useState(0);
+    // useEffect(()=>{
 
-    }, [num])
+    // }, [num])
     let total = 0;
     
     return (
@@ -36,7 +36,7 @@ const FixBox = () => {
             {/* {checkedList.keys().map((key, index)=>{ */}
             {Object.keys(checkedList).map((key, index)=>{
                 let list = checkedList[key];
-                total = (list.quantity_ordered)*(list.unit_price);
+                total += (list.quantity_ordered)*(list.unit_price);
                 // let num = (list.quantity_ordered)*(list.unit_price);
                 // setTotal(1);
                 // totalState(list.quantity_ordered,list.unit_price);

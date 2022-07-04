@@ -28,14 +28,18 @@ const ItemInsert = () => {
         // tempCondition[index][value] = value;
         // tempCondition.index.value = value;
 
-        console.log("id : ", id);
-        console.log("value : ", value);
+        // console.log("id : ", id);
+        // console.log("value : ", value);
+        console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
-        // const temp = { ...itemCondition };
-        // changeCheckedList()
+        const temp = {...checkedList};
+        temp[index] = itemCondition[index];
+        console.log(temp);
+        changeCheckedList(temp);
+        
     };
 
     // check한 것만 넣기
@@ -54,6 +58,7 @@ const ItemInsert = () => {
 
     console.log("checkedList", checkedList);
 
+    // let value = false;
 
     // console.log("itemCondition", itemCondition[0]);
     // itemCondition[0].item_uom = "e"
