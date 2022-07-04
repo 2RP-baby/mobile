@@ -33,13 +33,9 @@ const FixBox = () => {
             <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
             <Text style={styles.text}>공급사 명 : {deliveryInsertInfo[0].vendor_name}</Text>
             <>
-            {/* {checkedList.keys().map((key, index)=>{ */}
             {Object.keys(checkedList).map((key, index)=>{
                 let list = checkedList[key];
                 total += (list.quantity_ordered)*(list.unit_price);
-                // let num = (list.quantity_ordered)*(list.unit_price);
-                // setTotal(1);
-                // totalState(list.quantity_ordered,list.unit_price);
             })}            
             </> 
             <Text style={styles.text}>총 금액 : {total} 원</Text>

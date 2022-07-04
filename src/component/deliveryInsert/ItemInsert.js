@@ -79,7 +79,6 @@ const ItemInsert = () => {
                  <View style={styles.check}>
                     {/* {selected ? console.log("true") : console.log("false")} */}
                  <BouncyCheckbox 
-                                
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
@@ -106,24 +105,14 @@ const ItemInsert = () => {
                     <View style={styles.text3_warrap}>
                         <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
                         <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
-                        {/* <Text style={styles.text3_label}>요청수량 :</Text>      
-                        <TextInput
-                            style={styles.input1}
-                            // placeholder={}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                        />   
-                        <Text style={styles.text3_label}>요청납기 :</Text>   
-                        <TextInput style={styles.input1}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            /> */}
                     </View>
                     </>
                     <View style={styles.text3_warrap}>
-                        {/* <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} /> */}
-                        <Text style={styles.text3_label}>Comment :</Text>   
+                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
+                        {/* <Text style={styles.text3_label}>Comment :</Text>   
                         <TextInput style={styles.input2}
                             onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            />
+                            /> */}
                     </View>
                 </View>
             </View>
