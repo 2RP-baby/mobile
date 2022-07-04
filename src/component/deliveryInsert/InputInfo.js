@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-const InputInfo = ({id, index, labelContext, replaceContext, handleCondition}) => {
+const InputInfo = ({id, index, labelContext, replaceContext, defaultValue, handleCondition}) => {
     const _onChange = event => setText(...event.nativeEvent.text);
 
     return (
@@ -10,6 +10,7 @@ const InputInfo = ({id, index, labelContext, replaceContext, handleCondition}) =
             <TextInput
                 style={styles.input1}
                 placeholder={replaceContext}
+                defaultValue={defaultValue}
                 onChange={event => handleCondition(index, id, event.nativeEvent.text)}/>
         </>
     );

@@ -35,10 +35,15 @@ const ItemInsert = () => {
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
-        const temp = {...checkedList};
-        temp[index] = itemCondition[index];
-        console.log(temp);
-        changeCheckedList(temp);
+
+        var keys = Object.keys(checkedList); //키를 가져옵니다. 이때, keys 는 반복가능한 객체가 됩니다.
+        for (var i=0; i<keys.length; i++) {
+            if(keys[i] == index){
+                const temp = {...checkedList};
+                temp[index] = itemCondition[index];
+                changeCheckedList(temp);
+            }
+        }
         
     };
 
@@ -99,7 +104,7 @@ const ItemInsert = () => {
                     </>
                     <>
                     <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" handleCondition={handleItemCondition} />
+                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
                         <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
                         {/* <Text style={styles.text3_label}>요청수량 :</Text>      
                         <TextInput
