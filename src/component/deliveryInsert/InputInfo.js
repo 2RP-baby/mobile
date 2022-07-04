@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import React from 'react';
+import {Text, TextInput, StyleSheet} from 'react-native';
 
-const InputInfo = ({id, index, labelContext, replaceContext, handleCondition}) => {
+const InputInfo = ({id, index, labelContext, replaceContext, defaultValue, handleCondition}) => {
     const _onChange = event => setText(...event.nativeEvent.text);
 
     return (
         <>
-            <Text style={styles.text3_label}>{labelContext}</Text>
+            <Text style={styles.label}>{labelContext}</Text>
             <TextInput
-                style={styles.input1}
+                style={styles.input}
                 placeholder={replaceContext}
+                defaultValue={defaultValue}
                 onChange={event => handleCondition(index, id, event.nativeEvent.text)}/>
         </>
     );
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
         width: '50%',
         borderWidth: 3
     },
-    text3_label: {
+    label: {
         height: 35,
         width: '20%',
         fontSize: 18,
@@ -31,13 +32,13 @@ const styles = StyleSheet.create({
         // backgroundColor: 'orange',
         // marginRight: 5,
     },
-    input1:{
+    input:{
         height: 30,
         width: '28%',
         borderWidth: 0.7,
         borderColor: '#005386',
         // padding: 10, 
-        fontSize: 18,
+        fontSize: 15,
         // marginRight: 10,
         marginBottom: 10,
         // backgroundColor: 'yellow',

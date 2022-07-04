@@ -1,24 +1,18 @@
 import React from 'react';
 import { Text, View, StyleSheet, TextInput} from 'react-native';
 
-const InputInfo = () => {
-    const _onChange = event => setText(event.nativeEvent.text);
+const InputInfo = ({id, labelContext, handleCondition}) => {
+    const _onChange = event => setText(...event.nativeEvent.text);
 
     return (
-        <View style={styles.header}>
-            <Text style={styles.text}>납품장소</Text>
+        <>
+            <Text style={styles.text}>{labelContext}</Text>
             <TextInput
                 style={styles.input}
-                onChange={_onChange}/>
-                <Text style={styles.text}>요청 특기 사항</Text>
-            <TextInput
-                style={styles.input}
-                onChange={_onChange}/>
-                <Text style={styles.text}>신청부서 (Code 입력)</Text>
-            <TextInput
-                style={styles.input}
-                onChange={_onChange}/>
-        </View>
+                // placeholder={replaceContext}
+                // defaultValue={defaultValue}
+                onChange={event => handleCondition(id, event.nativeEvent.text)}/>
+        </>
     );
 };
 
