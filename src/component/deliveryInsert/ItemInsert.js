@@ -10,12 +10,16 @@ const ItemInsert = () => {
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-    } = useRootData(({deliveryInsertStore}) => ({
+        checkedList,
+        changeCheckedList,
+    } = useRootData(({deliveryInsertStore, checkedListStore}) => ({
         deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+        checkedList: checkedListStore.checkedList.get(),
+        changeCheckedList: checkedListStore.changeCheckedList,
     }));
 
-    // 
+    // input 데이터도 넣은 값
     const [itemCondition, setItemCondition] = useState(deliveryInsertInfo);
 
     const handleItemCondition = (index, id, value) => {
@@ -28,22 +32,34 @@ const ItemInsert = () => {
         console.log("value : ", value);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
+
+        // check list 다시 불러오기
+        // const temp = { ...itemCondition };
+        // changeCheckedList()
     };
 
-    console.log("itemCondition", itemCondition[0]);
+    // check한 것만 넣기
+    let i = 0
+    const checkedCondition = (index) => {
+        const tempCondition = { ...checkedList };
+        tempCondition[index] = itemCondition[index];
+        changeCheckedList(tempCondition);
+    };
+
+    const uncheckedCondition = (index) => {
+        let tempCondition = { ...checkedList };
+        delete tempCondition[index];
+        changeCheckedList(tempCondition);
+    };
+
+    console.log("checkedList", checkedList);
+
+
+    // console.log("itemCondition", itemCondition[0]);
     // itemCondition[0].item_uom = "e"
     // itemCondition[0].a = "ab"
 
-    console.log("!!!! : ", itemCondition)
-
-
-    // check box
-    const [selected, setSelected] = useState();
-    const total = (value, insertList) => {
-        
-        // value ? insertList.
-    }
-    // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("!!!! : ", itemCondition)
 
     return (
         <ScrollView>
@@ -53,10 +69,12 @@ const ItemInsert = () => {
                  <View style={styles.check}>
                     {/* {selected ? console.log("true") : console.log("false")} */}
                  <BouncyCheckbox 
+                                
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
-                                        console.log("체크박스 어찌 작동 된가 보자???????",value, index);
+                                        console.log("index : ",index,", value : ", value);
+                                        value ?  checkedCondition(index) : uncheckedCondition(index)
                                     }
                                 }  
                                 fillColor="#005386"
