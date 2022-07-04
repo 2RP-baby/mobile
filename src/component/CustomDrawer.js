@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet, Image, ImageBackground} from 'react-native';
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import logoutIcon from '../../assets/icon/logout.png'
 
 const CustomDrawer = (props) => {
     return (
@@ -29,7 +30,7 @@ const CustomDrawer = (props) => {
         <View style={{padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
             <TouchableOpacity onPress={()=>{}} style ={{paddingVertical:15}}>
             <View style ={{flexDirection: 'row', alignItems:'center'}}>
-                <Ionicons name="exit-outline" size={22}/>   
+                <Image style={styles.image} source={logoutIcon} />
                 <Text>sign out</Text>
             </View>    
             </TouchableOpacity>
@@ -37,5 +38,10 @@ const CustomDrawer = (props) => {
         </View>
     );
 };
-
+const styles = StyleSheet.create({
+    image: {
+        width: 15,
+        height: 15,
+    },
+})
 export default CustomDrawer;
