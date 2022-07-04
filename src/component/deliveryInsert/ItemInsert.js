@@ -27,14 +27,15 @@ const ItemInsert = () => {
                                 unfillColor="#ffffff"/>
             </View>
             <View>
-                <Text style={styles.text1}>{data.item_id} / ea / {data.total} 원 </Text>
-                <Text style={styles.text2}>{data.name}</Text>      
+                <Text style={styles.text1}>{deliveryInsertInfo.item_id} / {deliveryInsertInfo.item_uom}  / {deliveryInsertInfo.unit_price} 원 </Text>
+                <Text style={styles.text2}>{deliveryInsertInfo.item_description}</Text>      
                 <View style={styles.text3_warrap}>
                     <Text style={styles.text3_label}>주문수량 : </Text>      
-                    <Text style={styles.text3_context}>{data.주문수량}</Text>      
+                    <Text style={styles.text3_context}>{deliveryInsertInfo.quantity}</Text>      
                     <Text style={styles.text3_label}>주문잔량 : </Text>      
-                    <Text style={styles.text3_context}>{data.주문잔량}</Text>   
+                    <Text style={styles.text3_context}>{deliveryInsertInfo.remaining}</Text>   
                 </View>
+                
                 <View style={styles.text3_warrap}>
                     <Text style={styles.text3_label}>요청수량 :</Text>      
                     <TextInput
