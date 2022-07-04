@@ -56,7 +56,7 @@ const ItemInsert = () => {
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
-                                        console.log(value);
+                                        console.log("체크박스 어찌 작동 된가 보자???????",value, index);
                                     }
                                 }  
                                 fillColor="#005386"
