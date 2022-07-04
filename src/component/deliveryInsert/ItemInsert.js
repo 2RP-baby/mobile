@@ -28,14 +28,23 @@ const ItemInsert = () => {
         // tempCondition[index][value] = value;
         // tempCondition.index.value = value;
 
-        console.log("id : ", id);
-        console.log("value : ", value);
+        // console.log("id : ", id);
+        // console.log("value : ", value);
+        console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
-        // const temp = { ...itemCondition };
-        // changeCheckedList()
+
+        var keys = Object.keys(checkedList); //키를 가져옵니다. 이때, keys 는 반복가능한 객체가 됩니다.
+        for (var i=0; i<keys.length; i++) {
+            if(keys[i] == index){
+                const temp = {...checkedList};
+                temp[index] = itemCondition[index];
+                changeCheckedList(temp);
+            }
+        }
+        
     };
 
     // check한 것만 넣기
@@ -54,6 +63,7 @@ const ItemInsert = () => {
 
     console.log("checkedList", checkedList);
 
+    // let value = false;
 
     // console.log("itemCondition", itemCondition[0]);
     // itemCondition[0].item_uom = "e"
@@ -69,7 +79,6 @@ const ItemInsert = () => {
                  <View style={styles.check}>
                     {/* {selected ? console.log("true") : console.log("false")} */}
                  <BouncyCheckbox 
-                                
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
@@ -94,26 +103,16 @@ const ItemInsert = () => {
                     </>
                     <>
                     <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" handleCondition={handleItemCondition} />
+                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
                         <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
-                        {/* <Text style={styles.text3_label}>요청수량 :</Text>      
-                        <TextInput
-                            style={styles.input1}
-                            // placeholder={}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                        />   
-                        <Text style={styles.text3_label}>요청납기 :</Text>   
-                        <TextInput style={styles.input1}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            /> */}
                     </View>
                     </>
                     <View style={styles.text3_warrap}>
-                        {/* <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} /> */}
-                        <Text style={styles.text3_label}>Comment :</Text>   
+                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
+                        {/* <Text style={styles.text3_label}>Comment :</Text>   
                         <TextInput style={styles.input2}
                             onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            />
+                            /> */}
                     </View>
                 </View>
             </View>
