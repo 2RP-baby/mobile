@@ -81,7 +81,9 @@ const ShipDeliverySubmit = ({navigation}) => {
     return (
         <ScrollView>
         <View style={styles.header}>
-            <FixBox/>
+            <View style={styles.fix}>
+                <FixBox/>
+            </View>
             <ItemInfo/>
             <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
@@ -97,6 +99,10 @@ const ShipDeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    fix:{
+        width:'100%',
+        height:'15%',
+    },
     header:{
         // alignItems: "center",
     },

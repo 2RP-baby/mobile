@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     header:{
         flexDirection: 'column',
         width: '100%',
-        height: '34%',
+        height: '100%',
         backgroundColor: '#CCCCCC',
     },
     text: {
