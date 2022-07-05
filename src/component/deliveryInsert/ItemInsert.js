@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     text1: {
-        height: 35,
+        height: 30,
         fontSize: 20,
         color: '#005386',
     },
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     },
     text3_warrap: {
         flexDirection: 'row',
-        // width: '50%',
+        width: '90%',
         // borderWidth: 3,
         // backgroundColor: 'green',
     },
@@ -153,9 +153,8 @@ const styles = StyleSheet.create({
         width: '24%',
         fontSize: 18,
         color: '#000000',
-        marginRight: 5,
+        marginRight: 15,
         // backgroundColor: 'orange',
-
     },
     text3_context: {
         height: 35,

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         borderColor: '#005386',
         // padding: 10, 
         fontSize: 15,
-        // marginRight: 10,
+        marginRight: 10,
         marginBottom: 10,
         // backgroundColor: 'yellow',
 

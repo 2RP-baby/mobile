@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         marginBottom: 0,
+        width:'100%',
     },
     textContainer:{
-        width: 350,
-        height: 40,
+        width: '80%',
+        height: 60,
         backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
@@ -38,16 +39,16 @@ const styles = StyleSheet.create({
         // paddingTop: 20,
     },
     text: {
-        fontSize: 15,
+        fontSize: 20,
         color: '#FFFFFF',
     },
     input:{
         borderWidth: 1,
         borderColor: '#005386',
         padding: 10, 
-        fontSize: 15,
-        width: 350,
-        height: 40,
+        fontSize: 20,
+        width: '80%',
+        height: 60,
     },
     
 

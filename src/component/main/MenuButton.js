@@ -31,13 +31,14 @@ const MenuButton = ({navigation}) => {
 const styles = StyleSheet.create({
     flex1:{
         flexDirection: 'row',
+        height:'33%',
         marginTop: 15,
     },
     container1:{
         justifyContent: 'center',
         alignItems: "center",
-        width: 167,
-        height: 167,
+        width: '35%',
+        height: '100%',
         backgroundColor: '#005386',
         
         marginLeft: 10,
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
     container2:{
         justifyContent: 'center',
         alignItems: "center",
-        width: 167,
-        height: 167,
+        width: '35%',
+        height: '100%',
         backgroundColor: '#ffffff',
         
         marginLeft: 10,
@@ -59,11 +60,11 @@ const styles = StyleSheet.create({
     },
     text1:{
         color: '#ffffff',
-        fontSize: 22,
+        fontSize: 28,
     },
     text2:{
         color: '#005386',
-        fontSize: 22,
+        fontSize: 28,
     }
    
 })

@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 20,
         marginBottom: 30,
     },
    
