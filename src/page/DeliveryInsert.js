@@ -15,8 +15,12 @@ const DeliveryInsert = ({navigation}) => {
     
     return (
         <View style={styles.header}>
-            <FixBox/>
-            <ItemInsert/>
+            <View>
+                <FixBox/>
+            </View>
+            <View>
+                <ItemInsert/>
+                </View>
             <View style={styles.button}>
                 <Button title="다음 단계" color="#005386"
                     onPress={() => navigation.navigate('DeliverySubmit')}
