@@ -3,6 +3,7 @@ import {View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const DeliverySelect = ({navigation}) => {
 
@@ -38,6 +39,7 @@ const DeliverySelect = ({navigation}) => {
     console.log("select 결과 ! : ", searchedList);
 
     return (
+        <ScrollView>
         <View style={styles.view1}>
             <InputInfo id="po_num"      labelContext="주문번호 (주문번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="staff_name"     labelContext="주문신청자 *" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
@@ -53,6 +55,7 @@ const DeliverySelect = ({navigation}) => {
                 }}/>
             </View>
         </View>
+        </ScrollView>
     );
 };
 
