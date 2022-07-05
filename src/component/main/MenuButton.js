@@ -10,13 +10,13 @@ const MenuButton = ({navigation}) => {
                 <Text style={styles.text1}>납품신청</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>alert('납품신청현황 버튼 클릭')}>
+                onPress={()=>alert('출하등록 버튼 클릭')}>
                 <Text style={styles.text2}>납품신청현황</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>alert('출하등록 버튼 클릭')}>
+                onPress={()=>navigation.navigate('ShipmentSelect')}>
                 <Text style={styles.text2}>출하등록</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container1}

@@ -12,11 +12,11 @@ const ItemInsert = () => {
         changeDeliveryInsertInfo,
         checkedList,
         changeCheckedList,
-    } = useRootData(({deliveryInsertStore, checkedListStore}) => ({
-        deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
-        changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
-        checkedList: checkedListStore.checkedList.get(),
-        changeCheckedList: checkedListStore.changeCheckedList,
+    } = useRootData(({shipDeliveryInsertStore, shipCheckedListStore}) => ({
+        deliveryInsertInfo: shipDeliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: shipDeliveryInsertStore.changeDeliveryInsertInfo,
+        checkedList: shipCheckedListStore.checkedList.get(),
+        changeCheckedList: shipCheckedListStore.changeCheckedList,
     }));
 
     // input 데이터도 넣은 값
@@ -25,9 +25,6 @@ const ItemInsert = () => {
     const handleItemCondition = (index, id, value) => {
         const tempCondition = { ...itemCondition };
         tempCondition[index][id] = value;
-        // tempCondition[index][value] = value;
-        // tempCondition.index.value = value;
-
         // console.log("id : ", id);
         // console.log("value : ", value);
         console.log("index : ", index);
@@ -35,7 +32,6 @@ const ItemInsert = () => {
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
-
         var keys = Object.keys(checkedList); //키를 가져옵니다. 이때, keys 는 반복가능한 객체가 됩니다.
         for (var i=0; i<keys.length; i++) {
             if(keys[i] == index){
@@ -48,7 +44,6 @@ const ItemInsert = () => {
     };
 
     // check한 것만 넣기
-    let i = 0
     const checkedCondition = (index) => {
         const tempCondition = { ...checkedList };
         tempCondition[index] = itemCondition[index];
@@ -62,14 +57,6 @@ const ItemInsert = () => {
     };
 
     console.log("checkedList", checkedList);
-
-    // let value = false;
-
-    // console.log("itemCondition", itemCondition[0]);
-    // itemCondition[0].item_uom = "e"
-    // itemCondition[0].a = "ab"
-
-    // console.log("!!!! : ", itemCondition)
 
     return (
         <ScrollView>
@@ -91,28 +78,27 @@ const ItemInsert = () => {
                 </View>
                 {/* <>{isSelected ? <Text>hi</Text> : <Text>ii</Text>}</> */}
                 <View>
-                    <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
-                    <Text style={styles.text2}>{insertList.item_description}</Text>     
+                    <Text style={styles.text1}>{insertList.item} / {insertList.uom} / {insertList.unit_price} 원 </Text>
+                    <Text style={styles.text2}>{insertList.description}</Text>     
                     <>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text3_label}>주문수량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.quantity}</Text>      
-                        <Text style={styles.text3_label}>주문잔량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.remaining}</Text>   
+                        <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>      
+                        <Text style={styles.text3_label}>요청수량 : </Text>      
+                        <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>   
                     </View>
                     </>
                     <>
                     <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
-                        <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
+                        <InputInfo id="quantity_shipped" index={index} labelContext="출하수량 :" defaultValue={0} handleCondition={handleItemCondition} />
+                        {/* <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} /> */}
+                        <Text style={styles.text3_label}>요청납기 : </Text>      
+                        <Text style={styles.text3_context}>{insertList.need_by_date}</Text> 
                     </View>
                     </>
                     <View style={styles.text3_warrap}>
-                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
-                        {/* <Text style={styles.text3_label}>Comment :</Text>   
-                        <TextInput style={styles.input2}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            /> */}
+                        <Text style={styles.text3_label}>Comment : </Text>      
+                        <Text style={styles.text3_context}>{insertList.comment}</Text> 
                     </View>
                 </View>
             </View>
