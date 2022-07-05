@@ -1,9 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput} from 'react-native';
+import { Text, StyleSheet, TextInput} from 'react-native';
 
 const InputInfo = ({id, labelContext, handleCondition}) => {
-    const _onChange = event => setText(...event.nativeEvent.text);
-
     return (
         <>
             <Text style={styles.text}>{labelContext}</Text>
@@ -18,8 +16,6 @@ const InputInfo = ({id, labelContext, handleCondition}) => {
 
 const styles = StyleSheet.create({
     header:{
-        // marginTop: 5,
-        // marginLeft: 10,
         padding: 10
     },
     text: {
