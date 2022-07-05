@@ -15,7 +15,9 @@ const ShipmentInsert = ({navigation}) => {
     
     return (
         <View style={styles.header}>
-            <FixBox/>
+            <View style={styles.fix}>
+                <FixBox/>
+            </View>
             <ItemInsert/>
             <View style={styles.button}>
                 <Button title="다음 단계" color="#005386"
@@ -27,6 +29,10 @@ const ShipmentInsert = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    fix:{
+        width:'100%',
+        height:'15%',
+    },
     header:{
         alignItems: "center",
         marginBottom: 200,

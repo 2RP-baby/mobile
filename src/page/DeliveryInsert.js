@@ -15,12 +15,12 @@ const DeliveryInsert = ({navigation}) => {
     
     return (
         <View style={styles.header}>
-            <View>
+            <View style={styles.fix}>
                 <FixBox/>
             </View>
             <View>
                 <ItemInsert/>
-                </View>
+            </View>
             <View style={styles.button}>
                 <Button title="다음 단계" color="#005386"
                     onPress={() => navigation.navigate('DeliverySubmit')}
@@ -31,9 +31,13 @@ const DeliveryInsert = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    fix:{
+        width:'100%',
+        height:'15%',
+    },
     header:{
         alignItems: "center",
-        marginBottom: 200,
+        marginBottom: 400,
     },
     button:{
         width: 100,

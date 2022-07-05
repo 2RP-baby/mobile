@@ -27,6 +27,7 @@ const ItemInfo = () => {
 
     return (
         <ScrollView>
+            <>
             {Object.keys(checkedList).map((key,index)=>{
                 let list = checkedList[key];
                 let item_name = list.item_name
@@ -55,6 +56,7 @@ const ItemInfo = () => {
                 </View>
                 )
             })}
+            </>
         </ScrollView>
 
     );
@@ -65,6 +67,9 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 10,
         marginBottom: 20,
+        borderWidth:2,
+        borderColor:"rgba(0,83,134,0.5)",
+        marginRight:10,
     },
     check:{
         width: '8%',
@@ -76,14 +81,18 @@ const styles = StyleSheet.create({
         height: 35,
         fontSize: 20,
         color: '#005386',
+        marginLeft:10,
+        marginTop:10,
     },
     text2: {
         height: 35,
         fontSize: 18,
         color: '#000000',
+        marginLeft:10,
     },
     text3_warrap: {
         flexDirection: 'row',
+        marginLeft:10,
     },
     text3_label: {
         height: 35,

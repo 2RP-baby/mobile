@@ -79,11 +79,18 @@ const DeliverySubmit = ({navigation}) => {
     return (
         <ScrollView>
         <View style={styles.header}>
-            <FixBox/>
-            <ItemInfo/>
-            <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="subniventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
+            
+            <View style={styles.fix}>
+                <FixBox/>
+            </View>
+            <View>
+                <ItemInfo/>
+            </View>
+            <View style ={styles.inputInfo}>
+                <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="subniventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
+            </View>
             <View style={styles.button}>
                 <Button title="납품신청" color="#005386"
                     onPress={() => goAlert()}/>
@@ -94,8 +101,18 @@ const DeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    inputInfo:{
+        marginLeft:10,
+    },
+    fix:{
+        width:'100%',
+        height:'15%',
+        marginBottom:25,
+
+    },
     header:{
         // alignItems: "center",
+        marginBottom: 400,
     },
     button:{
         width: '100%',
