@@ -54,17 +54,17 @@ const Body = ({navigation}) => {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
     view:{
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 10,
     },
     button:{
-        width: 100,
-        height: 40,
+        width: 200,
+        height: 60,
         borderRadius: 50,
-        marginTop: 30,
+        marginTop: 60,
     }
 })
 

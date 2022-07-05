@@ -69,6 +69,13 @@ const DrawerNavigator = () => {
         ),
         }}  
         />
+      <Drawer.Screen name="Home menu" component={Menu}
+      options={{
+        drawerIcon: ()=>(
+          <Image style={styles.image} source={homeIcon} />
+        ),
+        }}  
+        />
     </Drawer.Navigator>
   );
 };

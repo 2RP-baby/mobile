@@ -72,11 +72,12 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
                             </Text>
                         </View>
+
                     </View>
                 ))
             }
              <View style={styles.button}>
-                    <Button title="더보기" color="#005386" 
+                    <Button title="더보기" color="#005386"
                     onPress={() => {
                         moreInfo();
                         // Alert.alert("더 보고 싶으면 500원")
@@ -97,32 +98,39 @@ const styles = StyleSheet.create({
     text:{
         color: 'blue',
         textDecorationLine: 'underline',
+        fontSize:20,
       },
-      containerRow:{
+    containerRow:{
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center",
         marginBottom: 0,
     },
+    containerColumn:{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: "center",
+        marginBottom: 0,
+    },
     textContainer:{
-        width: 100,
-        height: 40,
+        width: '25%',
+        height: 50,
         // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
         borderWidth: 1,
     },
     textContainer1:{
-        width: 250,
-        height: 40,
+        width: '45%',
+        height: 50,
         // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
         borderWidth: 1,
     },
     textContainer2:{
-        width: 350,
-        height: 40,
+        width: 573,
+        height: 50,
         justifyContent: 'center',
         alignItems: "center",
         borderWidth: 1,
