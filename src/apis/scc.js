@@ -29,6 +29,18 @@ export const getDeliveryInsertInfo = async (num) => {
   }
 };
 
+export const insertSccDeliveryInfo = async (sendData) => {
+  try {
+    const { data } = await serverAxios.post(`${PREFIX_URL}/sccInsertOne`, sendData);
+    return data;
+  } catch (err) {
+    console.log("fail", err);
+    console.log("status", error.response.status);
+    // throw new Error("Failed to load");
+    // throw err;
+  }
+};
+
 
 
 
