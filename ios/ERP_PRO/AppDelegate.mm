@@ -26,7 +26,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 }
 @end
 #endif
-import "RNSplashScreen.h"
+// import "RNSplashScreen.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -57,7 +57,7 @@ import "RNSplashScreen.h"
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  [RNSplashScreen show]; 
+  // [RNSplashScreen show]; 
   return YES;
 }
 
