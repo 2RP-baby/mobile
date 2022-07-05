@@ -4,9 +4,7 @@ import useRootData from '../../hooks/useRootData';
 
 
 const FixBox = () => {
-    const data={
-        total:'590,000'
-    }
+    
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
     header:{
         flexDirection: 'column',
         width: '100%',
-        height: '14%',
+        height: '34%',
         backgroundColor: '#CCCCCC',
     },
     text: {

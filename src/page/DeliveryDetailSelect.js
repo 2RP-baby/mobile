@@ -45,8 +45,10 @@ const DeliveryDetailSelect = ({navigation}) => {
             {/* {test()} */}
             {
                 searchedList.map((searchedlist, index)=>(
-                    <View key={index} style={styles.view}>
+                    <View key={index} style={styles.view1}>
                         <View style={styles.containerRow}>
+
+
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
                                     onPress={async () => {
@@ -64,6 +66,9 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                         </View>
+                        
+
+                        <>
                         <View style={styles.textContainer2}>
                                 <Text>{searchedlist.comments}</Text>
                         </View>
@@ -72,7 +77,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
                             </Text>
                         </View>
-
+                        </>
                     </View>
                 ))
             }
@@ -95,6 +100,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 20,
     },
+    view1:{
+        width: '80%',
+        marginBottom: 20,
+    },
     text:{
         color: 'blue',
         textDecorationLine: 'underline',
@@ -111,9 +120,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         marginBottom: 0,
+        // width:'80%',
     },
     textContainer:{
-        width: '25%',
+        width: '50%',
         height: 50,
         // backgroundColor: '#005386',
         justifyContent: 'center',
@@ -121,7 +131,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     textContainer1:{
-        width: '45%',
+        width: '50%',
         height: 50,
         // backgroundColor: '#005386',
         justifyContent: 'center',
@@ -129,7 +139,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     textContainer2:{
-        width: 573,
+        // width: 573,
+        width: '100%',
         height: 50,
         justifyContent: 'center',
         alignItems: "center",
