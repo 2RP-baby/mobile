@@ -40,14 +40,15 @@ const styles = StyleSheet.create({
     header:{
         flexDirection: 'column',
         width: '100%',
+        height: '100%',
         backgroundColor: '#CCCCCC',
     },
     text: {
         width: '100%',
-        height: 35,
+        height: '17%',
         fontSize: 20,
         color: '#000000',
-        marginTop: 3,
+        marginTop: 10,
         marginLeft: 10,
     },
 })

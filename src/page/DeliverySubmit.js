@@ -78,7 +78,7 @@ const DeliverySubmit = ({navigation}) => {
     }
     return (
         <ScrollView>
-        <View style={styles.header}>
+        {/* <View style={styles.header}> */}
             
             <View style={styles.fix}>
                 <FixBox/>
@@ -95,7 +95,7 @@ const DeliverySubmit = ({navigation}) => {
                 <Button title="납품신청" color="#005386"
                     onPress={() => goAlert()}/>
             </View>
-        </View>
+        {/* </View> */}
         </ScrollView>
     );
 };
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'15%',
+        height:'16%',
         marginBottom:25,
 
     },

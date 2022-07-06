@@ -84,11 +84,15 @@ const ShipDeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <ItemInfo/>
-            <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
+            <View>
+                <ItemInfo/>
+            </View>
+            <View style ={styles.inputInfo}>
+                <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
+            </View>
             <View style={styles.button}>
                 <Button title="POSCO 전송" color="#005386"
                     onPress={() => InsertInfo(inputData)}/>
@@ -99,12 +103,18 @@ const ShipDeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    inputInfo:{
+        marginLeft:10,
+    },
     fix:{
         width:'100%',
-        height:'15%',
+        height:'16%',
+        marginBottom:25,
+
     },
     header:{
         // alignItems: "center",
+        marginBottom: 400,
     },
     button:{
         width: '100%',

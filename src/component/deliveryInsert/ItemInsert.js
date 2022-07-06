@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     check:{
-        width: '8%',
+        width: '5%',
         // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
