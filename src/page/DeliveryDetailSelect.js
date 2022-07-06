@@ -30,6 +30,12 @@ const DeliveryDetailSelect = ({navigation}) => {
         selectMoreList();
     }
 
+    const beforeInfo = () => {
+        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
+        console.log("page--", deliveryCondition);
+        selectMoreList();
+    }
+
     const selectMoreList = async () => {
         const data = await getSearchList(deliveryCondition);
         console.log("typeof list : ", typeof data);
@@ -82,13 +88,15 @@ const DeliveryDetailSelect = ({navigation}) => {
                 ))
             }
              <View style={styles.button}>
-                    <Button title="더보기" color="#005386"
-                    onPress={() => {
-                        moreInfo();
-                        // Alert.alert("더 보고 싶으면 500원")
-                    }
-                    
-                    }/>
+                    <Button title="이전페이지" color="#005386"
+                        onPress={() => {
+                            beforeInfo();
+                        }}/>
+                    <Text>               </Text>
+                    <Button title="다음페이지" color="#005386"
+                        onPress={() => {
+                            moreInfo();
+                        }}/>
             </View> 
         </View>
     );
@@ -147,11 +155,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     button:{
-        width: 100,
-        height: 40,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: "center",
+        width: '100%',
+        height: '20%',
         borderRadius: 50,
         marginTop: 30,
-    }
+    },
 })
 
 export default DeliveryDetailSelect;

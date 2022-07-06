@@ -129,14 +129,14 @@ const styles = StyleSheet.create({
         borderWidth:2,
         borderColor:"rgba(0,83,134,0.5)",
         marginLeft: 10,
-        marginRight:10,
+        marginRight: 10,
     },
     check:{
         width: '5%',
         // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
-        marginTop:5,
+        marginTop: 5,
     },
     text1: {
         height: 30,
