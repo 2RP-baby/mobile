@@ -18,7 +18,9 @@ const ShipmentInsert = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <ItemInsert/>
+            <View>
+                <ItemInsert/>
+            </View>
             <View style={styles.button}>
                 <Button title="다음 단계" color="#005386"
                     onPress={() => navigation.navigate('ShipDeliverySubmit')}
@@ -31,11 +33,11 @@ const ShipmentInsert = ({navigation}) => {
 const styles = StyleSheet.create({
     fix:{
         width:'100%',
-        height:'15%',
+        height:'17%',
     },
     header:{
         alignItems: "center",
-        marginBottom: 200,
+        marginBottom: 430,
     },
     button:{
         width: 100,
