@@ -40,6 +40,12 @@ const ShipmentDetailSelect = ({navigation}) => {
         selectMoreList();
     }
 
+    const beforeInfo = () => {
+        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
+        console.log("page--", deliveryCondition);
+        selectMoreList();
+    }
+
     const selectMoreList = async () => {
         const data = await getSearchList(shipmentCondition);
         console.log("typeof list : ", typeof data);
@@ -54,7 +60,6 @@ const ShipmentDetailSelect = ({navigation}) => {
     return (
         <ScrollView>
         <View style={styles.view}>
-            {/* {test()} */}
             {
                 searchedList.map((searchedlist, index)=>(
                     <View key={index} style={styles.view}>
@@ -77,9 +82,6 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                         </View>
-                        {/* <View style={styles.textContainer2}>
-                                <Text>{searchedlist.comments}</Text>
-                        </View> */}
                         <View style={styles.textContainer2}>
                             <Text>
                                 {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}
@@ -88,15 +90,17 @@ const ShipmentDetailSelect = ({navigation}) => {
                     </View>
                 ))
             }
-             <View style={styles.button}>
-                    <Button title="더보기" color="#005386" 
+            <View style={styles.button}>
+                <Button title="이전페이지" color="#005386"
+                    onPress={() => {
+                        beforeInfo();
+                    }}/>
+                <Text>               </Text>
+                <Button title="다음페이지" color="#005386"
                     onPress={() => {
                         moreInfo();
-                        // Alert.alert("더 보고 싶으면 500원")
-                    }
-                    
-                    }/>
-            </View> 
+                    }}/>
+            </View>
         </View>
         </ScrollView>
     );

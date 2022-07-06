@@ -126,12 +126,17 @@ const styles = StyleSheet.create({
     header:{
         flexDirection: 'row',
         marginTop: 10,
+        borderWidth:2,
+        borderColor:"rgba(0,83,134,0.5)",
+        marginLeft: 10,
+        marginRight: 10,
     },
     check:{
         width: '8%',
         // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
+        marginTop: 5,
     },
     text1: {
         height: 30,
