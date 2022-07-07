@@ -18,44 +18,41 @@ const ItemInfo = ({receiveData}) => {
     console.log("receiveData.scc2List : ",receiveData.scc2List);
     console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
-
     return (
         <ScrollView>
-            <>
+            {/* <View style={styles.info}> */}
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
                 <View>
                     <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
-                    <Text style={styles.text2}>{insertList.item_description}</Text>     
+                    <Text style={styles.text2}>{insertList.item_description}</Text> 
                     <>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text3_label}>요청수량 : </Text>      
                         <Text style={styles.text3_context}>{receiveData.scc2List[index].quantity_ordered}</Text>      
                         <Text style={styles.text3_label}>요청납기 : </Text>      
                         <Text style={styles.text3_context}>{receiveData.scc2List[index].need_by_date}</Text> 
-                        <Text style={styles.text3_label}>comment : </Text>      
-                        <Text style={styles.text3_context}>{receiveData.scc2List[index].comment1}</Text>     
+                    </View>
+                    <View style={styles.text3_warrap}>
+                        <Text style={styles.text4_label}>Comment:</Text>      
+                        <Text style={styles.text4_context}>{receiveData.scc2List[index].comment}</Text>      
                     </View>
                     </>
-                    {/* <>
-                    <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
-                        <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
-                    </View>
-                    </>
-                    <View style={styles.text3_warrap}>
-                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
-                    </View> */}
                 </View>
             </View>
             ))}
-            </>
+            {/* </View> */}
         </ScrollView>
 
     );
 };
 
 const styles = StyleSheet.create({
+    info:{
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'red'
+    },
     header:{
         flexDirection: 'row',
         marginTop: 10,
@@ -63,13 +60,9 @@ const styles = StyleSheet.create({
         borderColor:"rgba(0,83,134,0.5)",
         marginLeft: 10,
         marginRight: 10,
-    },
-    check:{
-        width: '5%',
-        // backgroundColor: '#676767',
-        marginRight: 5,
-        marginLeft: 10,
-        marginTop: 5,
+        // height: '100%',
+        backgroundColor: '#ffffff'
+
     },
     text1: {
         height: 30,
@@ -91,15 +84,28 @@ const styles = StyleSheet.create({
         height: 35,
         width: '24%',
         fontSize: 18,
-        color: '#000000',
-        marginRight: 15,
+        color: '#005386',
+        // marginRight: 15,
         // backgroundColor: 'orange',
     },
     text3_context: {
         height: 35,
         width: '23%',
         fontSize: 18,
-        color: '#000000',
+        color: '#005386',
+    },
+    text4_label: {
+        height: 35,
+        width: '25%',
+        fontSize: 18,
+        color: '#005386',
+        marginRight: 5,
+    },
+    text4_context: {
+        height: 35,
+        width: '50%',
+        fontSize: 18,
+        color: '#005386',
     },
     input1:{
         height: 30,
