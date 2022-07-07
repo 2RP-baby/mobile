@@ -3,7 +3,6 @@ import Header from '../component/login/Header';
 import {View, StyleSheet, Button, Alert} from 'react-native';
 import MenuButton from '../component/main/MenuButton';
 
-
 const Menu = ({navigation}) => {
     return (
         <View style={styles.view}>

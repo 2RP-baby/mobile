@@ -11,6 +11,10 @@ import statusDeliveryInsertStore from './statusDelivery/statusDeliveryInsertStor
 import statusDeliverySelectStore from './statusDelivery/statusDeliverySelectStore'
 import statusSearchedListStore from './statusDelivery/statusSearchedListStore'
 
+import StateShipCheckedListStore from './stateShipment/StateShipCheckedListStore'
+import StateShipDeliveryInsertStore from './stateShipment/StateShipDeliveryInsertStore'
+import StateShipmentSelectStore from './stateShipment/StateShipmentSelectStore'
+import StateShipSearchedListStore from './stateShipment/StateShipSearchedListStore'
 const createRootStore = () => {
   return {
     // 납품
@@ -34,6 +38,11 @@ const createRootStore = () => {
 
 
 
+    //State출하
+    StateShipCheckedListStore,
+    StateShipDeliveryInsertStore,
+    StateShipmentSelectStore,
+    StateShipSearchedListStore,
   };
 };
 
