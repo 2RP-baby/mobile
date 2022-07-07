@@ -188,9 +188,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 10,
         // backgroundColor: 'yellow',
-
     },
-
 })
 
 export default ItemInsert;
