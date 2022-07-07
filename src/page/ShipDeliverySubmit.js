@@ -6,7 +6,8 @@ import FixBox from '../component/shipmentInsert/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/shipmentSubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
-
+import DatePicker from '../component/shipmentSubmit/DatePicker';
+import InputCalendarInfo from '../component/shipmentSubmit/InputCalendarInfo';
 const ShipDeliverySubmit = ({navigation}) => {
 
     const {
@@ -89,7 +90,13 @@ const ShipDeliverySubmit = ({navigation}) => {
             </View>
             <View style ={styles.inputInfo}>
                 <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
-                <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
+
+                {/* <View style ={styles.datePicker}> */}
+                    {/* <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/> */}
+                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.expected_receipt_date}/>                 
+                    <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
+                {/* </View> */}
+
                 <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
@@ -103,6 +110,9 @@ const ShipDeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    datePicker:{
+        flexDirection:'row'
+    },
     inputInfo:{
         marginLeft:10,
     },
