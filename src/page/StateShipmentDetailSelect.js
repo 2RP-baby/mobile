@@ -19,18 +19,16 @@ const ShipmentDetailSelect = ({navigation}) => {
         // 더보기
         shipmentCondition,
         changeShipmentCondition
-    } = useRootData(({shipSearchedListStore, shipDeliveryInsertStore, shipmentSelectStore}) => ({
-        searchedList: shipSearchedListStore.searchedList.get(),
-        changeSearchedList: shipSearchedListStore.changeSearchedList,
+    } = useRootData(({StateShipSearchedListStore, StateShipDeliveryInsertStore, StateShipmentSelectStore}) => ({
+        searchedList: StateShipSearchedListStore.searchedList.get(),
+        changeSearchedList: StateShipSearchedListStore.changeSearchedList,
 
-        deliveryInsertInfo: shipDeliveryInsertStore.deliveryInsertInfo.get(),
-        changeDeliveryInsertInfo: shipDeliveryInsertStore.changeDeliveryInsertInfo,
-        callChangeApi: shipDeliveryInsertStore.callChangeApi,
+        deliveryInsertInfo: StateShipDeliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
+        callChangeApi: StateShipDeliveryInsertStore.callChangeApi,
 
-        shipmentCondition: shipmentSelectStore.shipmentCondition.get(),
-        changeShipmentCondition: shipmentSelectStore.changeShipmentCondition,
-        
-        
+        shipmentCondition: StateShipmentSelectStore.shipmentCondition.get(),
+        changeShipmentCondition: StateShipmentSelectStore.changeShipmentCondition,
     }));
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기

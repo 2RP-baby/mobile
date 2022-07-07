@@ -42,8 +42,9 @@ export const insertSccDeliveryInfo = async (sendData) => {
 };
 
 
-export const StatusDeliveryInfo = async (sendData) => {
+export const StatusDeliveryInfo = async (num) => {
   try {
+    const sendData = {po_num : num};
     const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchInsertedOne`, sendData);
     return data;
   } catch (err) {
