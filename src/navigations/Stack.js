@@ -19,6 +19,12 @@ import StatusDeliveryDetailSelect from '../page/StatusDeliveryDetailSelect';
 import StatusDeliverySubmit from '../page/StatusDeliverySubmit';
 
 
+
+import StateShipmentSelect from '../page/StateShipmentSelect';
+import StateShipmentDetailSelect from '../page/StateShipmentDetailSelect';
+import StateShipDeliverySubmit from '../page/StateShipDeliverySubmit';
+
+
 const Stack = createStackNavigator();
 
 const StackNavigation = ({navigation}) => {
@@ -90,24 +96,6 @@ const StackNavigation = ({navigation}) => {
         component={ShipDeliverySubmit}
         options={{headerTitle: 'SCC 출하 등록'}}
       /> 
-
-
-       {/* 납품 신청 현황*/}
-       <Stack.Screen
-        name="StatusDeliverySelect"
-        component={StatusDeliverySelect}
-        options = {{headerTitle : 'SCC 납품 신청 현황 조회'}}              
-      />
-      <Stack.Screen
-        name="StatusDeliveryDetailSelect"
-        component={StatusDeliveryDetailSelect}
-        options = {{headerTitle : 'SCC 납품 신청 현황 목록'}}
-      /> 
-      <Stack.Screen
-        name="StatusDeliverySubmit"
-        component={StatusDeliverySubmit}
-        options={{headerTitle: 'SCC 납품 현황'}}
-      />
     </Stack.Navigator>
     </>
   );
