@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         // width:'100%',
-        height: '25%',
+        height: '23%',
         marginBottom:5,
 
     },

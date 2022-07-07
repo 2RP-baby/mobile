@@ -33,10 +33,11 @@ const ShipmentInsert = ({navigation}) => {
 const styles = StyleSheet.create({
     fix:{
         width:'100%',
-        height:'17%',
+        height:'23%',
     },
     header:{
-        alignItems: "center",
+        // height:'100%',
+        // alignItems: "center",
         marginBottom: 430,
     },
     button:{

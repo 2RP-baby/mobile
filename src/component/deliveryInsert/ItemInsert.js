@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     },
     text3_label: {
         height: 35,
-        width: '24%',
+        width: '22%',
         fontSize: 18,
         color: '#000000',
         marginRight: 15,

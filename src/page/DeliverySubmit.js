@@ -78,7 +78,6 @@ const DeliverySubmit = ({navigation}) => {
     }
     return (
         <ScrollView >
-            
             <View style={styles.fix}>
                 <FixBox/>
             </View>
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'16%',
+        height:'15%',
         marginBottom:25,
 
     },
