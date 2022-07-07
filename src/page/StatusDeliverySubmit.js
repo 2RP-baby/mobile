@@ -126,9 +126,6 @@ const DeliverySubmit = ({navigation}) => {
             <View>
                 <ItemInfo receiveData={receiveData}/>
             </View>
-            <View>
-                <Text>hihi</Text>
-            </View>
             </View>
         // </ScrollView>
     );
