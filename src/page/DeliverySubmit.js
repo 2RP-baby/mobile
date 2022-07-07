@@ -77,8 +77,7 @@ const DeliverySubmit = ({navigation}) => {
         );  
     }
     return (
-        <ScrollView>
-        {/* <View style={styles.header}> */}
+        <ScrollView >
             
             <View style={styles.fix}>
                 <FixBox/>
@@ -95,7 +94,6 @@ const DeliverySubmit = ({navigation}) => {
                 <Button title="납품신청" color="#005386"
                     onPress={() => goAlert()}/>
             </View>
-        {/* </View> */}
         </ScrollView>
     );
 };
