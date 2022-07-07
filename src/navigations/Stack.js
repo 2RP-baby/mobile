@@ -14,6 +14,11 @@ import ShipmentSelect from '../page/ShipmentSelect';
 import ShipmentDetailSelect from '../page/ShipmentDetailSelect';
 import ShipmentInsert from '../page/ShipmentInsert';
 import ShipDeliverySubmit from '../page/ShipDeliverySubmit';
+import StatusDeliverySelect from '../page/StatusDeliverySelect';
+import StatusDeliveryDetailSelect from '../page/StatusDeliveryDetailSelect';
+import StatusDeliverySubmit from '../page/StatusDeliverySubmit';
+
+
 
 import StateShipmentSelect from '../page/StateShipmentSelect';
 import StateShipmentDetailSelect from '../page/StateShipmentDetailSelect';
@@ -73,8 +78,7 @@ const StackNavigation = ({navigation}) => {
       <Stack.Screen
         name="ShipmentSelect"
         component={ShipmentSelect}
-        options = {{headerTitle : 'SCC 출하 대상 조회',
-      }}              
+        options = {{headerTitle : 'SCC 출하 대상 조회'}}              
       />
       <Stack.Screen
         name="ShipmentDetailSelect"
@@ -92,25 +96,6 @@ const StackNavigation = ({navigation}) => {
         component={ShipDeliverySubmit}
         options={{headerTitle: 'SCC 출하 등록'}}
       /> 
-
-      {/* StateShip */}
-
-      <Stack.Screen
-        name="StateShipmentSelect"
-        component={StateShipmentSelect}
-        options={{headerTitle: 'SCC 출하 대상 조회'}}
-      /> 
-      <Stack.Screen
-        name="StateShipmentDetailSelect"
-        component={StateShipmentDetailSelect}
-        options={{headerTitle: 'SCC 출하 정보 조회'}}
-      /> 
-      <Stack.Screen
-        name="StateShipDeliverySubmit"
-        component={StateShipDeliverySubmit}
-        options={{headerTitle: 'SCC 출하 등록 조회'}}
-      /> 
-      
     </Stack.Navigator>
     </>
   );

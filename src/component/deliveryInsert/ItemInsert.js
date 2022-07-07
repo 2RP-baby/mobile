@@ -193,15 +193,6 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 10,
         // backgroundColor: 'yellow',
-
-    },
-    label: {
-        height: 35,
-        width: '20%',
-        fontSize: 18,
-        color: '#000000',
-        // backgroundColor: 'orange',
-        // marginRight: 5,
     },
 })
 
