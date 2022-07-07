@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import useRootData from '../../hooks/useRootData';
 import InputInfo from './InputInfo';
-
+import DatePicker from './DatePicker';
+import InputCalendarInfo from './InputCalendarInfo';
 const ItemInsert = () => {
 
     // mobx
@@ -29,7 +30,7 @@ const ItemInsert = () => {
         // tempCondition.index.value = value;
 
         // console.log("id : ", id);
-        // console.log("value : ", value);
+        console.log("value : ", value);
         console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
@@ -104,7 +105,11 @@ const ItemInsert = () => {
                     <>
                     <View style={styles.text3_warrap}>
                         <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
-                        <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} />
+                        <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
+                        {/* <Text style={styles.label}>요청납기 :</Text>
+                        <Text style={styles.text3_context}>{date}</Text> */}
+                        <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
+                        {/* <DatePicker/> */}
                     </View>
                     </>
                     <View style={styles.text3_warrap}>
@@ -190,7 +195,14 @@ const styles = StyleSheet.create({
         // backgroundColor: 'yellow',
 
     },
-
+    label: {
+        height: 35,
+        width: '20%',
+        fontSize: 18,
+        color: '#000000',
+        // backgroundColor: 'orange',
+        // marginRight: 5,
+    },
 })
 
 export default ItemInsert;

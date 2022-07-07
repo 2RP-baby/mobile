@@ -20,7 +20,7 @@ const MenuButton = ({navigation}) => {
                 <Text style={styles.text2}>출하등록</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>alert('출하현황 버튼 클릭')}>
+                onPress={()=>navigation.navigate('StateShipmentSelect')}>
                 <Text style={styles.text1}>출하현황</Text>
             </TouchableOpacity>
         </View>
