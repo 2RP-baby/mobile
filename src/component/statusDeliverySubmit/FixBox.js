@@ -45,8 +45,8 @@ const FixBox = ({receiveData}) => {
 const styles = StyleSheet.create({
     header:{
         flexDirection: 'column',
-        // width: '100%',
-        // height: '100%',
+        width: '100%',
+        height: '100%',
         backgroundColor: '#CCCCCC',
     },
     text: {
