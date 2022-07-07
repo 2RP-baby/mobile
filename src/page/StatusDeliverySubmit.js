@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { insertSccDeliveryInfo } from '../apis/scc';
+import { StatusDeliveryInfo } from '../apis/scc';
 import FixBox from '../component/statusDeliverySubmit/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/statusDeliverySubmit/ItemInfo';
@@ -118,50 +118,36 @@ const DeliverySubmit = ({navigation}) => {
     // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
 
     return (
-        <ScrollView>
+        // <ScrollView>
+            <View style={styles.head}>
             <View style={styles.fix}>
                 <FixBox receiveData={receiveData}/>
             </View>
             <View>
                 <ItemInfo receiveData={receiveData}/>
             </View>
-        </ScrollView>
+            <View>
+                <Text>hihi</Text>
+            </View>
+            </View>
+        // </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    fix:{
-        // width:'100%',
-        height: '35%',
-        marginBottom:25,
+    head:{
+        height: '100%',
 
     },
-    header:{
-        // alignItems: "center",
-        marginBottom: 400,
+    fix:{
+        // width:'100%',
+        height: '25%',
+        marginBottom:5,
+
     },
-    button:{
-        width: '100%',
-        height: 40,
-        justifyContent: 'center',
-        alignItems: "center",
-        borderRadius: 50,
-        marginTop: 30,
-    },
-    text: {
-        fontSize: 18,
-        color: '#000000',
-        marginTop: 5,
-    },
-    input:{
-        borderWidth: 1,
-        borderColor: '#005386',
-        padding: 10, 
-        fontSize: 15,
-        width: 200,
-        height: 40,
-        marginTop: 5,
-    },
+    info:{
+        // height: '100%',
+    }
 })
 
 export default DeliverySubmit;
