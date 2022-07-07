@@ -111,6 +111,24 @@ const StackNavigation = ({navigation}) => {
         component={ShipDeliverySubmit}
         options={{headerTitle: 'SCC 출하 등록'}}
       /> 
+
+       {/* 출하 현황 */}
+       <Stack.Screen
+        name="StateShipmentSelect"
+        component={StateShipmentSelect}
+        options = {{headerTitle : 'SCC 출하 등록 현황 조회',
+      }}              
+      />
+      <Stack.Screen
+        name="StateShipmentDetailSelect"
+        component={StateShipmentDetailSelect}
+        options = {{headerTitle : 'SCC 출하 등록 현황 조회 리스트'}}
+      /> 
+      <Stack.Screen
+        name="StateShipDeliverySubmit"
+        component={StateShipDeliverySubmit}
+        options={{headerTitle: 'SCC 출하 등록 현황 조회'}}
+      />
     </Stack.Navigator>
     </>
   );
