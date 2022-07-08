@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 100,
         marginBottom:100,
+
     },
     view1:{
         width: '80%',

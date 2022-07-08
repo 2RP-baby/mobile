@@ -80,15 +80,15 @@ const ItemInsert = () => {
                  <View style={styles.check}>
                     {/* {selected ? console.log("true") : console.log("false")} */}
                  <BouncyCheckbox 
-                                style={styles.checheckBox}
-                                onPress={
-                                    (value)=> {
-                                        // console.log("index : ",index,", value : ", value);
-                                        value ?  checkedCondition(index) : uncheckedCondition(index)
-                                    }
-                                }  
-                                fillColor="#005386"
-                                unfillColor="#ffffff"/>
+                    style={styles.checheckBox}
+                    onPress={
+                        (value)=> {
+                            // console.log("index : ",index,", value : ", value);
+                            value ?  checkedCondition(index) : uncheckedCondition(index)
+                        }
+                    }  
+                    fillColor="#005386"
+                    unfillColor="#ffffff"/>
                 </View>
                 {/* <>{isSelected ? <Text>hi</Text> : <Text>ii</Text>}</> */}
                 <View>

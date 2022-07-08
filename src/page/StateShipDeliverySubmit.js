@@ -93,16 +93,16 @@ const ShipDeliverySubmit = ({navigation}) => {
             <View>
                 <ItemInfo/>
             </View>
-            <View style ={styles.inputInfo}>
+            {/* <View style ={styles.inputInfo}>
                 <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
-            </View>
-            <View style={styles.button}>
+            </View> */}
+            {/* <View style={styles.button}>
                 <Button title="POSCO 전송" color="#005386"
                     onPress={() => InsertInfo(inputData)}/>
-            </View>
+            </View> */}
         </View>
         </ScrollView>
     );
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'16%',
+        height:'30%',
         marginBottom:25,
 
     },
