@@ -102,6 +102,7 @@ const DeliveryDetailSelect = ({navigation}) => {
             </View> 
         </View>
         </ScrollView>
+
     );
 };
 
@@ -110,6 +111,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 100,
+        marginBottom:100,
+
     },
     view1:{
         width: '80%',

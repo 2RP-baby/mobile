@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
+import { View,Image, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { insertSccDeliveryInfo } from '../apis/shipment';
 import FixBox from '../component/shipmentInsert/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/shipmentSubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
-
+import Hamburger from '../../assets/icon/menu.png';
 const ShipDeliverySubmit = ({navigation}) => {
 
     const {
@@ -84,6 +84,12 @@ const ShipDeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
+            <View style ={styles.deliveryImage}>
+                <Image style={styles.image} backgroundColor= 'red' source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+            </View>
             <View>
                 <ItemInfo/>
             </View>
@@ -103,6 +109,15 @@ const ShipDeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    image:{
+        width: 30,
+        height: 30,
+        marginRight:100,
+        marginLeft:100,
+    },
+    deliveryImage:{
+        flexDirection:'row',
+    },
     inputInfo:{
         marginLeft:10,
     },
