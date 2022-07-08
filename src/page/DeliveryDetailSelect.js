@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
@@ -47,6 +48,7 @@ const DeliveryDetailSelect = ({navigation}) => {
     };  
 
     return (
+        <ScrollView>
         <View style={styles.view}>
             {/* {test()} */}
             {
@@ -99,6 +101,8 @@ const DeliveryDetailSelect = ({navigation}) => {
                         }}/>
             </View> 
         </View>
+        </ScrollView>
+
     );
 };
 
@@ -106,7 +110,8 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 20,
+        marginTop: 100,
+        marginBottom:100,
     },
     view1:{
         width: '80%',
