@@ -36,7 +36,7 @@ const DeliverySelect = ({navigation}) => {
         changeSearchedList(data);
     };
     console.log("select 조건 ! : ", deliveryCondition);
-    console.log("select 결과 ! : ", searchedList);
+    // console.log("select 결과 ! : ", searchedList);
 
     return (
         <ScrollView>

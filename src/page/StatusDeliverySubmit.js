@@ -24,7 +24,7 @@ const DeliverySubmit = ({navigation}) => {
         changeCheckedList: statusCheckedListStore.changeCheckedList,
     }));
 
-    console.log("Submit deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("Submit deliveryInsertInfo : ", deliveryInsertInfo);
 
     const receiveData = {
             "scc1" : {

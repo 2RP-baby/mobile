@@ -27,7 +27,7 @@ const ItemInsert = () => {
         tempCondition[index][id] = value;
         // console.log("id : ", id);
         // console.log("value : ", value);
-        console.log("index : ", index);
+        // console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
@@ -56,7 +56,7 @@ const ItemInsert = () => {
         changeCheckedList(tempCondition);
     };
 
-    console.log("checkedList", checkedList);
+    // console.log("checkedList", checkedList);
 
     return (
         <ScrollView>
@@ -69,7 +69,7 @@ const ItemInsert = () => {
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
-                                        console.log("index : ",index,", value : ", value);
+                                        // console.log("index : ",index,", value : ", value);
                                         value ?  checkedCondition(index) : uncheckedCondition(index)
                                     }
                                 }  
@@ -92,7 +92,7 @@ const ItemInsert = () => {
                     <View style={styles.text3_warrap}>
                         <InputInfo id="quantity_shipped" index={index} labelContext="출하수량 :" defaultValue={0} handleCondition={handleItemCondition} />
                         {/* <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} /> */}
-                        <Text style={styles.text3_label}>요청납기 : </Text>      
+                        <Text style={styles.text3_label}> 요청납기 : </Text>      
                         <Text style={styles.text3_context}>{insertList.need_by_date}</Text> 
                     </View>
                     </>
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'orange',
     },
     text3_context: {
-        height: 35,
+        height: 55,
         width: '23%',
         fontSize: 18,
         color: '#000000',

@@ -15,7 +15,7 @@ const ItemInfo = () => {
         checkedList: checkedListStore.checkedList.get(),
         changeCheckedList: checkedListStore.changeCheckedList,
     }));
-    console.log("4 page : ", checkedList);
+    // console.log("4 page : ", checkedList);
 
     const [isSelected, setSelection] = useState(false);
     // const [sendData, setSendData] = useState({});

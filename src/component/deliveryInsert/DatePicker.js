@@ -17,7 +17,7 @@ const DatePicker = ({id, index, handleCondition}) => {
   };
 
   const handleConfirm = (date) => {
-    console.log("A date has been picked: ", date);
+    // console.log("A date has been picked: ", date);
     // setDate(date);
     // setDate('22-06-06');
     // onchangeText(date.format("yyyy/mm/dd"));

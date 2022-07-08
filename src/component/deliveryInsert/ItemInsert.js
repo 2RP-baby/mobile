@@ -30,8 +30,8 @@ const ItemInsert = () => {
         // tempCondition.index.value = value;
 
         // console.log("id : ", id);
-        console.log("value : ", value);
-        console.log("index : ", index);
+        // console.log("value : ", value);
+        // console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
@@ -62,7 +62,7 @@ const ItemInsert = () => {
         changeCheckedList(tempCondition);
     };
 
-    console.log("checkedList", checkedList);
+    // console.log("checkedList", checkedList);
 
     // let value = false;
 
@@ -83,7 +83,7 @@ const ItemInsert = () => {
                                 style={styles.checheckBox}
                                 onPress={
                                     (value)=> {
-                                        console.log("index : ",index,", value : ", value);
+                                        // console.log("index : ",index,", value : ", value);
                                         value ?  checkedCondition(index) : uncheckedCondition(index)
                                     }
                                 }  

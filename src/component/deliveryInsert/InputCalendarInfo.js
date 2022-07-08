@@ -3,7 +3,7 @@ import {Text, TextInput, StyleSheet} from 'react-native';
 import moment from 'moment';
 const InputCalendarInfo = ({id, index, labelContext, replaceContext, defaultValue, handleCondition, date}) => {
     const _onChange = event => setText(...event.nativeEvent.text);
-    console.log("input Calender123",date);
+    // console.log("input Calender123",date);
     return (
         <>
             <Text style={styles.label}>{labelContext}</Text>

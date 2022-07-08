@@ -26,7 +26,7 @@ const ShipDeliverySubmit = ({navigation}) => {
     }));
 
     // checkedList : json -> 배열
-    console.log("checkedList :!!!!~~~", Object.values(checkedList));
+    // console.log("checkedList :!!!!~~~", Object.values(checkedList));
     const ship2List = Object.values(checkedList);
     
     const [inputData, setInputData] = useState({
@@ -50,14 +50,14 @@ const ShipDeliverySubmit = ({navigation}) => {
         setInputData(tempCondition);
     };
 
-    console.log("inputData : ", inputData);
-    console.log("deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("inputData : ", inputData);
+    // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
 
 
     // 납품신청 버튼
     const InsertInfo =  async (sendData) => {
         const data = await insertSccDeliveryInfo(sendData);
-        console.log(data);
+        // console.log(data);
         data ? goAlert() :  Alert.alert("POSCO 전송이 실패되었습니다.")
     };  
 
@@ -91,12 +91,13 @@ const ShipDeliverySubmit = ({navigation}) => {
             <View style ={styles.inputInfo}>
                 <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
 
-                {/* <View style ={styles.datePicker}> */}
+                <View style ={styles.datePicker}>
                     {/* <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/> */}
-                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.expected_receipt_date}/>                 
-                    <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
-                {/* </View> */}
-
+                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.expected_receipt_date}/>  
+                    <View style ={styles.Picker}>
+                        <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
+                    </View>
+                </View>
                 <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
@@ -113,12 +114,16 @@ const styles = StyleSheet.create({
     datePicker:{
         flexDirection:'row'
     },
+    Picker:{
+        marginTop: 40,
+        marginLeft: 130,
+    },
     inputInfo:{
         marginLeft:10,
     },
     fix:{
         width:'100%',
-        height:'16%',
+        height:'23%',
         marginBottom:25,
 
     },

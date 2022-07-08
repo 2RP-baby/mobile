@@ -25,7 +25,7 @@ const DeliverySubmit = ({navigation}) => {
     }));
 
     // checkedList : json -> 배열
-    console.log("checkedList :!!!!~~~", Object.values(checkedList));
+    // console.log("checkedList :!!!!~~~", Object.values(checkedList));
     const scc2List = Object.values(checkedList);
     
     const [inputData, setInputData] = useState({
@@ -48,14 +48,14 @@ const DeliverySubmit = ({navigation}) => {
         setInputData(tempCondition);
     };
 
-    console.log("inputData : ", inputData);
+    // console.log("inputData : ", inputData);
     // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
 
 
     // 납품신청 버튼
     const InsertInfo =  async (sendData) => {
         const data = await insertSccDeliveryInfo(sendData);
-        console.log(data);
+        // console.log(data);
     };  
 
     const goAlert = () =>{
