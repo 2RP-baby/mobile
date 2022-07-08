@@ -53,7 +53,7 @@ const DrawerNavigator = () => {
           drawerIcon: ()=>(
             <Image style={styles.image} source={homeIcon} />
           ),
-          }} 
+        }} 
       />
       <Drawer.Screen name="Profile" component={ProfileScreen}
       options={{

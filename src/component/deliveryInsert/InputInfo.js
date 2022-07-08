@@ -9,8 +9,8 @@ const InputInfo = ({id, index, labelContext, replaceContext, defaultValue, handl
             <Text style={styles.label}>{labelContext}</Text>
             <TextInput
                 style={styles.input}
-                placeholder={replaceContext}
-                defaultValue={defaultValue}
+                // placeholder={replaceContext}
+                // defaultValue={defaultValue}
                 onChange={event => handleCondition(index, id, event.nativeEvent.text)}/>
         </>
     );
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         // marginRight: 5,
     },
     input:{
-        height: 30,
+        height: '60%',
         width: '28%',
         borderWidth: 0.7,
         borderColor: '#005386',
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginRight: 10,
         marginBottom: 10,
-        // backgroundColor: 'yellow',
-
     },
 })
 

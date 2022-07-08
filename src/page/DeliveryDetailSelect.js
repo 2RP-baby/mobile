@@ -3,6 +3,8 @@ import {View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
+import { ScrollView } from 'react-native-gesture-handler';
+import {Card} from 'react-native-shadow-cards';
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
@@ -26,19 +28,19 @@ const DeliveryDetailSelect = ({navigation}) => {
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const moreInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
-        console.log("page++", deliveryCondition);
+        // console.log("page++", deliveryCondition);
         selectMoreList();
     }
 
     const beforeInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
-        console.log("page--", deliveryCondition);
+        // console.log("page--", deliveryCondition);
         selectMoreList();
     }
 
     const selectMoreList = async () => {
         const data = await getSearchList(deliveryCondition);
-        console.log("typeof list : ", typeof data);
+        // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
     const selectDeliveryInsert =  async (po_num) => {
@@ -47,14 +49,13 @@ const DeliveryDetailSelect = ({navigation}) => {
     };  
 
     return (
-        <View style={styles.view}>
-            {/* {test()} */}
+        <ScrollView>
+        {/* <View style={styles.view}> */}
             {
                 searchedList.map((searchedlist, index)=>(
                     <View key={index} style={styles.view1}>
+                    <Card style={styles.card}>
                         <View style={styles.containerRow}>
-
-
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
                                     onPress={async () => {
@@ -72,18 +73,17 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                         </View>
-                        
-
                         <>
                         <View style={styles.textContainer2}>
-                                <Text>{searchedlist.comments}</Text>
+                                <Text style={styles.text2}>{searchedlist.comments}</Text>
                         </View>
-                        <View style={styles.textContainer2}>
-                            <Text>
+                        <View style={styles.textContainer3}>
+                            <Text style={styles.text3}>
                                 {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
                             </Text>
                         </View>
                         </>
+                        </Card>
                     </View>
                 ))
             }
@@ -98,30 +98,27 @@ const DeliveryDetailSelect = ({navigation}) => {
                             moreInfo();
                         }}/>
             </View> 
-        </View>
+        {/* </View> */}
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    view:{
-        justifyContent: 'center',
-        alignItems: "center",
-        marginTop: 20,
-    },
     view1:{
-        width: '80%',
-        marginBottom: 20,
+        marginBottom: 10,
+        alignItems: "center",
+    },
+    card:{
+        marginTop: 10,
     },
     text:{
-        color: 'blue',
+        color: '#005386',
         textDecorationLine: 'underline',
+        fontWeight: 'bold',
         fontSize:20,
-      },
+    },
     containerRow:{
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: "center",
-        marginBottom: 0,
     },
     containerColumn:{
         flexDirection: 'column',
@@ -136,23 +133,49 @@ const styles = StyleSheet.create({
         // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
+        marginTop: 10,
+        // borderWidth: 1,
     },
     textContainer1:{
         width: '50%',
         height: 50,
+        marginTop: 10,
+
         // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
+        // borderWidth: 1,
     },
     textContainer2:{
-        // width: 573,
         width: '100%',
-        height: 50,
+        height: 30,
+        // marginLeft: 20,
+        marginTop: 15,
+        marginBottom: 20,
+
+        // marginTop: 15,
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
+        // borderWidth: 1,
+    },
+    textContainer3:{
+        width: '100%',
+        height: 50,
+        alignItems: "center",
+        
+
+        // marginTop: 15,
+        // justifyContent: 'center',
+        // alignItems: "center",
+        // borderWidth: 1,
+    },
+    text2:{
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    text3:{
+        fontSize: 13,
+        // fontWeight: 'bold',
     },
     button:{
         flexDirection: 'row',

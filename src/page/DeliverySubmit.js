@@ -77,12 +77,11 @@ const DeliverySubmit = ({navigation}) => {
         );  
     }
     return (
-        <ScrollView >
-            
+        <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <View>
+            <View style={styles.ItemInfo}>
                 <ItemInfo/>
             </View>
             <View style ={styles.inputInfo}>
@@ -94,23 +93,31 @@ const DeliverySubmit = ({navigation}) => {
                 <Button title="납품신청" color="#005386"
                     onPress={() => goAlert()}/>
             </View>
-        </ScrollView>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
-    inputInfo:{
-        marginLeft:10,
+    header:{
+        height:'75%',
+        marginBottom: 400,
+        alignItems: "center",
     },
     fix:{
         width:'100%',
-        height:'16%',
-        marginBottom:25,
-
+        height:'25%',
     },
-    header:{
-        // alignItems: "center",
-        marginBottom: 400,
+    ItemInfo:{
+        alignItems: "center",
+        height: '60%',
+        // backgroundColor:'yellow',
+    },
+    inputInfo:{
+        width: '90%',
+        borderRadius: 20,
+        alignItems: "center",
+        marginTop: 10,
+        backgroundColor:'#005386',
     },
     button:{
         width: '100%',

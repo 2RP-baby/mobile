@@ -1,36 +1,39 @@
 import React from 'react';
-import { Text, StyleSheet, TextInput} from 'react-native';
+import { Text, StyleSheet, TextInput, View} from 'react-native';
 
 const InputInfo = ({id, labelContext, handleCondition}) => {
     return (
-        <>
+        <View style={styles.header}>
             <Text style={styles.text}>{labelContext}</Text>
             <TextInput
                 style={styles.input}
-                // placeholder={replaceContext}
-                // defaultValue={defaultValue}
                 onChange={event => handleCondition(id, event.nativeEvent.text)}/>
-        </>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
     header:{
-        padding: 10
+        flexDirection:'row',
+        justifyContent: 'center',
+        width: '90%',
     },
     text: {
+        width: '35%',
         fontSize: 18,
-        color: '#000000',
+        color: '#ffffff',
         marginTop: 5,
     },
     input:{
+        width: '50%',
         borderWidth: 1,
-        borderColor: '#005386',
-        padding: 10, 
+        borderColor: '#ffffff',
+        // padding: 10, 
         fontSize: 15,
         width: 200,
         height: 40,
         marginTop: 5,
+        borderRadius: 5,
     },
     text1: {
         height: 35,
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     text2: {
         height: 35,
         fontSize: 18,
-        color: '#000000',
+        color: '#ffffff',
     },
 })
 

@@ -5,6 +5,8 @@ import useRootData from '../../hooks/useRootData';
 import InputInfo from './InputInfo';
 import DatePicker from './DatePicker';
 import InputCalendarInfo from './InputCalendarInfo';
+import {Card} from 'react-native-shadow-cards';
+
 const ItemInsert = () => {
 
     // mobx
@@ -30,8 +32,8 @@ const ItemInsert = () => {
         // tempCondition.index.value = value;
 
         // console.log("id : ", id);
-        console.log("value : ", value);
-        console.log("index : ", index);
+        // console.log("value : ", value);
+        // console.log("index : ", index);
         // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
@@ -74,55 +76,55 @@ const ItemInsert = () => {
 
     return (
         <ScrollView>
-            <>
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
-                 <View style={styles.check}>
-                    {/* {selected ? console.log("true") : console.log("false")} */}
-                 <BouncyCheckbox 
-                                style={styles.checheckBox}
-                                onPress={
-                                    (value)=> {
-                                        console.log("index : ",index,", value : ", value);
-                                        value ?  checkedCondition(index) : uncheckedCondition(index)
-                                    }
-                                }  
-                                fillColor="#005386"
-                                unfillColor="#ffffff"/>
-                </View>
-                {/* <>{isSelected ? <Text>hi</Text> : <Text>ii</Text>}</> */}
-                <View>
-                    <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
-                    <Text style={styles.text2}>{insertList.item_description}</Text>     
-                    <>
-                    <View style={styles.text3_warrap}>
-                        <Text style={styles.text3_label}>주문수량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.quantity}</Text>      
-                        <Text style={styles.text3_label}>주문잔량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.remaining}</Text>   
+                    <Card style={styles.card}>
+                    <View style={styles.check}>
+                        {/* {selected ? console.log("true") : console.log("false")} */}
+                    <BouncyCheckbox 
+                                    style={styles.checheckBox}
+                                    onPress={
+                                        (value)=> {
+                                            console.log("index : ",index,", value : ", value);
+                                            value ?  checkedCondition(index) : uncheckedCondition(index)
+                                        }
+                                    }  
+                                    fillColor="#005386"
+                                    unfillColor="#ffffff"/>
                     </View>
-                    </>
-                    <>
-                    <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
-                        <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
-                        {/* <Text style={styles.label}>요청납기 :</Text>
-                        <Text style={styles.text3_context}>{date}</Text> */}
-                        <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
-                        {/* <DatePicker/> */}
+                    {/* <>{isSelected ? <Text>hi</Text> : <Text>ii</Text>}</> */}
+                    <View>
+                        <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
+                        <Text style={styles.text2}>{insertList.item_description}</Text>     
+                        <>
+                        <View style={styles.text3_warrap}>
+                            <Text style={styles.text3_label}>주문수량 : </Text>      
+                            <Text style={styles.text3_context}>{insertList.quantity}</Text>      
+                            <Text style={styles.text3_label}>주문잔량 : </Text>      
+                            <Text style={styles.text3_context}>{insertList.remaining}</Text>   
+                        </View>
+                        </>
+                        <>
+                        <View style={styles.text3_warrap}>
+                            <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
+                            <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
+                            {/* <Text style={styles.label}>요청납기 :</Text>
+                            <Text style={styles.text3_context}>{date}</Text> */}
+                            <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
+                            {/* <DatePicker/> */}
+                        </View>
+                        </>
+                        <View style={styles.text3_warrap}>
+                            <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
+                            {/* <Text style={styles.text3_label}>Comment :</Text>   
+                            <TextInput style={styles.input2}
+                                onChange={e => handleItemCondition(index, e.nativeEvent.text)}
+                                /> */}
+                        </View>
                     </View>
-                    </>
-                    <View style={styles.text3_warrap}>
-                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
-                        {/* <Text style={styles.text3_label}>Comment :</Text>   
-                        <TextInput style={styles.input2}
-                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                            /> */}
-                    </View>
-                </View>
+                </Card>
             </View>
             ))}
-            </>
         </ScrollView>
     );
 };
@@ -130,14 +132,19 @@ const ItemInsert = () => {
 const styles = StyleSheet.create({
     header:{
         flexDirection: 'row',
-        marginTop: 10,
-        borderWidth:2,
-        borderColor:"rgba(0,83,134,0.5)",
+        marginTop: 5,
+        // borderWidth:2,
+        // borderColor:"rgba(0,83,134,0.5)",
         marginLeft: 10,
         marginRight: 10,
+        marginBottom: 5,
+    },
+    card: {
+        flexDirection: 'row',
     },
     check:{
         width: '5%',
+        justifyContent : 'center',
         // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
@@ -156,8 +163,6 @@ const styles = StyleSheet.create({
     text3_warrap: {
         flexDirection: 'row',
         width: '90%',
-        // borderWidth: 3,
-        // backgroundColor: 'green',
     },
     text3_label: {
         height: 35,
@@ -165,7 +170,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#000000',
         marginRight: 15,
-        // backgroundColor: 'orange',
     },
     text3_context: {
         height: 35,
@@ -176,9 +180,8 @@ const styles = StyleSheet.create({
     input1:{
         height: 30,
         width: '20%',
-        borderWidth: 0.7,
-        borderColor: '#005386',
-        // padding: 10, 
+        // borderWidth: 0.7,
+        // borderColor: '#005386',
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,
@@ -186,13 +189,9 @@ const styles = StyleSheet.create({
     input2:{
         height: 30,
         width: '20%',
-        borderWidth: 0.7,
-        borderColor: '#005386',
-        // padding: 10, 
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,
-        // backgroundColor: 'yellow',
     },
 })
 

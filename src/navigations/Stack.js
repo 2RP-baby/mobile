@@ -28,7 +28,9 @@ const StackNavigation = ({navigation}) => {
   return (
     <>
     <Stack.Navigator
+    // initialRouteName='DeliverySelect'
       screenOptions={{
+      
         // 메뉴바
         headerRight: () => (
           <View>
