@@ -1,15 +1,16 @@
 import React from 'react';
-import {Text, TextInput, StyleSheet} from 'react-native';
+import {Text, TextInput, StyleSheet, View} from 'react-native';
 import moment from 'moment';
 import DatePicker from './DatePicker'
 const InputCalendarInfo = ({id, index, labelContext, replaceContext, defaultValue, handleCondition, date}) => {
     const _onChange = event => setText(...event.nativeEvent.text);
-    console.log("input Calender",date);
+    // console.log("input Calender",date);
     return (
         <>
+        <View style={styles.head}>
             <Text style={styles.label}>{labelContext}</Text>
             {date?(<Text style={styles.input}>{moment(date).format("yyyy-MM-DD")}</Text>):(<Text style={styles.input}>{date}</Text>)}
-
+        </View>
             {/* <Text
                 style={styles.input}
                 placeholder={replaceContext}
@@ -23,23 +24,23 @@ const InputCalendarInfo = ({id, index, labelContext, replaceContext, defaultValu
 
 const styles = StyleSheet.create({
     head:{
-        flexDirection: 'row',
-        backgroundColor: 'red',
-        // height: 100,
-        width: '50%',
-        borderWidth: 3
+        flexDirection: 'column',
+        // backgroundColor: 'red',
+        // // height: 100,
+        // width: '50%',
+        // borderWidth: 3
     },
     label: {
         height: 35,
-        width: '20%',
+        width: '100%',
         fontSize: 18,
         color: '#000000',
         // backgroundColor: 'orange',
         // marginRight: 5,
     },
     input:{
-        height: 30,
-        width: '28%',
+        height: 40,
+        width: '250%',
         borderWidth: 0.7,
         borderColor: '#005386',
         // padding: 10, 

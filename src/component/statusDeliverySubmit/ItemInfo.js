@@ -15,8 +15,8 @@ const ItemInfo = ({receiveData}) => {
         deliveryInsertInfo: statusDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: statusDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
-    console.log("receiveData.scc2List : ",receiveData.scc2List);
-    console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
+    // console.log("receiveData.scc2List : ",receiveData.scc2List);
+    // console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
     return (
         <ScrollView>

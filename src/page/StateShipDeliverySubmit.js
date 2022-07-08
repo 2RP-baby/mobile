@@ -25,7 +25,7 @@ const ShipDeliverySubmit = ({navigation}) => {
     }));
 
     // checkedList : json -> 배열
-    console.log("checkedList :!!!!~~~", Object.values(checkedList));
+    // console.log("checkedList :!!!!~~~", Object.values(checkedList));
     const ship2List = Object.values(checkedList);
     
     const [inputData, setInputData] = useState({
@@ -49,14 +49,14 @@ const ShipDeliverySubmit = ({navigation}) => {
         setInputData(tempCondition);
     };
 
-    console.log("inputData : ", inputData);
-    console.log("deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("inputData : ", inputData);
+    // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
 
 
     // 납품신청 버튼
     const InsertInfo =  async (sendData) => {
         const data = await insertSccDeliveryInfo(sendData);
-        console.log(data);
+        // console.log(data);
         data ? goAlert() :  Alert.alert("POSCO 전송이 실패되었습니다.")
     };  
 

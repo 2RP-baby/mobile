@@ -26,19 +26,19 @@ const DeliveryDetailSelect = ({navigation}) => {
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const moreInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
-        console.log("page++", deliveryCondition);
+        // console.log("page++", deliveryCondition);
         selectMoreList();
     }
 
     const beforeInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
-        console.log("page--", deliveryCondition);
+        // console.log("page--", deliveryCondition);
         selectMoreList();
     }
 
     const selectMoreList = async () => {
         const data = await getSearchList(deliveryCondition);
-        console.log("typeof list : ", typeof data);
+        // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
     const selectDeliveryInsert =  async (po_num) => {

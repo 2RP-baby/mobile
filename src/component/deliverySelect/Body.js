@@ -29,7 +29,7 @@ const Body = ({navigation}) => {
         setSelectResult(data);
         return data;
     };
-    console.log("select 결과 2 : ", selectResult);
+    // console.log("select 결과 2 : ", selectResult);
 
 
     return (

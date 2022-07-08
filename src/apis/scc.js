@@ -6,7 +6,7 @@ const PREFIX_URL = "/scc";
 export const getSearchList = async (test) => {
   try {
     const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchList`, test);
-   console.log("data~~~~", data);
+  //  console.log("data~~~~", data);
     return data;
   } catch (err) {
     console.log("fail", err);

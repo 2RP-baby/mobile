@@ -35,8 +35,8 @@ const DeliverySelect = ({navigation}) => {
         // mobx에 저장하기
         changeSearchedList(data);
     };
-    console.log("select 조건 ! : ", deliveryCondition);
-    console.log("select 결과 ! : ", searchedList);
+    // console.log("select 조건 ! : ", deliveryCondition);
+    // console.log("select 결과 ! : ", searchedList);
 
     return (
         <ScrollView>

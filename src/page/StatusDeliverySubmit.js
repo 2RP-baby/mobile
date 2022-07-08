@@ -24,7 +24,7 @@ const DeliverySubmit = ({navigation}) => {
         changeCheckedList: statusCheckedListStore.changeCheckedList,
     }));
 
-    console.log("Submit deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("Submit deliveryInsertInfo : ", deliveryInsertInfo);
 
     const receiveData = {
             "scc1" : {
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         // width:'100%',
-        height: '25%',
+        height: '23%',
         marginBottom:5,
 
     },
