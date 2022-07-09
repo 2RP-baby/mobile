@@ -26,7 +26,7 @@ import { responsiveScreenHeight, responsiveScreenWidth, responsiveScreenFontSize
 LogBox.ignoreLogs(['s']);
 
 const BottomTab = createBottomTabNavigator();
-
+// 스택이름
 const HomeStack = createStackNavigator();
 
 const MypageStack = createStackNavigator();
