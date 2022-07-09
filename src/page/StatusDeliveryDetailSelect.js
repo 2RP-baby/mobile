@@ -24,31 +24,31 @@ const DeliveryDetailSelect = ({navigation}) => {
     }));
 
     // 전 페이지에서의 select 결과
-    console.log("Detail searchedList : ", searchedList);
+    // console.log("Detail searchedList : ", searchedList);
 
     // po_num 클릭 후 해당 데이터를 다음 페이지로 넘긴다.
-    console.log("Detail deliveryInsertInfo : ", deliveryInsertInfo);
+    // console.log("Detail deliveryInsertInfo : ", deliveryInsertInfo);
 
     // 전 페이지에서의 select 조건
-    console.log("Detail deliveryCondition : ", deliveryCondition);
+    // console.log("Detail deliveryCondition : ", deliveryCondition);
 
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const moreInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
-        console.log("page++", deliveryCondition);
+        // console.log("page++", deliveryCondition);
         selectMoreList();
     }
 
     const beforeInfo = () => {
         changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
-        console.log("page--", deliveryCondition);
+        // console.log("page--", deliveryCondition);
         selectMoreList();
     }
 
     const selectMoreList = async () => {
         const data = await getSearchList(deliveryCondition);
-        console.log("typeof list : ", typeof data);
+        // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
     const selectDeliveryInsert =  async (po_num) => {

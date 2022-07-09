@@ -6,7 +6,6 @@ import useRootData from '../../hooks/useRootData';
 
 
 const ItemInfo = ({receiveData}) => {
-
     // mobx
     const {
         deliveryInsertInfo,
@@ -15,8 +14,6 @@ const ItemInfo = ({receiveData}) => {
         deliveryInsertInfo: statusDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: statusDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
-
-
     
     return (
         <ScrollView>

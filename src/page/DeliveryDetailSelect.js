@@ -4,7 +4,10 @@ import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 import { ScrollView } from 'react-native-gesture-handler';
+<<<<<<< HEAD
 import {Card} from 'react-native-shadow-cards';
+=======
+>>>>>>> develop
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
@@ -50,7 +53,8 @@ const DeliveryDetailSelect = ({navigation}) => {
 
     return (
         <ScrollView>
-        {/* <View style={styles.view}> */}
+        <View style={styles.view}>
+
             {
                 searchedList.map((searchedlist, index)=>(
                     <View key={index} style={styles.view1}>
@@ -98,12 +102,19 @@ const DeliveryDetailSelect = ({navigation}) => {
                             moreInfo();
                         }}/>
             </View> 
-        {/* </View> */}
+        </View>
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+    view:{
+        justifyContent: 'center',
+        alignItems: "center",
+        marginTop: 100,
+        marginBottom:100,
+
+    },
     view1:{
         marginBottom: 10,
         alignItems: "center",

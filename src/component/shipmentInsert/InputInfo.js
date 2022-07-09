@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         borderWidth: 0.7,
         borderColor: '#005386',
         // padding: 10, 
-        fontSize: 15,
-        // marginRight: 10,
+        fontSize: 10,
+        marginRight: 5,
         marginBottom: 10,
         // backgroundColor: 'yellow',
 

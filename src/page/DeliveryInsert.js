@@ -35,6 +35,10 @@ const DeliveryInsert = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+    fix:{
+        width:'100%',
+        height:'18%',
+    },
     header:{
         alignItems: "center",
         height:'75%',

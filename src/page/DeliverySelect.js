@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, StyleSheet, Button} from 'react-native';
+import {View, StyleSheet, Button,TouchableOpacity,Text} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
@@ -36,25 +36,29 @@ const DeliverySelect = ({navigation}) => {
         changeSearchedList(data);
     };
     console.log("select 조건 ! : ", deliveryCondition);
-    console.log("select 결과 ! : ", searchedList);
+    // console.log("select 결과 ! : ", searchedList);
 
     return (
         <ScrollView>
-        <View style={styles.view1}>
-            <InputInfo id="po_num"      labelContext="주문번호 (주문번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="staff_name"     labelContext="주문신청자 *" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
-            <InputInfo id="staff_dept_code" labelContext="신청부서 *" replaceContext="PEZ21EQ" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
-            <View style={styles.button}>
-                <Button title="주문조회" color="#005386" 
-                onPress={ () =>{ 
-                    selectDeliveryList();
-                    navigation.navigate('DeliveryDetailSelect');
-                }}/>
+            <View style={styles.view1}>
+                <InputInfo id="po_num"      labelContext="주문번호 (주문번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="staff_name"     labelContext="주문신청자 *" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
+                <InputInfo id="staff_dept_code" labelContext="신청부서 *" replaceContext="PEZ21EQ" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
+                
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
+                        selectDeliveryList();
+                        navigation.navigate('DeliveryDetailSelect');
+                    }}
+                    >
+                    <Text style={styles.text}>주문조회</Text>
+                </TouchableOpacity>
             </View>
-        </View>
         </ScrollView>
     );
 };
@@ -70,11 +74,19 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 10,
     },
-    button:{
-        width: 100,
-        height: 40,
-        borderRadius: 50,
-        marginTop: 30,
+    button: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 40,
+        borderRadius:10,
+      },
+    text: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
     }
 })
 

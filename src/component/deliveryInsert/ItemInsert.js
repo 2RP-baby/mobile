@@ -65,7 +65,7 @@ const ItemInsert = () => {
         changeCheckedList(tempCondition);
     };
 
-    console.log("checkedList", checkedList);
+    // console.log("checkedList", checkedList);
 
     // let value = false;
 
@@ -79,6 +79,7 @@ const ItemInsert = () => {
         <ScrollView>
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
+<<<<<<< HEAD
                     <Card style={styles.card}>
                         <View style={styles.check}>
                             <BouncyCheckbox 
@@ -122,6 +123,48 @@ const ItemInsert = () => {
                         </View>
                     </View>
                 </Card>
+=======
+                 <View style={styles.check}>
+                    {/* {selected ? console.log("true") : console.log("false")} */}
+                 <BouncyCheckbox 
+                    style={styles.checheckBox}
+                    onPress={
+                        (value)=> {
+                            // console.log("index : ",index,", value : ", value);
+                            value ?  checkedCondition(index) : uncheckedCondition(index)
+                        }
+                    }  
+                    fillColor="#005386"
+                    unfillColor="#ffffff"/>
+                </View>
+                {/* <>{isSelected ? <Text>hi</Text> : <Text>ii</Text>}</> */}
+                <View>
+                    <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
+                    <Text style={styles.text2}>{insertList.item_description}</Text>     
+                    <>
+                    <View style={styles.text3_warrap}>
+                        <Text style={styles.text3_label}>주문수량 : </Text>      
+                        <Text style={styles.text3_context}>{insertList.quantity}</Text>      
+                        <Text style={styles.text3_label}>주문잔량 : </Text>      
+                        <Text style={styles.text3_context}>{insertList.remaining}</Text>   
+                    </View>
+                    </>
+                    <>
+                    <View style={styles.text3_warrap}>
+                        <InputInfo id="quantity_ordered" index={index} labelContext="요청수량 :" defaultValue={0} handleCondition={handleItemCondition} />
+                        <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>                 
+                        <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
+                    </View>
+                    </>
+                    <View style={styles.text3_warrap}>
+                        <InputInfo id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
+                        {/* <Text style={styles.text3_label}>Comment :</Text>   
+                        <TextInput style={styles.input2}
+                            onChange={e => handleItemCondition(index, e.nativeEvent.text)}
+                            /> */}
+                    </View>
+                </View>
+>>>>>>> develop
             </View>
             ))}
         </ScrollView>
@@ -167,7 +210,7 @@ const styles = StyleSheet.create({
     },
     text3_label: {
         height: 35,
-        width: '24%',
+        width: '22%',
         fontSize: 18,
         color: '#000000',
         marginRight: 15,

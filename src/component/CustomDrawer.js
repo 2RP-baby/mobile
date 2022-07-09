@@ -18,9 +18,9 @@ const CustomDrawer = (props) => {
                         source={require('../../assets/icon/profile.jpg')} 
                         style={{height:80,width:80,borderRadius:40, marginBottom:10, marginLeft:20}}
                     />
-                    <Text style={{color:'#fff',fontSize: 18, marginLeft:10}}>이윤성 프로님</Text>
+                    <Text style={{color:'#fff',fontSize: 18, marginLeft:10 , marginTop:10, marginBottom:10}}>이윤성 프로님</Text>
                     <View style = {{flexDirection:'row'}}>
-                        <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:10}}>ERP 사업부</Text>
+                        <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:15}}>ERP 사업부</Text>
                         {/* <FontAwesome5 name = "coins" size={12} color="#fff" marginLeft={10}></FontAwesome5> */}
                     </View>
                     <View style = {{flex:1, backgroundColor:'#fff', paddingTop:10}}>

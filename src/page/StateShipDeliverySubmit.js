@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
+import { View,Image, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { insertSccDeliveryInfo } from '../apis/shipment';
 import FixBox from '../component/stateShipmentSubmit/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/stateShipmentSubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
-
+import Hamburger from '../../assets/icon/menu.png';
 const StateShipDeliverySubmit = ({navigation}) => {
 
     const {
@@ -57,6 +57,8 @@ const StateShipDeliverySubmit = ({navigation}) => {
     // checkedList : json -> 배열
     // console.log("checkedList :!!!!~~~", Object.values(checkedList));
     // const ship2List = Object.values(checkedList);
+    const ship2List = Object.values(checkedList);
+
     
     // const [inputData, setInputData] = useState({
     //     "ship1" : {
@@ -83,12 +85,12 @@ const StateShipDeliverySubmit = ({navigation}) => {
     // console.log("deliveryInsertInfo : ", deliveryInsertInfo);
 
 
-    // // 납품신청 버튼
-    // const InsertInfo =  async (sendData) => {
-    //     const data = await insertSccDeliveryInfo(sendData);
-    //     console.log(data);
-    //     data ? goAlert() :  Alert.alert("POSCO 전송이 실패되었습니다.")
-    // };  
+    // 납품신청 버튼
+    const InsertInfo =  async (sendData) => {
+        const data = await insertSccDeliveryInfo(sendData);
+        // console.log(data);
+        data ? goAlert() :  Alert.alert("POSCO 전송이 실패되었습니다.")
+    };  
 
     // const goAlert = () =>{
     //     Alert.alert(                   
@@ -113,20 +115,85 @@ const StateShipDeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox receiveData={receiveData}/>
             </View>
+            <View style ={styles.deliveryImage}>
+                <Image style={styles.image} backgroundColor= 'red' source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+                <Image style={styles.image} source={Hamburger} />
+            </View>
             <View>
+{/* <<<<<<< HEAD
                 <ItemInfo receiveData={receiveData}/>
             </View>
+======= */}
+                <ItemInfo/>
+            </View>
+            {/* <View style ={styles.inputInfo}>
+                <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
+            </View> */}
+            {/* <View style={styles.button}>
+                <Button title="POSCO 전송" color="#005386"
+                    onPress={() => InsertInfo(inputData)}/>
+            </View> */}
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    head:{
-        height: '100%',
+// <<<<<<< HEAD
+//     head:{
+//         height: '100%',
+//     },
+//     fix:{
+//         height: '25%',
+//         marginBottom:5,
+// =======
+    image:{
+        width: 30,
+        height: 30,
+        marginRight:100,
+        marginLeft:100,
+    },
+    deliveryImage:{
+        flexDirection:'row',
+    },
+    inputInfo:{
+        marginLeft:10,
     },
     fix:{
-        height: '25%',
-        marginBottom:5,
+        width:'100%',
+        height:'30%',
+        marginBottom:25,
+
+    },
+    header:{
+        // alignItems: "center",
+        marginBottom: 400,
+    },
+    button:{
+        width: '100%',
+        height: 40,
+        justifyContent: 'center',
+        alignItems: "center",
+        borderRadius: 50,
+        marginTop: 30,
+    },
+    text: {
+        fontSize: 18,
+        color: '#000000',
+        marginTop: 5,
+    },
+    input:{
+        borderWidth: 1,
+        borderColor: '#005386',
+        padding: 10, 
+        fontSize: 15,
+        width: 200,
+        height: 40,
+        marginTop: 5,
     },
 })
 

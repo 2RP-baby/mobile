@@ -29,7 +29,7 @@ const Body = ({navigation}) => {
         setSelectResult(data);
         return data;
     };
-    console.log("select 결과 2 : ", selectResult);
+    // console.log("select 결과 2 : ", selectResult);
 
 
     return (
@@ -40,8 +40,9 @@ const Body = ({navigation}) => {
             <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
+            
             <View style={styles.button}>
-                <Button title="주문조회" color="#005386" 
+                <Button title="주문조회"
                 // onPress={ (list) =>{ 
                 onPress={ () =>{ 
                     selectDeliveryList()
@@ -65,6 +66,8 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 50,
         marginTop: 60,
+        backgroundColor:"#005386",
+
     }
 })
 
