@@ -16,7 +16,7 @@ const ItemInfo = () => {
         checkedList: checkedListStore.checkedList.get(),
         changeCheckedList: checkedListStore.changeCheckedList,
     }));
-    console.log("4 page : ", checkedList);
+    // console.log("4 page : ", checkedList);
 
     const [isSelected, setSelection] = useState(false);
     // const [sendData, setSendData] = useState({});
@@ -42,7 +42,7 @@ const ItemInfo = () => {
 
                 return (
                 <View key={index} style={styles.header}>
-                    <Card>
+                    <Card style={styles.card}>
                     <Text style={styles.text1}>{item_name} / {item_uom} / {unit_price} 원 </Text>
                     <Text style={styles.text2}>{item_description}</Text>      
                     <View style={styles.text3_warrap}>
@@ -74,6 +74,9 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginBottom: 5,
         marginRight:10,
+    },
+    card:{
+        padding: 20,
     },
     text1: {
         height: 35,

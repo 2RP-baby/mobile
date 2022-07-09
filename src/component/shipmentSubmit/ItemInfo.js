@@ -15,7 +15,7 @@ const ItemInfo = () => {
         checkedList: shipCheckedListStore.checkedList.get(),
         changeCheckedList: shipCheckedListStore.changeCheckedList,
     }));
-    console.log("4 page : ", checkedList);
+    // console.log("4 page : ", checkedList);
 
     return (
         <ScrollView>

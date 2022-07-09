@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
     input:{
         height: '60%',
-        width: '28%',
+        width: '78%',
         borderWidth: 0.7,
         borderColor: '#005386',
         // padding: 10, 

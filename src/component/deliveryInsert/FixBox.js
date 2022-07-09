@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        // marginBottom: 30,
+        // margin:30,
     },
     card1:{
         width: '90%',
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         // borderRadius
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        // marginBottom: 10,
+        padding: 20,
+        
     },
     text: {
         width: '100%',

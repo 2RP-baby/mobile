@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     label: {
         height: 35,
-        width: '20%',
+        width: '18%',
         fontSize: 18,
         color: '#000000',
         // backgroundColor: 'orange',
@@ -44,8 +44,6 @@ const styles = StyleSheet.create({
         // padding: 10, 
         fontSize: 15,
         marginRight: 10,
-        marginBottom: 10,
-        // backgroundColor: 'yellow',
 
     },
 })
