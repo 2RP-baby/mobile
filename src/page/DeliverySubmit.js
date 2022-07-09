@@ -77,11 +77,7 @@ const DeliverySubmit = ({navigation}) => {
         );  
     }
     return (
-<<<<<<< HEAD
         <View style={styles.header}>
-=======
-        <ScrollView >
->>>>>>> develop
             <View style={styles.fix}>
                 <FixBox/>
             </View>

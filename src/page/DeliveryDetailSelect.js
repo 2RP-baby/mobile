@@ -4,10 +4,8 @@ import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 import { ScrollView } from 'react-native-gesture-handler';
-<<<<<<< HEAD
 import {Card} from 'react-native-shadow-cards';
-=======
->>>>>>> develop
+
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
