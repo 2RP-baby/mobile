@@ -36,8 +36,6 @@ const createRootStore = () => {
     statusDeliveryInsertStore,
     statusCheckedListStore,
 
-
-
     //State출하
     StateShipCheckedListStore,
     StateShipDeliveryInsertStore,

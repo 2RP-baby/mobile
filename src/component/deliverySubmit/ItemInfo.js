@@ -4,6 +4,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { ScrollView } from 'react-native-gesture-handler';
 import useRootData from '../../hooks/useRootData';
 import moment from 'moment';
+import { Card } from 'react-native-shadow-cards';
 
 const ItemInfo = () => {
 
@@ -41,6 +42,7 @@ const ItemInfo = () => {
 
                 return (
                 <View key={index} style={styles.header}>
+                    <Card style={styles.card}>
                     <Text style={styles.text1}>{item_name} / {item_uom} / {unit_price} 원 </Text>
                     <Text style={styles.text2}>{item_description}</Text>      
                     <View style={styles.text3_warrap}>
@@ -56,6 +58,7 @@ const ItemInfo = () => {
                         <Text style={styles.text4_label}>Comment:</Text>      
                         <Text style={styles.text4_context}>{comment}</Text>      
                     </View>
+                    </Card>
                 </View>
                 )
             })}
@@ -69,16 +72,11 @@ const styles = StyleSheet.create({
     header:{
         marginTop: 5,
         marginLeft: 10,
-        marginBottom: 20,
-        borderWidth:2,
-        borderColor:"rgba(0,83,134,0.5)",
+        marginBottom: 5,
         marginRight:10,
     },
-    check:{
-        width: '8%',
-        // backgroundColor: '#676767',
-        marginRight: 5,
-        marginLeft: 10,
+    card:{
+        padding: 20,
     },
     text1: {
         height: 35,

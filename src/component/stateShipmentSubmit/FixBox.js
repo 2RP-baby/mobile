@@ -9,9 +9,9 @@ const FixBox = ({receiveData}) => {
         // sccSearchOne의 결과
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-    } = useRootData(({statusDeliveryInsertStore}) => ({
-        deliveryInsertInfo: statusDeliveryInsertStore.deliveryInsertInfo.get(),
-        changeDeliveryInsertInfo: statusDeliveryInsertStore.changeDeliveryInsertInfo,
+    } = useRootData(({StateShipDeliveryInsertStore}) => ({
+        deliveryInsertInfo: StateShipDeliveryInsertStore.deliveryInsertInfo.get(),
+        changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
 
 
@@ -35,9 +35,9 @@ const FixBox = ({receiveData}) => {
             })}            
             </>  
             */}
-            {/* <Text style={styles.text}>납품 장소 : {receiveData.scc1.deliver_to_location}</Text> */}
-            {/* <Text style={styles.text}>요청 특기사항 : {receiveData.scc1.comment}</Text> */}
-            {/* <Text style={styles.text}>신청부서(Code 입력) : {receiveData.scc1.subniventory}</Text> */}
+            <Text style={styles.text}>납품 장소 : {receiveData.scc1.deliver_to_location}</Text>
+            <Text style={styles.text}>요청 특기사항 : {receiveData.scc1.comment}</Text>
+            <Text style={styles.text}>신청부서(Code 입력) : {receiveData.scc1.subniventory}</Text>
 
         </View>
     );

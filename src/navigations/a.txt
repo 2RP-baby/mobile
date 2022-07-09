@@ -1,0 +1,258 @@
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator, LogBox, Button, View, BackHandler, StyleSheet, Image } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
+
+import ClaimInsert from './ClaimInsert';
+import ClaimManage from './ClaimManage';
+import Login from './Login';
+import Startpage from './Startpage';
+import Mypage from './Mypage';
+import Dashboard from './Dashboard';
+import ClaimSelete from './ClaimSelete';
+import OrderSelete from './OrderSelete';
+
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { responsiveScreenHeight, responsiveScreenWidth, responsiveScreenFontSize } from 'react-native-responsive-dimensions';
+
+
+LogBox.ignoreLogs(['s']);
+
+const BottomTab = createBottomTabNavigator();
+// 스택이름
+const HomeStack = createStackNavigator();
+
+const MypageStack = createStackNavigator();
+
+const ClaimStack = createStackNavigator();
+
+const SeleteStack = createStackNavigator();
+
+const StartStack = createStackNavigator();
+
+const Stack = createStackNavigator();
+
+
+
+
+
+
+function HomeStacksrc({ navigation, route }) {
+  return (
+    <HomeStack.Navigator initialRouteName='Dashboard' >
+      <HomeStack.Screen name="Login" component={Login} options={{ headerShown: false, tabbarStyle: "none", gestureEnabled: false }} />
+      <HomeStack.Screen name="ClaimManage" component={ClaimManage} options={{ headerShown: false, gestureEnabled: false }} />
+      <HomeStack.Screen name="Startpage" component={Startpage} options={{ headerShown: false, gestureEnabled: false }} />
+      <HomeStack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, gestureEnabled: false }} />
+      <HomeStack.Screen name="ClaimInsert" component={ClaimInsert} options={{ headerShown: false }} />
+      <HomeStack.Screen name="ClaimSelete" component={ClaimSelete} />
+      <HomeStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false, gestureEnabled: false }} />
+      <HomeStack.Screen name="OrderSelete" component={OrderSelete} options={{ headerShown: false }} />
+    </HomeStack.Navigator>
+  );
+}
+
+
+function ClaimStacksrc() {
+  return (
+    <ClaimStack.Navigator initialRouteName='ClaimManage' >
+      <ClaimStack.Screen name="Login" component={Login} options={{ headerShown: false, gestureEnabled: false }} />
+      <ClaimStack.Screen name="ClaimManage" component={ClaimManage} options={{ headerShown: false, gestureEnabled: false }} />
+      <ClaimStack.Screen name="Startpage" component={Startpage} options={{ headerShown: false, gestureEnabled: false }} />
+      <ClaimStack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, gestureEnabled: false }} />
+      <ClaimStack.Screen name="ClaimInsert" component={ClaimInsert} options={{ headerShown: false }} />
+      <ClaimStack.Screen name="ClaimSelete" component={ClaimSelete} options={{ headerShown: false }} />
+      <ClaimStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false, gestureEnabled: false }} />
+      <ClaimStack.Screen name="OrderSelete" component={OrderSelete} options={{ headerShown: false }} />
+    </ClaimStack.Navigator>
+  );
+}
+
+
+function SeleteStacksrc() {
+  return (
+    <SeleteStack.Navigator initialRouteName='OrderSelete' >
+      <SeleteStack.Screen name="Login" component={Login} options={{ headerShown: false, gestureEnabled: false }} />
+      <SeleteStack.Screen name="ClaimManage" component={ClaimManage} options={{ headerShown: false, gestureEnabled: false }} />
+      <SeleteStack.Screen name="Startpage" component={Startpage} options={{ headerShown: false, gestureEnabled: false }} />
+      <SeleteStack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, gestureEnabled: false }} />
+      <SeleteStack.Screen name="ClaimInsert" component={ClaimInsert} options={{ headerShown: false }} />
+      <SeleteStack.Screen name="ClaimSelete" component={ClaimSelete} options={{ headerShown: false }} />
+      <SeleteStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false, gestureEnabled: false }} />
+      <SeleteStack.Screen name="OrderSelete" component={OrderSelete} options={{ headerShown: false, gestureEnabled: false }} />
+    </SeleteStack.Navigator>
+  );
+}
+
+function MypageStacksrc() {
+  return (
+    <MypageStack.Navigator initialRouteName='Mypage' >
+      <MypageStack.Screen name="Login" component={Login} options={{ headerShown: false, gestureEnabled: false }} />
+      <MypageStack.Screen name="ClaimManage" component={ClaimManage} options={{ headerShown: false, gestureEnabled: false }} />
+      <MypageStack.Screen name="Startpage" component={Startpage} options={{ headerShown: false, gestureEnabled: false }} />
+      <MypageStack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false, gestureEnabled: false }} />
+      <MypageStack.Screen name="ClaimInsert" component={ClaimInsert} options={{ headerShown: false }} />
+      <MypageStack.Screen name="ClaimSelete" component={ClaimSelete} options={{ headerShown: false }} />
+      <MypageStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false, gestureEnabled: false }} />
+      <MypageStack.Screen name="OrderSelete" component={OrderSelete} options={{ headerShown: false }} />
+    </MypageStack.Navigator>
+  );
+}
+function StartStacksrc() {
+  return (
+    <StartStack.Navigator initialRouteName='Startpage' >
+      <StartStack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+      <StartStack.Screen name="Startpage" component={Startpage} options={{ headerShown: false }} />
+    </StartStack.Navigator>
+  );
+}
+
+
+
+function BottomTabsrc() {
+  return (
+    <BottomTab.Navigator initialRouteName='StartStacksrc' >
+      <BottomTab.Screen name="HomeStacksrc" component={Dashboard}
+        // listeners={({ navigation, route }) => ({
+        //   tabPress: (e) => {
+        //     e.preventDefault();
+        //   },
+        // })}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />),
+        }}
+      />
+
+
+      <BottomTab.Screen name="ClaimStacksrc" component={ClaimStacksrc}
+        options={({ route }) => ({
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: 'Claim',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="clipboard-alert-outline" color={color} size={26} />
+          )
+        })}
+      />
+
+      <BottomTab.Screen
+        name="SeleteStacksrc" component={SeleteStacksrc}
+        options={{
+          tabBarVisible: 'none',
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: 'OrderProcess',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="fire-truck" color={color} size={26} />
+          ),
+
+        }}
+      />
+      <BottomTab.Screen
+        name="MypageStacksrc" component={MypageStacksrc}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: 'Myinfo',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      />
+    </BottomTab.Navigator>
+  );
+}
+
+export default () => {
+  return (
+    <NavigationContainer>
+
+      <Stack.Navigator initialRouteName='StartStacksrc' screenOptions={{ gestureEnabled: false }} activeColor='#999999' inactiveColor='#4b88cb' barStyle={{ backgroudColor: 'tomato' }}>
+        <Stack.Screen name="HomeStacksrc" component={HomeStacksrc} options={{ headerShown: false }} />
+        <Stack.Screen name="ClaimStacksrc" component={ClaimStacksrc} options={{ headerShown: false }} />
+        <Stack.Screen name="MypageStacksrc" component={MypageStacksrc} options={{ headerShown: false }} />
+        <Stack.Screen name="SeleteStacksrc" component={SeleteStacksrc} options={{ headerShown: false }} />
+        <Stack.Screen name="StartStacksrc" component={StartStacksrc} options={{ headerShown: false }} />
+        <Stack.Screen name="BottomTabsrc" component={BottomTabsrc} options={{ headerShown: false }} />
+
+
+        {/* <BottomTab.Screen name="StartStacksrc" component={StartStacksrc}
+          listeners={({ navigation, route }) => ({
+            tabPress: (e) => {
+              e.preventDefault();
+            },
+          })}
+          options={{
+            tabBarHideOnKeyboard: true,
+            tabBarStyle: { display: 'none' },
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarLabel: 'Home2',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home" color={color} size={1} />),
+          }}
+        />
+
+
+        <Stack.Screen name="HomeStacksrc" component={HomeStacksrc}
+          options={({ route }) => ({
+            tabBarHideOnKeyboard: true,
+            headerShown: false,
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />),
+          })}
+        />
+
+        <Stack.Screen
+          name="MypageStacksrc" component={MypageStacksrc}
+          options={{
+            tabBarVisible: 'none',
+            tabBarHideOnKeyboard: true,
+            headerShown: false,
+            tabBarLabel: 'Updates',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="bell" color={color} size={26} />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="SeleteStacksrc" component={SeleteStacksrc}
+          options={{
+            tabBarHideOnKeyboard: true,
+            headerShown: false,
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+        />
+
+
+        <Stack.Screen
+          name="ClaimStacksrc" component={ClaimStacksrc}
+          options={{
+            tabBarHideOnKeyboard: true,
+            headerShown: false,
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+        /> */}
+      </Stack.Navigator>
+
+    </NavigationContainer>
+  )
+} 
