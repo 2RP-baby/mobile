@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, StyleSheet, Text, Button, Alert} from 'react-native';
+import {TouchableOpacity,View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
@@ -15,15 +15,19 @@ const DeliveryDetailSelect = ({navigation}) => {
         changeDeliveryInsertInfo,
         callChangeApi,
         deliveryCondition,
-        changeDeliveryCondition
-    } = useRootData(({searchedListStore, deliveryInsertStore, deliverySelectStore}) => ({
+        changeDeliveryCondition,
+        checkedList,
+        changeCheckedList,
+    } = useRootData(({searchedListStore, deliveryInsertStore, deliverySelectStore,checkedListStore}) => ({
         deliveryCondition: deliverySelectStore.deliveryCondition.get(),
         changeDeliveryCondition: deliverySelectStore.changeDeliveryCondition,
         searchedList: searchedListStore.searchedList.get(),
         changeSearchedList: searchedListStore.changeSearchedList,
         deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
-        callChangeApi: deliveryInsertStore.callChangeApi
+        callChangeApi: deliveryInsertStore.callChangeApi,
+        checkedList: checkedListStore.checkedList.get(),
+        changeCheckedList: checkedListStore.changeCheckedList,
     }));
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
@@ -63,6 +67,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                     onPress={async () => {
                                         // await callChangeApi(searchedList.po_num);
                                         await selectDeliveryInsert(searchedlist.po_num);
+                                        changeCheckedList({});
                                         navigation.navigate('DeliveryInsert');
                                         }
                                     }
@@ -89,17 +94,28 @@ const DeliveryDetailSelect = ({navigation}) => {
                     </View>
                 ))
             }
-             <View style={styles.button}>
-                    <Button title="이전페이지" color="#005386"
-                        onPress={() => {
-                            beforeInfo();
-                        }}/>
-                    <Text>               </Text>
-                    <Button title="다음페이지" color="#005386"
-                        onPress={() => {
-                            moreInfo();
-                        }}/>
-            </View> 
+
+            <View flexDirection='row'  >
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
+                        beforeInfo();
+                    }}
+                    >
+                    <Text style={styles.text1}>이전페이지</Text>
+                </TouchableOpacity> 
+                <Text>     </Text>
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
+                        moreInfo();
+                    }}
+                    >
+                    <Text style={styles.text1}>다음페이지</Text>
+                </TouchableOpacity> 
+            </View>
         </View>
         </ScrollView>
     );
@@ -109,7 +125,7 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 100,
+        marginTop: 30,
         marginBottom:100,
 
     },
@@ -125,6 +141,11 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:20,
+    },
+    text1: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
     },
     containerRow:{
         flexDirection: 'row',
@@ -186,15 +207,16 @@ const styles = StyleSheet.create({
         fontSize: 13,
         // fontWeight: 'bold',
     },
-    button:{
-        flexDirection: 'row',
-        justifyContent: 'center',
+    button: {
+        width: "30%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
         alignItems: "center",
-        width: '100%',
-        height: '20%',
-        borderRadius: 50,
-        marginTop: 30,
-    },
+        marginTop: 40,
+        marginBottom: 20,
+        borderRadius:10,
+      },
 })
 
 export default DeliveryDetailSelect;

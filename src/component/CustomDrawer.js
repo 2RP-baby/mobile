@@ -3,7 +3,7 @@ import {View, Text, Button, StyleSheet, Image, ImageBackground} from 'react-nati
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import logoutIcon from '../../assets/icon/logout.png'
 
 const CustomDrawer = (props) => {
@@ -23,10 +23,15 @@ const CustomDrawer = (props) => {
                         <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:15}}>ERP 사업부</Text>
                         {/* <FontAwesome5 name = "coins" size={12} color="#fff" marginLeft={10}></FontAwesome5> */}
                     </View>
-                    <View style = {{flex:1, backgroundColor:'#fff', paddingTop:10}}>
-                        <DrawerItemList {...props}/>
-                    </View>
+
+                    
+                        <View style = {{flex:1, backgroundColor:'#fff', paddingTop:10}}>
+                            <DrawerItemList {...props}/>
+                        </View>
+                    
+
             </DrawerContentScrollView>
+
         <View style={{padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
             <TouchableOpacity onPress={()=>{}} style ={{paddingVertical:15}}>
             <View style ={{flexDirection: 'row', alignItems:'center'}}>
@@ -35,6 +40,7 @@ const CustomDrawer = (props) => {
             </View>    
             </TouchableOpacity>
         </View>
+        
         </View>
     );
 };
