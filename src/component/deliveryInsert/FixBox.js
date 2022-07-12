@@ -25,6 +25,9 @@ const FixBox = () => {
 
     // }, [num])
     let total = 0;
+    if (isNaN(total)) { // 값이 없어서 NaN값이 나올 경우
+        total = 0;
+       }
     
     return (
         
