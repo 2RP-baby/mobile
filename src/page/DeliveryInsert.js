@@ -22,6 +22,7 @@ const DeliveryInsert = ({navigation}) => {
     const index = Object.keys(checkedList);
     console.log("checkedList11111111", checkedList);
     function mapFunction() {
+
         if(index.length==0){
             Alert.alert("아이템을 체크해 주세요");
         }
@@ -30,11 +31,16 @@ const DeliveryInsert = ({navigation}) => {
             const element = checkedList[temp];
             const cnt=0;
             console.log("element", element);
-            if(element.quantity_ordered!=0){
+            if(element.quantity_ordered!=0 && (element.remaining>=element.quantity_ordered)){
                 navigation.navigate('DeliverySubmit') 
             }
-            else{
+            else if(element.quantity_ordered==0){
                 Alert.alert('요청수량을 입력해 주세요')
+                navigation.navigate('DeliveryInsert') 
+                break;
+            }
+            else if(element.remaining<element.quantity_ordered){
+                Alert.alert('주문잔량을 초과 하였습니다');
                 navigation.navigate('DeliveryInsert') 
                 break;
             }

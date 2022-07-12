@@ -110,8 +110,9 @@ const DeliveryDetailSelect = ({navigation}) => {
                     </View>
                 ))
             }
-
+            </ScrollView>
             <View flexDirection='row'  >
+                {deliveryCondition.page==1 ? true : 
                 <TouchableOpacity 
                     activeOpacity={0.8} 
                     style={styles.button} 
@@ -120,7 +121,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                     }}
                     >
                     <Text style={styles.text1}>이전페이지</Text>
-                </TouchableOpacity> 
+                </TouchableOpacity>} 
                 <Text>     </Text>
                 <TouchableOpacity 
                     activeOpacity={0.8} 
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
 
     },
     scroll:{
-        height:'90%',
+        height:'110%',
     },
     view1:{
         marginBottom: 10,
