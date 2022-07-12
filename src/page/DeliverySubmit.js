@@ -113,11 +113,9 @@ const styles = StyleSheet.create({
         // backgroundColor:'yellow',
     },
     inputInfo:{
-        width: '94%',
-        borderRadius: 8,
+        width: '100%',
         alignItems: "center",
         marginTop: 10,
-        backgroundColor:'#005386',
     },
     button:{
         width: 100,

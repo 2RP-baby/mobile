@@ -3,47 +3,49 @@ import { Text, StyleSheet, TextInput, View} from 'react-native';
 
 const InputInfo = ({id, labelContext, handleCondition}) => {
     return (
-        <View style={styles.header}>
-            <Text style={styles.text}>{labelContext}</Text>
-            <TextInput
-                style={styles.input}
-                onChange={event => handleCondition(id, event.nativeEvent.text)}/>
+        <View style={styles.container}>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{labelContext}</Text>
+                <TextInput
+                    style={styles.input}
+                    onChange={event => handleCondition(id, event.nativeEvent.text)}/>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    header:{
-        flexDirection:'row',
+    container:{
+        flexDirection: 'column',
         justifyContent: 'center',
-        // width: '90%',
-        padding: 10,
+        alignItems: "center",
+        marginBottom: 0,
+        width:'100%',
+        padding: 7,
+        
+    },
+    textContainer:{
+        width: '80%',
+        height: 60,
+        justifyContent: 'center',
+
     },
     text: {
-        width: '35%',
+        color: '#000000',
+        fontWeight:'bold',
         fontSize: 18,
-        color: '#ffffff',
+        marginLeft:5,
     },
     input:{
-        width: '50%',
         borderWidth: 1,
-        borderColor: '#ffffff',
-        color: '#ffffff',
-        // padding: 10, 
-        fontSize: 15,
-        width: 200,
-        height: 40,
-        borderRadius: 5,
-    },
-    text1: {
-        height: 35,
+        borderColor: '#C8C8C8',
+        padding: 10, 
         fontSize: 20,
-        color: '#005386',
-    },
-    text2: {
-        height: 35,
-        fontSize: 18,
-        color: '#ffffff',
+        width: '100%',
+        height: 40,
+        borderRadius:10,
+        backgroundColor:'#ffffff',
+        marginBottom:10,
     },
 })
 
