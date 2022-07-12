@@ -47,9 +47,19 @@ function HomeStacksrc({navigation}){
   )
 }
 
-export function InsertDeliverysrc(){
+export function InsertDeliverysrc({navigation}){
   return(  
-    <InsertDelivery.Navigator initialRouteName='DeliverySelect'>
+    <InsertDelivery.Navigator initialRouteName='DeliverySelect' screenOptions={{
+      // 메뉴바
+      headerRight: () => (
+        <View>
+         <TouchableOpacity
+            onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
+            <Image style={styles.image} source={Hamburger}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }}>
       <InsertDelivery.Screen name="DeliverySelect" component={DeliverySelect} options = {{headerTitle : 'SCC 납품 신청 대상 조회'}}/>
       <InsertDelivery.Screen name="DeliveryDetailSelect" component={DeliveryDetailSelect} options = {{headerTitle : 'SCC 납품 신청 대상'}}/>
       <InsertDelivery.Screen name="DeliveryInsert" component={DeliveryInsert} options = {{headerTitle : 'SCC 납품 신청 정보 입력'}}/>
@@ -58,9 +68,19 @@ export function InsertDeliverysrc(){
   )
 }
 
-export function SelectDeliverysrc(){
+export function SelectDeliverysrc({navigation}){
   return(  
-    <SelectDelivery.Navigator initialRouteName='StatusDeliverySelect'>
+    <SelectDelivery.Navigator initialRouteName='StatusDeliverySelect' screenOptions={{
+      // 메뉴바
+      headerRight: () => (
+        <View>
+         <TouchableOpacity
+            onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
+            <Image style={styles.image} source={Hamburger}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }}>
       <SelectDelivery.Screen name="StatusDeliverySelect" component={StatusDeliverySelect} options = {{headerTitle : 'SCC 납품 신청 현황 조회'}}/>
       <SelectDelivery.Screen name="StatusDeliveryDetailSelect" component={StatusDeliveryDetailSelect} options = {{headerTitle : 'SCC 납품 신청 현황 조회 리스트'}}/>
       <SelectDelivery.Screen name="StatusDeliverySubmit" component={StatusDeliverySubmit} options = {{headerTitle : 'SCC 납품 신청 현황 조회'}}/>
@@ -68,9 +88,19 @@ export function SelectDeliverysrc(){
   )
 }
 
-export function InsertShipmentsrc(){
+export function InsertShipmentsrc({navigation}){
   return(  
-    <InsertShipment.Navigator initialRouteName='ShipmentSelect'>
+    <InsertShipment.Navigator initialRouteName='ShipmentSelect' screenOptions={{
+      // 메뉴바
+      headerRight: () => (
+        <View>
+         <TouchableOpacity
+            onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
+            <Image style={styles.image} source={Hamburger}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }}>
       <InsertShipment.Screen name="ShipmentSelect" component={ShipmentSelect} options = {{headerTitle : 'SCC 출하 대상 조회'}}/>
       <InsertShipment.Screen name="ShipmentDetailSelect" component={ShipmentDetailSelect} options = {{headerTitle : 'SCC 출하 대상'}}/>
       <InsertShipment.Screen name="ShipmentInsert" component={ShipmentInsert} options = {{headerTitle : 'SCC 출하 정보 입력'}}/>
@@ -79,9 +109,19 @@ export function InsertShipmentsrc(){
   )
 }
 
-export function SelectShipmentsrc(){
+export function SelectShipmentsrc({navigation}){
   return(  
-    <SelectShipment.Navigator initialRouteName='StateShipmentSelect'>
+    <SelectShipment.Navigator initialRouteName='StateShipmentSelect' screenOptions={{
+      // 메뉴바
+      headerRight: () => (
+        <View>
+         <TouchableOpacity
+            onPress={()=>navigation.dispatch(DrawerActions.openDrawer())}>
+            <Image style={styles.image} source={Hamburger}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }}>
       <SelectShipment.Screen name="StateShipmentSelect" component={StateShipmentSelect} options = {{headerTitle : 'SCC 출하 등록 현황 조회'}}/>
       <SelectShipment.Screen name="StateShipmentDetailSelect" component={StateShipmentDetailSelect} options = {{headerTitle : 'SCC 출하 등록 현황 조회 리스트'}}/>
       <SelectShipment.Screen name="StateShipDeliverySubmit" component={StateShipDeliverySubmit} options = {{headerTitle : 'SCC 출하 등록 현황 조회'}}/>

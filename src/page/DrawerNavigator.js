@@ -46,7 +46,7 @@ const DrawerNavigator = () => {
         drawerInactiveTintColor:'#333',
       }}
         >
-      <Drawer.Screen name=" " component={Stack} />
+      <Drawer.Screen name=" "  component={Stack} />
       <Drawer.Screen
        name="Home" 
        component={Menu} 

@@ -26,33 +26,49 @@ const DeliveryDetailSelect = ({navigation}) => {
         callChangeApi: deliveryInsertStore.callChangeApi
     }));
 
+    // const [newPage, setnewPage] = useState();
+
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const moreInfo = () => {
-        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page+1})
-        // console.log("page++", deliveryCondition);
+        changeDeliveryCondition({...deliveryCondition, page: ++deliveryCondition.page})
+        console.log("page++", deliveryCondition);
         selectMoreList();
     }
 
     const beforeInfo = () => {
-        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
-        // console.log("page--", deliveryCondition);
+        changeDeliveryCondition({...deliveryCondition, page: --deliveryCondition.page})
+        console.log("page--", deliveryCondition);
         selectMoreList();
+        
     }
 
+    // console.log("deliveryCondition.page", deliveryCondition.page);
+
+
     const selectMoreList = async () => {
+        console.log("deliveryCondition.page", deliveryCondition.page);
         const data = await getSearchList(deliveryCondition);
         // console.log("typeof list : ", typeof data);
+        console.log("data result : ", data);
         changeSearchedList(data);
     };
+
+    // const selectBeforeList = async () => {
+    //     const data = await getSearchList({...deliveryCondition, page: deliveryCondition.page-1});
+    //     // console.log("typeof list : ", typeof data);
+    //     console.log("data result------page : ", deliveryCondition.page);
+    //     console.log("data result------ : ", data);
+    //     changeSearchedList(data);
+    // };
+
     const selectDeliveryInsert =  async (po_num) => {
         const data = await getDeliveryInsertInfo(po_num);
         changeDeliveryInsertInfo(data);
     };  
 
     return (
-        <ScrollView>
         <View style={styles.view}>
-
+            <ScrollView style={styles.scroll}>
             {
                 searchedList.map((searchedlist, index)=>(
                     <View key={index} style={styles.view1}>
@@ -89,19 +105,22 @@ const DeliveryDetailSelect = ({navigation}) => {
                     </View>
                 ))
             }
+            </ScrollView>
              <View style={styles.button}>
+                { deliveryCondition.page==1 ? true : 
                     <Button title="이전페이지" color="#005386"
-                        onPress={() => {
-                            beforeInfo();
-                        }}/>
-                    <Text>               </Text>
+                    onPress={() => {
+                        beforeInfo();
+                        // selectBeforeList();
+                    }}/>
+                }
                     <Button title="다음페이지" color="#005386"
                         onPress={() => {
                             moreInfo();
                         }}/>
             </View> 
         </View>
-        </ScrollView>
+        
     );
 };
 
@@ -109,9 +128,12 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 100,
-        marginBottom:100,
+        marginTop: 20,
+        marginBottom:20,
 
+    },
+    scroll:{
+        height:'90%',
     },
     view1:{
         marginBottom: 10,
@@ -134,26 +156,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         marginBottom: 0,
-        // width:'80%',
     },
     textContainer:{
         width: '50%',
         height: 50,
-        // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 10,
-        // borderWidth: 1,
     },
     textContainer1:{
         width: '50%',
         height: 50,
         marginTop: 10,
-
-        // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
-        // borderWidth: 1,
     },
     textContainer2:{
         width: '100%',
@@ -171,12 +187,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 50,
         alignItems: "center",
-        
-
-        // marginTop: 15,
-        // justifyContent: 'center',
-        // alignItems: "center",
-        // borderWidth: 1,
     },
     text2:{
         fontSize: 18,
@@ -190,8 +200,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center",
-        width: '100%',
-        height: '20%',
         borderRadius: 50,
         marginTop: 30,
     },
