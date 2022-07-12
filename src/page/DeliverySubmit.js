@@ -109,13 +109,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40,
-        marginBottom: 20,
+        marginTop: 5,
+        // marginBottom: 20,
         borderRadius:10,
-      },
+    },
     text1: {
         color: "#ffffff",
-        fontSize:25,
+        fontSize: 25,
         fontWeight:'bold',
     },
     header:{
@@ -133,11 +133,10 @@ const styles = StyleSheet.create({
         // backgroundColor:'yellow',
     },
     inputInfo:{
-        width: '94%',
-        borderRadius: 8,
-        alignItems: "center",
+        width: '100%',
+        // alignItems: "center",
         marginTop: 10,
-        backgroundColor:'#005386',
+        marginLeft: '4%',
     },
     button:{
         width: 100,
