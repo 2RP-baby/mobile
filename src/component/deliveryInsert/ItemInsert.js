@@ -52,7 +52,6 @@ const ItemInsert = () => {
     };
 
     // check한 것만 넣기
-    let i = 0
     const checkedCondition = (index) => {
         const tempCondition = { ...checkedList };
         tempCondition[index] = itemCondition[index];
