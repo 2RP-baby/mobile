@@ -13,11 +13,11 @@ const ShipmentSelect = ({navigation}) => {
 
         searchedList, //searchedListStore에 있는 searchedList 값을 가져온다
         changeSearchedList, //searchedListStore에 있는 changeSearchedList 함수를 가져온다.
-    } = useRootData(({shipmentSelectStore, shipSearchedListStore}) => ({
-        shipmentCondition: shipmentSelectStore.shipmentCondition.get(),
-        changeShipmentCondition: shipmentSelectStore.changeShipmentCondition,
-        searchedList: shipSearchedListStore.searchedList.get(),
-        changeSearchedList: shipSearchedListStore.changeSearchedList,
+    } = useRootData(({StateShipmentSelectStore, StateShipSearchedListStore}) => ({
+        shipmentCondition: StateShipmentSelectStore.shipmentCondition.get(),
+        changeShipmentCondition: StateShipmentSelectStore.changeShipmentCondition,
+        searchedList: StateShipSearchedListStore.searchedList.get(),
+        changeSearchedList: StateShipSearchedListStore.changeSearchedList,
     }));
 
     const handleShipmentCondition = (key, value) => {

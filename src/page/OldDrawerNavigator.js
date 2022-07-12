@@ -2,8 +2,9 @@ import React, { Fragment } from 'react';
 import {View, Text, Button, StyleSheet, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import Menu from '../page/Menu';
-import Stack, {InsertDeliverysrc, SelectDeliverysrc, InsertShipmentsrc, SelectShipmentsrc} from '../navigations/Stack';
+import Menu from './Menu';
+import Stack from '../navigations/Stack';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import hamburger from '../../assets/icon/menu.png';
 import homeIcon from '../../assets/icon/home.png'
 import settingIcon from '../../assets/icon/settings.png'
@@ -24,7 +25,6 @@ const DrawerNavigator = () => {
 
   return(
     <Drawer.Navigator
-    initialRouteName=" "
     drawerContent={props =><CustomDrawer{...props}/>}
     screenOptions={{
         drawerPosition: 'right',
@@ -46,56 +46,38 @@ const DrawerNavigator = () => {
         drawerInactiveTintColor:'#333',
       }}
         >
-      <Drawer.Screen name=" " component={Stack} />
       <Drawer.Screen
        name="Home" 
-       component={Menu} 
+       component={Stack} 
        options={{
           drawerIcon: ()=>(
             <Image style={styles.image} source={homeIcon} />
           ),
         }} 
       />
-
-      <Drawer.Screen
-       name="납품신청" 
-       component={InsertDeliverysrc} 
-       options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
-          ),
+      <Drawer.Screen 
+      name="Profile"
+      component={ProfileScreen}
+      options={{
+        drawerIcon: ()=>(
+          <Image style={styles.image} source={profileIcon} />
+        ),
         }} 
-      />
-
-      <Drawer.Screen
-       name="납품신청현황" 
-       component={SelectDeliverysrc} 
-       options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
-          ),
-        }} 
-      />
-
-      <Drawer.Screen
-       name="출하등록" 
-       component={InsertShipmentsrc} 
-       options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
-          ),
-        }} 
-      />
-
-    <Drawer.Screen
-       name="출하현황" 
-       component={SelectShipmentsrc} 
-       options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
-          ),
-        }} 
-      />
+         />
+      <Drawer.Screen name="Settings" component={ProfileScreen}
+      options={{
+        drawerIcon: ()=>(
+          <Image style={styles.image} source={settingIcon} />
+        ),
+        }}  
+        />
+      <Drawer.Screen name="Home menu" component={Menu}
+      options={{
+        drawerIcon: ()=>(
+          <Image style={styles.image} source={homeIcon} />
+        ),
+        }}  
+        />
     </Drawer.Navigator>
   );
 };

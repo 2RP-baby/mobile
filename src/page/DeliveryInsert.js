@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Button} from 'react-native';
+import { View, StyleSheet, Button, Text} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import FixBox from '../component/deliveryInsert/FixBox';
 import ItemInsert from '../component/deliveryInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
@@ -14,6 +15,7 @@ const DeliveryInsert = ({navigation}) => {
     }));
     
     return (
+        // <ScrollView>
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
@@ -22,11 +24,13 @@ const DeliveryInsert = ({navigation}) => {
                 <ItemInsert/>
             </View>
             <View style={styles.button}>
+                {/* <Text>안녕</Text> */}
                 <Button title="다음 단계" color="#005386"
                     onPress={() => navigation.navigate('DeliverySubmit')}
                     />
             </View>
         </View>
+        // </ScrollView>
     );
 };
 
@@ -37,15 +41,24 @@ const styles = StyleSheet.create({
     },
     header:{
         alignItems: "center",
-        marginBottom: 400,
+        height:'75%',
+        marginBottom: 500,
     },
+    fix:{
+        width:'100%',
+        height:'25%',
+    },
+   
     button:{
-        width: 100,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: "center",
-        borderRadius: 50,
-        marginTop: 30,
+        // width: 100,
+        height: '30%',
+        marginTop: 7,
+        // justifyContent: 'center',
+        // alignItems: "center",
+        // borderRadius: 50,
+        // marginTop: 30,
+        // marginBottom : 700,
+        // backgroundColor: 'red',
     }
 })
 
