@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { insertSccDeliveryInfo } from '../apis/scc';
 import FixBox from '../component/deliveryInsert/FixBox';
@@ -89,15 +89,35 @@ const DeliverySubmit = ({navigation}) => {
                 <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="subniventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
             </View>
-            <View style={styles.button}>
-                <Button title="납품신청" color="#005386"
-                    onPress={() => goAlert()}/>
-            </View>
+            <TouchableOpacity 
+                        activeOpacity={0.8} 
+                        style={styles.button1} 
+                        onPress={ () =>{ 
+                            goAlert();
+                        }}
+                        >
+                        <Text style={styles.text1}>납품신청</Text>
+                </TouchableOpacity>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 40,
+        marginBottom: 20,
+        borderRadius:10,
+      },
+    text1: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
+    },
     header:{
         height:'75%',
         marginBottom: 400,

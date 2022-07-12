@@ -1,19 +1,62 @@
 import React from 'react';
-import { View, StyleSheet, Button, Text} from 'react-native';
+import { TouchableOpacity,View, StyleSheet, Button, Text,Alert} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import FixBox from '../component/deliveryInsert/FixBox';
 import ItemInsert from '../component/deliveryInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
 
 const DeliveryInsert = ({navigation}) => {
+    // const input = 1;
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-    } = useRootData(({deliveryInsertStore}) => ({
+        checkedList,
+        changeCheckedList,
+    } = useRootData(({deliveryInsertStore, checkedListStore}) => ({
         deliveryInsertInfo: deliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: deliveryInsertStore.changeDeliveryInsertInfo,
+        checkedList: checkedListStore.checkedList.get(),
+        changeCheckedList: checkedListStore.changeCheckedList,
     }));
-    
+
+    const index = Object.keys(checkedList);
+    console.log("checkedList11111111", checkedList);
+    function mapFunction() {
+
+        if(index.length==0){
+            Alert.alert("아이템을 체크해 주세요");
+        }
+        for (let i = 0; i < index.length; i++) {
+            const temp = index[i];
+            const element = checkedList[temp];
+            const cnt=0;
+            console.log("element", element);
+            if(element.quantity_ordered!=0 && (element.remaining>=element.quantity_ordered)){
+                navigation.navigate('DeliverySubmit') 
+            }
+            else if(element.quantity_ordered==0){
+                Alert.alert('요청수량을 입력해 주세요')
+                navigation.navigate('DeliveryInsert') 
+                break;
+            }
+            else if(element.remaining<element.quantity_ordered){
+                Alert.alert('주문잔량을 초과 하였습니다');
+                navigation.navigate('DeliveryInsert') 
+                break;
+            }
+        }
+        // Object.keys(checkedList).map((key)=>{
+        //     console.log("checkedList2222222222button",checkedList);
+        //     let list = checkedList[key];
+            // if(list.quantity_ordered!=0){
+            //     navigation.navigate('DeliverySubmit')
+            // }
+            // else{
+            //     Alert.alert('요청수량을 입력해 주세요')
+            //     return false;
+            // }
+        // })
+    }
     return (
         // <ScrollView>
         <View style={styles.header}>
@@ -23,18 +66,38 @@ const DeliveryInsert = ({navigation}) => {
             <View>
                 <ItemInsert/>
             </View>
-            <View style={styles.button}>
-                {/* <Text>안녕</Text> */}
-                <Button title="다음 단계" color="#005386"
-                    onPress={() => navigation.navigate('DeliverySubmit')}
-                    />
-            </View>
+            
+                <TouchableOpacity 
+                        activeOpacity={0.8} 
+                        style={styles.button1} 
+                        onPress={ () =>{ 
+                            mapFunction();
+                        }}
+                        >
+                        <Text style={styles.text1}>다음단계</Text>
+                </TouchableOpacity>
+            
         </View>
         // </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop:0,
+        marginBottom: 20,
+        borderRadius:10,
+      },
+    text1: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
+    },
     fix:{
         width:'100%',
         height:'18%',
@@ -49,17 +112,7 @@ const styles = StyleSheet.create({
         height:'25%',
     },
    
-    button:{
-        // width: 100,
-        height: '30%',
-        marginTop: 7,
-        // justifyContent: 'center',
-        // alignItems: "center",
-        // borderRadius: 50,
-        // marginTop: 30,
-        // marginBottom : 700,
-        // backgroundColor: 'red',
-    }
+    
 })
 
 export default DeliveryInsert;

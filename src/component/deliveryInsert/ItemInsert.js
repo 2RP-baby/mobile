@@ -22,7 +22,7 @@ const ItemInsert = () => {
         checkedList: checkedListStore.checkedList.get(),
         changeCheckedList: checkedListStore.changeCheckedList,
     }));
-
+    
     // input 데이터도 넣은 값
     const [itemCondition, setItemCondition] = useState(deliveryInsertInfo);
 
