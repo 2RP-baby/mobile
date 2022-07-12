@@ -4,6 +4,7 @@ import {View, StyleSheet, Button, Alert} from 'react-native';
 import MenuButton from '../component/main/MenuButton';
 
 const Menu = ({navigation}) => {
+    console.log("Menu");
     return (
         <View style={styles.view}>
             <Header/>

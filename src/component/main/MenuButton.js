@@ -6,21 +6,21 @@ const MenuButton = ({navigation}) => {
         <>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>navigation.navigate('DeliverySelect')}>
+                onPress={()=>navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'})}>
                 <Text style={styles.text1}>납품신청</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>navigation.navigate('StatusDeliverySelect')}>
+                onPress={()=>navigation.navigate('SelectDeliverysrc', {screen: 'StatusDeliverySelect'})}>
                 <Text style={styles.text2}>납품신청현황</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>navigation.navigate('ShipmentSelect')}>
+                onPress={()=>navigation.navigate('InsertShipmentsrc', {screen: 'ShipmentSelect'})}>
                 <Text style={styles.text2}>출하등록</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>navigation.navigate('StateShipmentSelect')}>
+                onPress={()=>navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'})}>
                 <Text style={styles.text1}>출하현황</Text>
             </TouchableOpacity>
         </View>

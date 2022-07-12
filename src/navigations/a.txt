@@ -177,7 +177,6 @@ function BottomTabsrc() {
 export default () => {
   return (
     <NavigationContainer>
-
       <Stack.Navigator initialRouteName='StartStacksrc' screenOptions={{ gestureEnabled: false }} activeColor='#999999' inactiveColor='#4b88cb' barStyle={{ backgroudColor: 'tomato' }}>
         <Stack.Screen name="HomeStacksrc" component={HomeStacksrc} options={{ headerShown: false }} />
         <Stack.Screen name="ClaimStacksrc" component={ClaimStacksrc} options={{ headerShown: false }} />
@@ -185,74 +184,7 @@ export default () => {
         <Stack.Screen name="SeleteStacksrc" component={SeleteStacksrc} options={{ headerShown: false }} />
         <Stack.Screen name="StartStacksrc" component={StartStacksrc} options={{ headerShown: false }} />
         <Stack.Screen name="BottomTabsrc" component={BottomTabsrc} options={{ headerShown: false }} />
-
-
-        {/* <BottomTab.Screen name="StartStacksrc" component={StartStacksrc}
-          listeners={({ navigation, route }) => ({
-            tabPress: (e) => {
-              e.preventDefault();
-            },
-          })}
-          options={{
-            tabBarHideOnKeyboard: true,
-            tabBarStyle: { display: 'none' },
-            headerShown: false,
-            tabBarShowLabel: false,
-            tabBarLabel: 'Home2',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={1} />),
-          }}
-        />
-
-
-        <Stack.Screen name="HomeStacksrc" component={HomeStacksrc}
-          options={({ route }) => ({
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />),
-          })}
-        />
-
-        <Stack.Screen
-          name="MypageStacksrc" component={MypageStacksrc}
-          options={{
-            tabBarVisible: 'none',
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-            tabBarLabel: 'Updates',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="bell" color={color} size={26} />
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="SeleteStacksrc" component={SeleteStacksrc}
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }}
-        />
-
-
-        <Stack.Screen
-          name="ClaimStacksrc" component={ClaimStacksrc}
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }}
-        /> */}
       </Stack.Navigator>
-
     </NavigationContainer>
   )
 } 
