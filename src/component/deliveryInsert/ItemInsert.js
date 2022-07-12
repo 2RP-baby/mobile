@@ -95,8 +95,8 @@ const ItemInsert = () => {
                             <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
                             <Text style={styles.text2}>{insertList.item_description}</Text>     
                         <>
-                            <View style={styles.text3_warrap}>
-                                <Text style={styles.text3_label}>주문수량 : </Text>      
+                            <View style={styles.text3_warrap__}>
+                                <Text style={styles.text3_label}>주문수량 : </Text><Text>  </Text>    
                                 <Text style={styles.text3_context}>{insertList.quantity}</Text>      
                                 <Text style={styles.text3_label}>주문잔량 : </Text>      
                                 <Text style={styles.text3_context}>{insertList.remaining}</Text>   
@@ -159,10 +159,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#000000',
     },
+    text3_warrap__: {
+        flexDirection: 'row',
+        width: '90%',
+        marginBottom: 17,
+    },
     text3_warrap: {
         flexDirection: 'row',
         width: '90%',
-        // marginTop: 10,
+        // marginBottom: 20,
     },
     text3_label: {
         height: 35,

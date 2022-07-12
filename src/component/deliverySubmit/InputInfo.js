@@ -17,8 +17,6 @@ const InputInfo = ({id, labelContext, handleCondition}) => {
 const styles = StyleSheet.create({
     container:{
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: "center",
         marginBottom: 0,
         width:'100%',
         padding: 7,
@@ -39,9 +37,8 @@ const styles = StyleSheet.create({
     input:{
         borderWidth: 1,
         borderColor: '#C8C8C8',
-        padding: 10, 
         fontSize: 20,
-        width: '100%',
+        width: '120%',
         height: 40,
         borderRadius:10,
         backgroundColor:'#ffffff',

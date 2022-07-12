@@ -48,7 +48,6 @@ const DeliveryDetailSelect = ({navigation}) => {
 
     // console.log("deliveryCondition.page", deliveryCondition.page);
 
-
     const selectMoreList = async () => {
         console.log("deliveryCondition.page", deliveryCondition.page);
         const data = await getSearchList(deliveryCondition);
@@ -91,7 +90,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                             <View style={styles.textContainer1}>
-                                <Text
+                                <Text style={styles.text1}
                                     >{searchedlist.vendor_name}
                                 </Text>
                             </View>
@@ -120,7 +119,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                         beforeInfo();
                     }}
                     >
-                    <Text style={styles.text1}>이전페이지</Text>
+                    <Text style={styles.buttonText}>이전페이지</Text>
                 </TouchableOpacity>} 
                 <Text>     </Text>
                 <TouchableOpacity 
@@ -130,7 +129,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                         moreInfo();
                     }}
                     >
-                    <Text style={styles.text1}>다음페이지</Text>
+                    <Text style={styles.buttonText}>다음페이지</Text>
                 </TouchableOpacity> 
             </View>
         </View>
@@ -160,12 +159,7 @@ const styles = StyleSheet.create({
         color: '#005386',
         textDecorationLine: 'underline',
         fontWeight: 'bold',
-        fontSize:20,
-    },
-    text1: {
-        color: "#ffffff",
-        fontSize:25,
-        fontWeight:'bold',
+        fontSize:23,
     },
     containerRow:{
         flexDirection: 'row',
@@ -207,12 +201,15 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
     },
+    text1: {
+        fontSize:18,
+    },
     text2:{
-        fontSize: 18,
+        fontSize: 23,
         fontWeight: 'bold',
     },
     text3:{
-        fontSize: 13,
+        fontSize: 20,
         // fontWeight: 'bold',
     },
     button: {
@@ -224,7 +221,12 @@ const styles = StyleSheet.create({
         marginTop: 40,
         marginBottom: 20,
         borderRadius:10,
-      },
+    },
+    buttonText: {
+        color: "#ffffff",
+        fontSize:23,
+        fontWeight:'bold',
+    },
 })
 
 export default DeliveryDetailSelect;

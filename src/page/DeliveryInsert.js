@@ -66,7 +66,6 @@ const DeliveryInsert = ({navigation}) => {
             <View>
                 <ItemInsert/>
             </View>
-            
                 <TouchableOpacity 
                         activeOpacity={0.8} 
                         style={styles.button1} 
@@ -89,10 +88,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop:0,
+        marginTop:15,
         marginBottom: 20,
         borderRadius:10,
-      },
+    },
     text1: {
         color: "#ffffff",
         fontSize:25,
@@ -100,11 +99,11 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'18%',
+        height:'17%',
     },
     header:{
         alignItems: "center",
-        height:'75%',
+        height:'73%',
         marginBottom: 500,
     },
     fix:{
