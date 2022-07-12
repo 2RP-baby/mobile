@@ -24,7 +24,7 @@ const DrawerNavigator = () => {
 
   return(
     <Drawer.Navigator
-    initialRouteName="Home"
+    initialRouteName=" "
     drawerContent={props =><CustomDrawer{...props}/>}
     screenOptions={{
         drawerPosition: 'right',
@@ -46,7 +46,7 @@ const DrawerNavigator = () => {
         drawerInactiveTintColor:'#333',
       }}
         >
-      <Drawer.Screen name=" "  component={Stack} />
+      <Drawer.Screen name=" " component={Stack} />
       <Drawer.Screen
        name="Home" 
        component={Menu} 
