@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import useRootData from '../../hooks/useRootData';
 import InputInfo from './InputInfo';
+import {Card} from 'react-native-shadow-cards';
 
 const ItemInsert = () => {
 
@@ -63,6 +64,7 @@ const ItemInsert = () => {
             <>
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
+                <Card style={styles.card}>
                  <View style={styles.check}>
                     {/* {selected ? console.log("true") : console.log("false")} */}
                  <BouncyCheckbox 
@@ -101,6 +103,7 @@ const ItemInsert = () => {
                         <Text style={styles.text3_context}>{insertList.comment}</Text> 
                     </View>
                 </View>
+                </Card>
             </View>
             ))}
             </>
@@ -110,19 +113,25 @@ const ItemInsert = () => {
 
 const styles = StyleSheet.create({
     header:{
-        flexDirection: 'row',
-        marginTop: 10,
-        borderWidth:2,
-        borderColor:"rgba(0,83,134,0.5)",
+        // flexDirection: 'row',
+        marginTop: 5,
+        // borderWidth:2,
+        // borderColor:"rgba(0,83,134,0.5)",
         marginLeft: 10,
-        marginRight:10,
+        marginRight: 10,
+        marginBottom: 5,
+    },
+    card: {
+        flexDirection: 'row',
+        padding: 20,
     },
     check:{
         width: '5%',
+        justifyContent : 'flex-start',
         // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
-        marginTop:5,
+        marginTop: 5,
     },
     text1: {
         height: 30,
@@ -130,26 +139,29 @@ const styles = StyleSheet.create({
         color: '#005386',
     },
     text2: {
-        height: 60,
+        height: 35,
         fontSize: 18,
         color: '#000000',
+    },
+    text3_warrap__: {
+        flexDirection: 'row',
+        width: '90%',
+        marginBottom: 17,
     },
     text3_warrap: {
         flexDirection: 'row',
         width: '90%',
-        // borderWidth: 3,
-        // backgroundColor: 'green',
+        // marginBottom: 20,
     },
     text3_label: {
         height: 35,
-        width: '24%',
+        width: '22%',
         fontSize: 18,
         color: '#000000',
         marginRight: 15,
-        // backgroundColor: 'orange',
     },
     text3_context: {
-        height: 55,
+        height: 35,
         width: '23%',
         fontSize: 18,
         color: '#000000',
@@ -157,9 +169,8 @@ const styles = StyleSheet.create({
     input1:{
         height: 30,
         width: '20%',
-        borderWidth: 0.7,
-        borderColor: '#005386',
-        // padding: 10, 
+        // borderWidth: 0.7,
+        // borderColor: '#005386',
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,
@@ -167,14 +178,9 @@ const styles = StyleSheet.create({
     input2:{
         height: 30,
         width: '20%',
-        borderWidth: 0.7,
-        borderColor: '#005386',
-        // padding: 10, 
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,
-        // backgroundColor: 'yellow',
-
     },
 
 })
