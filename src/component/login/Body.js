@@ -55,6 +55,7 @@ const Body = ({navigation}) => {
                 onPress={ () =>{ 
                     // Alert.alert('로그인 버튼 클릭');
                     getTokenInfo();
+                    // Alert.alert('로그인 버튼 클릭');
                     navigation.navigate('Menu');
                 }}
                 >
