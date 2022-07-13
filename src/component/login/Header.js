@@ -13,8 +13,8 @@ const Header = () => {
 };
 const styles = StyleSheet.create({
     header:{
-        width: '90%',
-        height: 150,
+        width: '82.5%',
+        height: 0,
         // backgroundColor: {mainBlue},
         backgroundColor: '#005386',
         justifyContent: 'center',

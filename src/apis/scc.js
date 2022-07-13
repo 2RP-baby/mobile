@@ -53,3 +53,13 @@ export const StatusDeliveryInfo = async (num) => {
   }
 };
 
+// axios.post('http://localhost:8282/mob/userinfo', formData)
+//   .then((res) => {
+//       console.log(res.data);
+
+//       setcus_name(res.data[0].customer_name_kor)
+//       setreal_name(res.data[0].esales_user_name)
+//       setphone_num(res.data[0].customer_cellphone_num)
+//       setbelong(res.data[0].belong)
+//       setemail(res.data[0].email_address)
+//   })

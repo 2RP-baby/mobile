@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     container1:{
         justifyContent: 'center',
         alignItems: "center",
-        width: '35%',
+        width: '40%',
         height: '100%',
         backgroundColor: '#005386',
         
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     container2:{
         justifyContent: 'center',
         alignItems: "center",
-        width: '35%',
+        width: '40%',
         height: '100%',
         backgroundColor: '#ffffff',
         

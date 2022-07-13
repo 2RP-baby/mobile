@@ -16,7 +16,7 @@ const CustomDrawer = (props) => {
                     <View style = {{flexDirection:'column',backgroundColor:'#005386' }}>
                         <Image 
                         source={require('../../assets/icon/profile.jpg')} 
-                        style={{height:80,width:80,borderRadius:40, marginBottom:10, marginLeft:20, marginTop:20}}/>
+                        style={{height:80,width:80,borderRadius:40, marginBottom:10, marginLeft:20, marginTop:60}}/>
                         <Text style={{color:'#fff',fontSize: 18, marginLeft:10 , marginTop:10, marginBottom:10}}>이윤성 프로님</Text>
                         <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:15}}>ERP 사업부</Text>
                         {/* <FontAwesome5 name = "coins" size={12} color="#fff" marginLeft={10}></FontAwesome5> */}

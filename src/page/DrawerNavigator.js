@@ -4,10 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import Menu from '../page/Menu';
 import Stack, {InsertDeliverysrc, SelectDeliverysrc, InsertShipmentsrc, SelectShipmentsrc} from '../navigations/Stack';
-import hamburger from '../../assets/icon/menu.png';
-import homeIcon from '../../assets/icon/home.png'
-import settingIcon from '../../assets/icon/settings.png'
-import profileIcon from '../../assets/icon/user.png'
+import homeIcon from '../../assets/icon/home.png';
+import tackbaeIcon from '../../assets/icon/tackbae.png';
+import searchIcon from '../../assets/icon/search.png';
+import packageIcon from '../../assets/icon/package.png';
+import penIcon from '../../assets/icon/pen.png';
 import CustomDrawer from '../component/CustomDrawer';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -62,7 +63,7 @@ const DrawerNavigator = () => {
        component={InsertDeliverysrc} 
        options={{
           drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
+            <Image style={styles.image} source={penIcon} />
           ),
         }} 
       />
@@ -72,7 +73,7 @@ const DrawerNavigator = () => {
        component={SelectDeliverysrc} 
        options={{
           drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
+            <Image style={styles.image} source={searchIcon} />
           ),
         }} 
       />
@@ -82,7 +83,7 @@ const DrawerNavigator = () => {
        component={InsertShipmentsrc} 
        options={{
           drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
+            <Image style={styles.image} source={penIcon} />
           ),
         }} 
       />
@@ -92,7 +93,7 @@ const DrawerNavigator = () => {
        component={SelectShipmentsrc} 
        options={{
           drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
+            <Image style={styles.image} source={searchIcon} />
           ),
         }} 
       />
