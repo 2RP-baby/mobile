@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert, TouchableOpacity} from 'react-native';
-import { getSearchList } from '../apis/scc';
+import { getSearchList } from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
 import {getShipmentInsertInfo} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -46,6 +46,8 @@ const ShipmentDetailSelect = ({navigation}) => {
     }
 
     const selectMoreList = async () => {
+        console.log("select 전의 : ", shipmentCondition);
+
         const data = await getSearchList(shipmentCondition);
         // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
