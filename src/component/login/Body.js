@@ -42,7 +42,6 @@ const Body = ({navigation}) => {
                 style={styles.button} 
                 onPress={ () =>{ 
                     getLoginInfo();
-                    
                     navigation.navigate('Menu');
                     Alert.alert(login.name+ "님 환영합니다! ");
                 }}

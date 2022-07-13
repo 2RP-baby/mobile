@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {View, StyleSheet, Text, Button, Alert} from 'react-native';
+import {TouchableOpacity, View, StyleSheet, Text, Button, Alert} from 'react-native';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getShipmentInsertInfo} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
+import {Card} from 'react-native-shadow-cards';
 
 const ShipmentDetailSelect = ({navigation}) => {
     const {
@@ -41,7 +42,7 @@ const ShipmentDetailSelect = ({navigation}) => {
     }
 
     const beforeInfo = () => {
-        changeDeliveryCondition({...deliveryCondition, page: deliveryCondition.page-1})
+        changeShipmentCondition({...shipmentCondition, page: shipmentCondition.page-1})
         // console.log("page--", deliveryCondition);
         selectMoreList();
     }
@@ -51,18 +52,19 @@ const ShipmentDetailSelect = ({navigation}) => {
         // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
-
+    
     const selectDeliveryInsert =  async (po_num) => {
         const data = await getShipmentInsertInfo(po_num);
         changeDeliveryInsertInfo(data);
     };  
 
     return (
-        <ScrollView>
         <View style={styles.view}>
+            <ScrollView style ={styles.scroll}>
             {
                 searchedList.map((searchedlist, index)=>(
                     <View key={index} style={styles.view1}>
+                        <Card style = {styles.card}>
                         <View style={styles.containerRow}>
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
@@ -82,132 +84,120 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                         </View>
+                        <>
                         <View style={styles.textContainer2}>
                             <Text>
                                 {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}
                             </Text>
                         </View>
+                        </>
+                        </Card>
                     </View>
                 ))
             }
-            <View style={styles.button}>
-                <Button title="이전페이지" color="#005386"
-                    onPress={() => {
+            </ScrollView>
+
+            <View flexDirection='row'  >
+                {shipmentCondition.page==1 ? true : 
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
                         beforeInfo();
-                    }}/>
-                <Text>               </Text>
-                <Button title="다음페이지" color="#005386"
-                    onPress={() => {
+                    }}
+                    >
+                    <Text style={styles.buttonText}>이전페이지</Text>
+                </TouchableOpacity>} 
+                <Text>     </Text>
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
                         moreInfo();
-                    }}/>
+                    }}
+                    >
+                    <Text style={styles.buttonText}>다음페이지</Text>
+                </TouchableOpacity> 
             </View>
         </View>
-        </ScrollView>
+        
     );
 };
 
 const styles = StyleSheet.create({
-    // view:{
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     marginTop: 20,
-    // },
-    // text:{
-    //     color: 'blue',
-    //     textDecorationLine: 'underline',
-    //   },
-    //   containerRow:{
-    //     flexDirection: 'row',
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     marginBottom: 0,
-    // },
-    // textContainer:{
-    //     width: 100,
-    //     height: 40,
-    //     // backgroundColor: '#005386',
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     borderWidth: 1,
-    // },
-    // textContainer1:{
-    //     width: 250,
-    //     height: 40,
-    //     // backgroundColor: '#005386',
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     borderWidth: 1,
-    // },
-    // textContainer2:{
-    //     width: 350,
-    //     height: 40,
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     borderWidth: 1,
-    // },
-    // button:{
-    //     width: 100,
-    //     height: 40,
-    //     borderRadius: 50,
-    //     marginTop: 30,
-    // }
+    card:{
+        marginTop: 10,
+    },
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 20,
+        marginTop: 30,
+        marginBottom:100,
+
+    },
+    scroll:{
+        height:'110%',
     },
     view1:{
-        width: '80%',
-        marginBottom: 20,
+        marginBottom: 10,
+        alignItems: "center",
     },
     text:{
-        color: 'blue',
+        color: '#005386',
         textDecorationLine: 'underline',
-        fontSize:20,
-      },
+        fontWeight: 'bold',
+        fontSize:23,
+    },
     containerRow:{
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: "center",
-        marginBottom: 0,
     },
     containerColumn:{
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: "center",
         marginBottom: 0,
-        // width:'80%',
     },
     textContainer:{
         width: '50%',
         height: 50,
-        // backgroundColor: '#005386',
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
+        marginTop: 10,
     },
     textContainer1:{
         width: '50%',
         height: 50,
-        // backgroundColor: '#005386',
+        marginTop: 10,
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
     },
     textContainer2:{
-        // width: 573,
         width: '100%',
-        height: 50,
+        height: 30,
+        // marginLeft: 20,
+        marginTop: 15,
+        marginBottom: 20,
+
+        // marginTop: 15,
         justifyContent: 'center',
         alignItems: "center",
-        borderWidth: 1,
+        // borderWidth: 1,
     },
-    button:{
-        width: 100,
-        height: 40,
-        borderRadius: 50,
-        marginTop: 30,
-    }
+    button: {
+        width: "30%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 40,
+        marginBottom: 20,
+        borderRadius:10,
+    },
+    buttonText: {
+        color: "#ffffff",
+        fontSize:23,
+        fontWeight:'bold',
+    },
 })
 
 export default ShipmentDetailSelect;

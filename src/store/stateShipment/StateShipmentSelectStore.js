@@ -2,11 +2,12 @@ import { observable, runInAction } from 'mobx';
 
 const createStore = () => {
     const shipmentCondition={
-        deliver_to_location:"", 
-        staff_name:"", 
-        cost_center:"",
-        item_name:"",
-        page:1
+        shipment_num : "",
+        contact_name : "",
+        deliver_to_location : "",
+        subinventory : "",
+        item_name : "",
+        page:1,
     };
 
     const StateShipmentSelectStore = {
