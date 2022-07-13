@@ -59,7 +59,7 @@ const DeliveryDetailSelect = ({navigation}) => {
         const data = await getCurSearchInsertedOne(shipment_num);
         changeDeliveryInsertInfo(data);
     };  
-
+    // console.log("searchedList scccccccc", searchedList);
     return (
         <View style={styles.view}>
             <ScrollView style={styles.scroll}>

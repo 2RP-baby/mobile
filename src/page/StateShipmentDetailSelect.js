@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert, TouchableOpacity} from 'react-native';
 import { getSearchList } from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
-import {getShipmentInsertInfo} from '../apis/shipment';
+import {getShipmentInsertInfo,shipCurSearchList} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
 
@@ -48,7 +48,7 @@ const ShipmentDetailSelect = ({navigation}) => {
     const selectMoreList = async () => {
         console.log("select 전의 : ", shipmentCondition);
 
-        const data = await getSearchList(shipmentCondition);
+        const data = await shipCurSearchList(shipmentCondition);
         // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
@@ -57,7 +57,11 @@ const ShipmentDetailSelect = ({navigation}) => {
         const data = await getShipmentInsertInfo(po_num);
         changeDeliveryInsertInfo(data);
     };  
-
+    const selectCurSearchInsertedOne =  async (shipment_num) => {
+        const data = await getCurSearchInsertedOne(shipment_num);
+        changeDeliveryInsertInfo(data);
+    };
+    console.log("searchedList chullllllllhaaaaaa", searchedList);
     return (
         <View style={styles.view}>
             <ScrollView style={styles.scroll}>
@@ -70,20 +74,20 @@ const ShipmentDetailSelect = ({navigation}) => {
                                             onPress={async () => {
                                                 // await callChangeApi(searchedList.po_num);
                                                 // console.log("searchedlist.po_num ::: ", searchedlist.po_num);
-                                                await selectDeliveryInsert(searchedlist.po_num);
+                                                await selectDeliveryInsert(searchedlist.shipment_num);
                                                 navigation.navigate('StateShipDeliverySubmit');
                                                 }
                                             }
-                                            >{searchedlist.po_num}
+                                            >{searchedlist.shipment_num}
                                         </Text>
                                     </View>
                                     <View style={styles.textContainer1}>
-                                        <Text style={styles.text1}>{searchedlist.comments}</Text>
+                                        <Text style={styles.text1}>{searchedlist.note_to_receiver}</Text>
                                     </View>
                                 </View>
                                 <>
                                 <View style={styles.textContainer2}>
-                                    <Text style={styles.text2}> {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}</Text>
+                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}</Text>
                                 </View>
                                 </>
                             </Card>
