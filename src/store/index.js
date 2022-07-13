@@ -1,3 +1,4 @@
+import loginStore from './login/loginStore'
 import searchedListStore from './delivery/searchedListStore'
 import deliverySelectStore from './delivery/deliverySelectStore'
 import deliveryInsertStore from './delivery/deliveryInsertStore'
@@ -17,6 +18,9 @@ import StateShipmentSelectStore from './stateShipment/StateShipmentSelectStore'
 import StateShipSearchedListStore from './stateShipment/StateShipSearchedListStore'
 const createRootStore = () => {
   return {
+    // 로그인
+    loginStore,
+
     // 납품
     searchedListStore,
     deliverySelectStore,
