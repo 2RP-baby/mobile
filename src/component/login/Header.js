@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
         // paddingTop: 20,
     },
     text: {
-        fontSize: 20,
+        fontSize: 30,
         color: '#FFFFFF',
         marginTop: 20,
+        fontWeight: 'bold',
     }
 })
 

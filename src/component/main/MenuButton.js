@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     container1:{
         justifyContent: 'center',
         alignItems: "center",
-        width: '40%',
+        width: '44%',
         height: '100%',
         backgroundColor: '#005386',
         
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     container2:{
         justifyContent: 'center',
         alignItems: "center",
-        width: '40%',
+        width: '44%',
         height: '100%',
         backgroundColor: '#ffffff',
         
@@ -60,11 +60,13 @@ const styles = StyleSheet.create({
     },
     text1:{
         color: '#ffffff',
-        fontSize: 28,
+        fontSize: 33,
+        fontWeight:'bold',
     },
     text2:{
         color: '#005386',
-        fontSize: 28,
+        fontSize: 33,
+        fontWeight:'bold',
     }
    
 })
