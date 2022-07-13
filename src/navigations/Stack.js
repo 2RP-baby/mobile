@@ -21,6 +21,7 @@ import StateShipmentSelect from '../page/StateShipmentSelect';
 import StateShipmentDetailSelect from '../page/StateShipmentDetailSelect';
 import StateShipDeliverySubmit from '../page/StateShipDeliverySubmit';
 import Login from '../page/Login';
+import Start from '../page/Start';
 
 
 const Stack = createStackNavigator();
@@ -32,7 +33,7 @@ const SelectShipment = createStackNavigator();
 
 function HomeStacksrc({navigation}){
   return(  
-    <HomeStack.Navigator initialRouteName='Login' screenOptions={{
+    <HomeStack.Navigator initialRouteName='Start' screenOptions={{
       // 메뉴바
       headerRight: () => (
         <View>
@@ -43,7 +44,8 @@ function HomeStacksrc({navigation}){
         </View>
       )
     }}>
-      <HomeStack.Screen name="Login" component={Login} options = {{headerTitle : 'e-Pro4'}}/>
+      <HomeStack.Screen name="Start" component={Start} options = {{headerShown: false }}/>
+      <HomeStack.Screen name="Login" component={Login} options = {{ headerShown: false }}/>
       <HomeStack.Screen name="Menu" component={Menu} options = {{headerTitle : 'e-Pro4'}} />
     </HomeStack.Navigator>
   )
