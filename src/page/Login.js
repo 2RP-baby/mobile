@@ -4,11 +4,11 @@ import Body from '../component/login/Body';
 import {View, StyleSheet} from 'react-native';
 
 
-const Login = () => {
+const Login = ({navigation}) => {
     return (
         <View style={styles.view}>
             <Header style={styles.header}/>
-            <Body style={styles.body}/>
+            <Body style={styles.body} navigation={navigation}/>
         </View>
     );
 };
