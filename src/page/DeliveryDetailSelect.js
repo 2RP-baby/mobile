@@ -43,7 +43,6 @@ const DeliveryDetailSelect = ({navigation}) => {
         changeDeliveryCondition({...deliveryCondition, page: --deliveryCondition.page})
         console.log("page--", deliveryCondition);
         selectMoreList();
-        
     }
 
     // console.log("deliveryCondition.page", deliveryCondition.page);
@@ -90,9 +89,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                             <View style={styles.textContainer1}>
-                                <Text style={styles.text1}
-                                    >{searchedlist.vendor_name}
-                                </Text>
+                                <Text style={styles.text1}>{searchedlist.vendor_name}</Text>
                             </View>
                         </View>
                         <>

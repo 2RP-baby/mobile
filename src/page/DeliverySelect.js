@@ -47,15 +47,13 @@ const DeliverySelect = ({navigation}) => {
                 <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
-                
                 <TouchableOpacity 
                     activeOpacity={0.8} 
                     style={styles.button} 
                     onPress={ () =>{ 
                         selectDeliveryList();
                         navigation.navigate('DeliveryDetailSelect');
-                    }}
-                    >
+                    }}>
                     <Text style={styles.text}>주문조회</Text>
                 </TouchableOpacity>
             </View>
@@ -83,7 +81,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         marginBottom: 20,
         borderRadius:10,
-      },
+    },
     text: {
         color: "#ffffff",
         fontSize:25,

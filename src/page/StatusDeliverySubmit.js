@@ -34,7 +34,7 @@ const DeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox receiveData={receiveData}/>
             </View>
-            <View>
+            <View style={styles.ItemInfo}>
                 <ItemInfo receiveData={receiveData}/>
             </View>
         </View>
@@ -42,17 +42,41 @@ const DeliverySubmit = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-    head:{
-        height: '100%',
+    header:{
+        height:'75%',
+        marginBottom: 400,
+        alignItems: "center",
     },
     fix:{
-        // width:'100%',
-        height: '23%',
-        marginBottom:5,
+        width:'100%',
+        height:'25%',
     },
-    info:{
-        // height: '100%',
-    }
+    ItemInfo:{
+        alignItems: "center",
+        height: '70%',
+        // backgroundColor:'yellow',
+    },
+    inputInfo:{
+        width: '100%',
+        // alignItems: "center",
+        marginTop: 10,
+        marginLeft: '4%',
+    },
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 5,
+        // marginBottom: 20,
+        borderRadius:10,
+    },
+    text1: {
+        color: "#ffffff",
+        fontSize: 25,
+        fontWeight:'bold',
+    },
 })
 
 export default DeliverySubmit;
