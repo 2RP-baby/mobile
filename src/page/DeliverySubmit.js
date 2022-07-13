@@ -90,34 +90,19 @@ const DeliverySubmit = ({navigation}) => {
                 <InputInfo id="subniventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
             </View>
             <TouchableOpacity 
-                        activeOpacity={0.8} 
-                        style={styles.button1} 
-                        onPress={ () =>{ 
-                            goAlert();
-                        }}
-                        >
-                        <Text style={styles.text1}>납품신청</Text>
-                </TouchableOpacity>
+                activeOpacity={0.8} 
+                style={styles.button1} 
+                onPress={ () =>{ 
+                    goAlert();
+                }}
+                >
+                <Text style={styles.text1}>납품신청</Text>
+            </TouchableOpacity>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    button1: {
-        width: "80%",
-        height: 60,
-        backgroundColor: "#005386",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 5,
-        // marginBottom: 20,
-        borderRadius:10,
-    },
-    text1: {
-        color: "#ffffff",
-        fontSize: 25,
-        fontWeight:'bold',
-    },
     header:{
         height:'75%',
         marginBottom: 400,
@@ -138,29 +123,44 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: '4%',
     },
-    button:{
-        width: 100,
-        height: 40,
-        justifyContent: 'center',
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
         alignItems: "center",
-        borderRadius: 50,
-        marginTop: 7,
-        // fontSize: 20,
-    },
-    text: {
-        fontSize: 18,
-        color: '#000000',
         marginTop: 5,
+        // marginBottom: 20,
+        borderRadius:10,
     },
-    input:{
-        borderWidth: 1,
-        borderColor: '#005386',
-        padding: 10, 
-        fontSize: 15,
-        width: 200,
-        height: 40,
-        marginTop: 5,
+    text1: {
+        color: "#ffffff",
+        fontSize: 25,
+        fontWeight:'bold',
     },
+    // button:{
+    //     width: 100,
+    //     height: 40,
+    //     justifyContent: 'center',
+    //     alignItems: "center",
+    //     borderRadius: 50,
+    //     marginTop: 7,
+    //     // fontSize: 20,
+    // },
+    // text: {
+    //     fontSize: 18,
+    //     color: '#000000',
+    //     marginTop: 5,
+    // },
+    // input:{
+    //     borderWidth: 1,
+    //     borderColor: '#005386',
+    //     padding: 10, 
+    //     fontSize: 15,
+    //     width: 200,
+    //     height: 40,
+    //     marginTop: 5,
+    // },
 })
 
 export default DeliverySubmit;

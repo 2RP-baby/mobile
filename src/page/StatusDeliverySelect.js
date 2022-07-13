@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Button} from 'react-native';
+import {View, StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
@@ -47,13 +47,15 @@ const DeliverySelect = ({navigation}) => {
             <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
-            <View style={styles.button}>
-                <Button title="주문조회" color="#005386" 
+            <TouchableOpacity 
+                activeOpacity={0.8} 
+                style={styles.button} 
                 onPress={ () =>{ 
                     selectDeliveryList();
                     navigation.navigate('StatusDeliveryDetailSelect');
-                }}/>
-            </View>
+                }}>
+                <Text style={styles.text}>주문조회</Text>
+            </TouchableOpacity>
         </View>
         </ScrollView>
     );
@@ -70,11 +72,20 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 10,
     },
-    button:{
-        width: 100,
-        height: 40,
-        borderRadius: 50,
-        marginTop: 30,
+    button: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 40,
+        marginBottom: 20,
+        borderRadius:10,
+    },
+    text: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
     }
 })
 
