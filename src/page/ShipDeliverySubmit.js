@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
+import {TouchableOpacity, View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { insertSccDeliveryInfo } from '../apis/shipment';
 import FixBox from '../component/shipmentInsert/FixBox';
@@ -85,7 +85,7 @@ const ShipDeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <View>
+            <View style={styles.ItemInfo}>
                 <ItemInfo/>
             </View>
             <View style ={styles.inputInfo}>
@@ -101,43 +101,73 @@ const ShipDeliverySubmit = ({navigation}) => {
                 <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
-            <View style={styles.button}>
-                <Button title="POSCO 전송" color="#005386"
-                    onPress={() => InsertInfo(inputData)}/>
-            </View>
+
+            <TouchableOpacity 
+                        activeOpacity={0.8} 
+                        style={styles.button1} 
+                        onPress={ () =>{ 
+                            InsertInfo(inputData);
+                        }}
+                        >
+                        <Text style={styles.text1}>POSCO 전송</Text>
+            </TouchableOpacity>
         </View>
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    datePicker:{
-        flexDirection:'row'
+    Picker : {
+        marginTop:20,
+        marginLeft:350,
     },
-    Picker:{
-        marginTop: 40,
-        marginLeft: 130,
+    datePicker : {
+        flexDirection:'row',
     },
-    inputInfo:{
-        marginLeft:10,
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 5,
+        // marginBottom: 20,
+        borderRadius:10,
+    },
+    text1: {
+        color: "#ffffff",
+        fontSize: 25,
+        fontWeight:'bold',
+    },
+    header:{
+        height:'75%',
+        marginBottom: 400,
+        alignItems: "center",
     },
     fix:{
         width:'100%',
-        height:'23%',
-        marginBottom:25,
-
+        height:'25%',
     },
-    header:{
+    ItemInfo:{
+        alignItems: "center",
+        height: '70%',
+        // backgroundColor:'yellow',
+        marginTop:30,
+    },
+    inputInfo:{
+        width: '100%',
         // alignItems: "center",
-        marginBottom: 400,
+        marginTop: -120,
+        marginLeft: '4%',
     },
     button:{
-        width: '100%',
+        width: 100,
         height: 40,
         justifyContent: 'center',
         alignItems: "center",
         borderRadius: 50,
-        marginTop: 30,
+        marginTop: 7,
+        // fontSize: 20,
     },
     text: {
         fontSize: 18,

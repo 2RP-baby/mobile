@@ -110,6 +110,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                 ))
             }
             </ScrollView>
+            
             <View flexDirection='row'  >
                 {deliveryCondition.page==1 ? true : 
                 <TouchableOpacity 

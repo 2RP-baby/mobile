@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button} from 'react-native';
+import { TouchableOpacity,Text,View, StyleSheet, Button} from 'react-native';
 import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
@@ -18,46 +18,53 @@ const ShipmentInsert = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <View>
+            <View marginTop={30}>
                 <ItemInsert/>
             </View>
-            <View style={styles.button2}>
-            <View style={styles.button}>
-                <Button title="다음 단계" color="#005386"
-                    onPress={() => navigation.navigate('ShipDeliverySubmit')}
-                    />
-            </View>
-            </View>
+
+            <TouchableOpacity 
+                        activeOpacity={0.8} 
+                        style={styles.button1} 
+                        onPress={ () =>{ 
+                            navigation.navigate('ShipDeliverySubmit'); 
+                        }}
+                        >
+                        <Text style={styles.text1}>다음단계</Text>
+            </TouchableOpacity>
+            
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    button1: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop:15,
+        marginBottom: 20,
+        borderRadius:10,
+    },
+    text1: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
+    },
     fix:{
         width:'100%',
-        height:'23%',
+        height:'17%',
     },
     header:{
-        // height:'100%',
-        // alignItems: "center",
-        marginBottom: 430,
-    },
-    button:{
-        width: 100,
-        height: 40,
-        justifyContent: 'center',
         alignItems: "center",
-        borderRadius: 50,
-        marginTop: 30,
+        height:'73%',
+        marginBottom: 500,
     },
-    button2:{
-        width: '100%',
-        // height: 40,
-        justifyContent: 'center',
-        alignItems: "center",
-        // borderRadius: 50,
-        // marginTop: 30,
-    }
+    fix:{
+        width:'100%',
+        height:'25%',
+    },
 })
 
 export default ShipmentInsert;

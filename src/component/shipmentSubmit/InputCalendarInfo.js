@@ -8,7 +8,7 @@ const InputCalendarInfo = ({id, index, labelContext, replaceContext, defaultValu
     return (
         <>
         <View style={styles.head}>
-            <Text style={styles.label}>{labelContext}</Text>
+            <Text style={styles.text}>{labelContext}</Text>
             {date?(<Text style={styles.input}>{moment(date).format("yyyy-MM-DD")}</Text>):(<Text style={styles.input}>{date}</Text>)}
         </View>
             {/* <Text
@@ -39,16 +39,21 @@ const styles = StyleSheet.create({
         // marginRight: 5,
     },
     input:{
+        borderWidth: 1,
+        borderColor: '#C8C8C8',
+        fontSize: 20,
+        width: '500%',
         height: 40,
-        width: '250%',
-        borderWidth: 0.7,
-        borderColor: '#005386',
-        // padding: 10, 
-        fontSize: 15,
-        marginRight: 10,
-        marginBottom: 10,
-        // backgroundColor: 'yellow',
-
+        borderRadius:10,
+        backgroundColor:'#ffffff',
+        marginBottom:10,
+        marginLeft:10,
+    },
+    text: {
+        color: '#000000',
+        fontWeight:'bold',
+        fontSize: 18,
+        marginLeft:5,
     },
 })
 
