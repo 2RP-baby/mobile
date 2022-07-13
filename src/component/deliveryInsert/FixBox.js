@@ -33,15 +33,15 @@ const FixBox = () => {
         
         <View style={styles.header}>
             <Card style={styles.card1}>
-            <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
-            <Text style={styles.text}>공급사 명 : {deliveryInsertInfo[0].vendor_name}</Text>
-            <>
-            {Object.keys(checkedList).map((key, index)=>{
-                let list = checkedList[key];
-                total += (list.quantity_ordered)*(list.unit_price);
-            })}            
-            </> 
-            <Text style={styles.text}>총 금액 : {total} 원</Text>
+                <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
+                <Text style={styles.text}>공급사 명 : {deliveryInsertInfo[0].vendor_name}</Text>
+                <>
+                {Object.keys(checkedList).map((key, index)=>{
+                    let list = checkedList[key];
+                    total += (list.quantity_ordered)*(list.unit_price);
+                })}            
+                </> 
+                <Text style={styles.text}>총 금액 : {total} 원</Text>
             </Card>
         </View>
     
