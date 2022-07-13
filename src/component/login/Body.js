@@ -55,7 +55,7 @@ const Body = ({navigation}) => {
                 onPress={ () =>{ 
                     // Alert.alert('로그인 버튼 클릭');
                     getTokenInfo();
-                    // navigation.navigate('Menu');
+                    navigation.navigate('Menu');
                 }}
                 >
                 <Text style={styles.text}>로그인</Text>
