@@ -21,35 +21,34 @@ const InputInfo = ({labelContext, replaceContext}) => {
 
 const styles = StyleSheet.create({
     container:{
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: "center",
-        marginBottom: 7,
+        width: 600,
     },
     textContainer:{
-        width: 100,
-        height: 40,
-        backgroundColor: '#005386',
+        width: '80%',
+        height: 60,
         justifyContent: 'center',
-        alignItems: "center",
-        borderWidth: 1,
-        // marginTop: 20,
-        // paddingTop: 20,
+
     },
     text: {
-        fontSize: 15,
-        color: '#FFFFFF',
+        color: '#000000',
+        fontWeight:'bold',
+        fontSize: 25,
+        marginLeft:5,
     },
     input:{
         borderWidth: 1,
-        borderColor: '#005386',
+        borderColor: '#C8C8C8',
         padding: 10, 
-        fontSize: 15,
-        width: 200,
-        height: 40,
+        fontSize: 20,
+        width: '80%',
+        height: 60,
+        borderRadius:10,
+        backgroundColor:'#ffffff',
+        marginBottom:10,
     },
-    
-
 })
 
 
