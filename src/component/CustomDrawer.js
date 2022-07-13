@@ -22,7 +22,7 @@ const CustomDrawer = (props) => {
                         {/* <FontAwesome5 name = "coins" size={12} color="#fff" marginLeft={10}></FontAwesome5> */}
                     </View>
                     <View>
-                        <ScrollView style={{height:900}}>
+                        <ScrollView style={{height:830}}>
                             <View backgroundColor='#fff' marginTop={-50}>
                                 <DrawerItemList {...props}/>
                             </View>
