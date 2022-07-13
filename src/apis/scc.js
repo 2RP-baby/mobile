@@ -2,6 +2,8 @@ import { serverAxios } from "./axios";
 
 const PREFIX_URL = "/scc";
 
+// 납품 신청
+
 // 선택한 조건으로 조회
 export const getSearchList = async (test) => {
   try {
@@ -53,13 +55,31 @@ export const StatusDeliveryInfo = async (num) => {
   }
 };
 
-// axios.post('http://localhost:8282/mob/userinfo', formData)
-//   .then((res) => {
-//       console.log(res.data);
+// 납품 신청 현황
+export const getCurSearchList = async (test) => {
+  try {
+    const { data } = await serverAxios.post(`${PREFIX_URL}/sccCurSearchList`, test);
+  //  console.log("data~~~~", data);
+    return data;
+  } catch (err) {
+    console.log("fail", err);
+    console.log("status", error.response.status);
+    // throw new Error("Failed to load");
+    // throw err;
+  }
+};
 
-//       setcus_name(res.data[0].customer_name_kor)
-//       setreal_name(res.data[0].esales_user_name)
-//       setphone_num(res.data[0].customer_cellphone_num)
-//       setbelong(res.data[0].belong)
-//       setemail(res.data[0].email_address)
-//   })
+export const getCurSearchInsertedOne = async (num) => {
+  try {
+    const sendData = {shipment_num : num};
+    const { data } = await serverAxios.post(`${PREFIX_URL}/sccSearchInsertedOne`, sendData);
+    return data;
+  } catch (err) {
+    console.log("fail", err);
+    console.log("status", error.response.status);
+    // throw new Error("Failed to load");
+    // throw err;
+  }
+};
+
+

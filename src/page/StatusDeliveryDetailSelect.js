@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert, ScrollView, TouchableOpacity} from 'react-native';
-import { getSearchList } from '../apis/scc';
+import { getCurSearchList, getCurSearchInsertedOne } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 import {Card} from 'react-native-shadow-cards';
@@ -49,12 +49,14 @@ const DeliveryDetailSelect = ({navigation}) => {
     }
 
     const selectMoreList = async () => {
-        const data = await getSearchList(deliveryCondition);
+        const data = await getCurSearchList(deliveryCondition);
         // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };
-    const selectDeliveryInsert =  async (po_num) => {
-        const data = await getDeliveryInsertInfo(po_num);
+
+    // 해당 shipment_num 클릭시 select 결과를 DeliveryInsertInfo(mobx)에 저장 
+    const selectCurSearchInsertedOne =  async (shipment_num) => {
+        const data = await getCurSearchInsertedOne(shipment_num);
         changeDeliveryInsertInfo(data);
     };  
 
@@ -68,12 +70,11 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 <View style={styles.textContainer}>
                                     <Text style={styles.text}
                                         onPress={async () => {
-                                            // await callChangeApi(searchedList.po_num);
-                                            await selectDeliveryInsert(searchedlist.po_num);
+                                            await selectCurSearchInsertedOne(searchedlist.scc1_shipment_num);
                                             navigation.navigate('StatusDeliverySubmit');
                                             }
                                         }
-                                        >{searchedlist.po_num}
+                                        >{searchedlist.scc1_shipment_num}
                                     </Text>
                                 </View>
                                 <View style={styles.textContainer1}>
@@ -82,11 +83,11 @@ const DeliveryDetailSelect = ({navigation}) => {
                             </View>
                             <>
                                 <View style={styles.textContainer2}>
-                                        <Text style={styles.text2}>{searchedlist.comments}</Text>
+                                        <Text style={styles.text2}>{searchedlist.po1_comments}</Text>
                                 </View>
                                 <View style={styles.textContainer3}>
                                     <Text style={styles.text3}>
-                                        {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
+                                        {searchedlist.staff_dept_code +" /"+ searchedlist.po5_subinventory+ " /"+searchedlist.scc1_send_date+" /"+searchedlist.staff_name}
                                     </Text>
                                 </View>
                             </>
@@ -117,17 +118,6 @@ const DeliveryDetailSelect = ({navigation}) => {
                     <Text style={styles.buttonText}>다음페이지</Text>
                 </TouchableOpacity> 
             </View>
-             {/* <View style={styles.button}>
-                    <Button title="이전페이지" color="#005386"
-                        onPress={() => {
-                            beforeInfo();
-                        }}/>
-                    <Text>               </Text>
-                    <Button title="다음페이지" color="#005386"
-                        onPress={() => {
-                            moreInfo();
-                        }}/>
-            </View>  */}
         </View>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
-import { getSearchList } from '../apis/scc';
+import { getCurSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -30,8 +30,9 @@ const DeliverySelect = ({navigation}) => {
     };
 
     const selectDeliveryList = async () => {
-        const data = await getSearchList(deliveryCondition);
+        const data = await getCurSearchList(deliveryCondition);
 
+        console.log("select한 결과::", data);
         // mobx에 저장하기
         changeSearchedList(data);
     };
@@ -41,12 +42,12 @@ const DeliverySelect = ({navigation}) => {
     return (
         <ScrollView>
         <View style={styles.view1}>
-            <InputInfo id="po_num"      labelContext="주문번호 (주문번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="staff_name"     labelContext="주문신청자 *" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
-            <InputInfo id="staff_dept_code" labelContext="신청부서 *" replaceContext="PEZ21EQ" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="shipmment_num"       labelContext="납품번호 (납품번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="staff_name"          labelContext="납품신청자 *"         replaceContext="이은행" handleCondition={handleDeliveryCondition} />
+            <InputInfo id="deliver_to_location" labelContext="납품장소"             replaceContext="QMA21" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="subinventory"        labelContext="Cost Center (Code 입력)" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="vendor_name"         labelContext="공급사(공급사명 조회) *" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="item_name"           labelContext="Item Code (Code 입력)" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
             <TouchableOpacity 
                 activeOpacity={0.8} 
                 style={styles.button} 
