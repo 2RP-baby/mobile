@@ -26,23 +26,11 @@ const Body = ({navigation}) => {
         changeLogin(tempCondition);
     };
 
-    const getTokenInfo = async () => {
+    const getLoginInfo = async () => {
         const data = await getToken(login);
         console.log("login info : ", data);
-
-        // // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
-        // serverAxios.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`
-        // // serverAxios.defaults.headers.common['Authorization'] = `Bearer ${res.payload.accessToken}`
-        // serverAxios.get('/user/me')
-        //     .then(res => {
-        //     console.log("login 성공", res);	
-        //     })
-        
-        // mobx에 token 저장하기
-        // changeLogin(data.accessToken);
+        changeLogin(data);
     };
-
-    console.log("login 정보", login);
 
     return (
         <View style={styles.view}>
@@ -53,9 +41,10 @@ const Body = ({navigation}) => {
                 activeOpacity={0.8} 
                 style={styles.button} 
                 onPress={ () =>{ 
-                    // Alert.alert('로그인 버튼 클릭');
-                    getTokenInfo();
+                    getLoginInfo();
+                    
                     navigation.navigate('Menu');
+                    Alert.alert(login.name+ "님 환영합니다! ");
                 }}
                 >
                 <Text style={styles.text}>로그인</Text>

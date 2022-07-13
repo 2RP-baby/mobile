@@ -5,8 +5,18 @@ import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navi
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {TouchableOpacity } from 'react-native-gesture-handler';
 import logoutIcon from '../../assets/icon/logout.png'
+import useRootData from '../hooks/useRootData';
 
 const CustomDrawer = (props) => {
+
+    const {
+        login,
+        changeLogin
+    } = useRootData(({loginStore}) => ({
+        login: loginStore.login.get(),
+        changeLogin: loginStore.changeLogin,
+    }));
+
     return (
         <View style = {{flex:1}}>
             <View {...props}  contentContainerStyle ={{backgroundColor:'#005386' }}>
@@ -14,11 +24,17 @@ const CustomDrawer = (props) => {
                         source ={require('../../assets/image/POSCO_ICT_CI_ENG.png')}
                         style={{padding:20}}/> */}
                     <View style = {{flexDirection:'column',backgroundColor:'#005386' }}>
+                        {login.email==='test'? 
+                        <Image 
+                        source={require('../../assets/icon/profile.jpg')} 
+                        style={{height:80,width:80,borderRadius:40, marginBottom:10, marginLeft:20, marginTop:60}}/> 
+                        : 
                         <Image 
                         source={require('../../assets/icon/profile.jpg')} 
                         style={{height:80,width:80,borderRadius:40, marginBottom:10, marginLeft:20, marginTop:60}}/>
-                        <Text style={{color:'#fff',fontSize: 18, marginLeft:10 , marginTop:10, marginBottom:10}}>이윤성 프로님</Text>
-                        <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:15}}>ERP 사업부</Text>
+                        }
+                        <Text style={{color:'#fff',fontSize: 18, marginLeft:10 , marginTop:10, marginBottom:10}}>{login.name} 님</Text>
+                        <Text style={{color:'#fff',fontSize: 12, marginLeft:10, marginBottom:15}}>{login.site_name}</Text>
                         {/* <FontAwesome5 name = "coins" size={12} color="#fff" marginLeft={10}></FontAwesome5> */}
                     </View>
                     <View>
