@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text, TouchableOpacity} from 'react-native';
+import { TouchableOpacity,View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { getCurSearchInsertedOne } from '../apis/scc';
 import FixBox from '../component/statusDeliverySubmit/FixBox';
 import ItemInfo from '../component/statusDeliverySubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
 
-const DeliverySubmit = ({navigation}) => {
+const DeliverySubmit = () => {
 
     return (
         <View style={styles.head}>
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     header:{
         height:'100%',
         alignItems: "center",
-        justifyContent: "center",
     },
     fix:{
         width:'100%',
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40,
+        marginTop: 130,
         marginBottom: 20,
         borderRadius:10,
         marginLeft: 80,

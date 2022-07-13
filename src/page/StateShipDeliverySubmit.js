@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
+import { TouchableOpacity,View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { getCurSearchInsertedOne } from '../apis/scc';
 import FixBox from '../component/stateShipmentSubmit/FixBox';
@@ -16,6 +16,14 @@ const StateShipDeliverySubmit = () => {
             <View style={styles.ItemInfo}>
                 <ItemInfo/>
             </View>
+            <TouchableOpacity 
+                activeOpacity={0.8} 
+                style={styles.button} 
+                onPress={ () =>{ 
+                    navigation.navigate('Menu');
+                }}>
+                <Text style={styles.text}>메인으로</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -34,8 +42,23 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: '90%',
         marginBottom: -500,
-
     },
+    button: {
+        width: "80%",
+        height: 60,
+        backgroundColor: "#005386",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 140,
+        marginBottom: 20,
+        borderRadius:10,
+        marginLeft: 80,
+    },
+    text: {
+        color: "#ffffff",
+        fontSize:25,
+        fontWeight:'bold',
+    }
 })
 
 export default StateShipDeliverySubmit;
