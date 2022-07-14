@@ -1,15 +1,20 @@
 import React from 'react';
-import {Text, TextInput, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import moment from 'moment';
-import DatePicker from './DatePicker'
-const InputCalendarInfo = ({id, index, labelContext, replaceContext, defaultValue, handleCondition, date}) => {
+
+const InputCalendarInfo = ({labelContext, date}) => {
     const _onChange = event => setText(...event.nativeEvent.text);
-    // console.log("input Calender",date);
+    console.log("input Calender",date);
     return (
         <>
         <View style={styles.head}>
             <Text style={styles.text}>{labelContext}</Text>
-            {date?(<Text style={styles.input}>{moment(date).format("yyyy-MM-DD")}</Text>):(<Text style={styles.input}>{date}</Text>)}
+            {date?(
+                <Text style={styles.input}>{moment(date).format("yyyy-MM-DD")}</Text>
+                ):(
+                <Text style={styles.input}>{date}</Text>
+                )
+            }
         </View>
             {/* <Text
                 style={styles.input}

@@ -1,26 +1,65 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet} from "react-native"
+import { View, TouchableOpacity, Text, StyleSheet, Alert} from "react-native"
+import useRootData from '../../hooks/useRootData';
 
 const MenuButton = ({navigation}) => {
+
+    const {
+        login,
+        changeLogin
+    } = useRootData(({loginStore}) => ({
+        login: loginStore.login.get(),
+        changeLogin: loginStore.changeLogin,
+    }));
+    
     return(
         <>
+        
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'})}>
+                onPress={()=>{
+                    if(login.authority=="ROLE_VENDOR"){
+                        Alert.alert("권한이 없습니다.");
+                    }
+                    else{
+                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                    }
+                    }}>
                 <Text style={styles.text1}>납품신청</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>navigation.navigate('SelectDeliverysrc', {screen: 'StatusDeliverySelect'})}>
+                onPress={()=>{
+                    if(login.authority=="ROLE_VENDOR"){
+                        Alert.alert("권한이 없습니다.");
+                    }
+                    else{
+                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                    }
+                    }}>
                 <Text style={styles.text2}>납품신청현황</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.flex1}>
             <TouchableOpacity style={styles.container2}
-                onPress={()=>navigation.navigate('InsertShipmentsrc', {screen: 'ShipmentSelect'})}>
+                onPress={()=>{
+                    if(login.authority=="ROLE_VENDOR"){
+                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                    }
+                    else{
+                        Alert.alert("권한이 없습니다.");
+                    }
+                    }}>
                 <Text style={styles.text2}>출하등록</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.container1}
-                onPress={()=>navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'})}>
+                onPress={()=>{
+                    if(login.authority=="ROLE_VENDOR"){
+                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                    }
+                    else{
+                        Alert.alert("권한이 없습니다.");
+                    }
+                    }}>
                 <Text style={styles.text1}>출하현황</Text>
             </TouchableOpacity>
         </View>
