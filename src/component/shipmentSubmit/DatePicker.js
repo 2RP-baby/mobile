@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import calendar from '../../../assets/icon/calendar.png';
 import moment from 'moment';
 
-const DatePicker = ({id, index, handleCondition}) => {
+const DatePicker = ({id, handleCondition}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   
   const showDatePicker = () => {
@@ -21,7 +21,7 @@ const DatePicker = ({id, index, handleCondition}) => {
     // setDate(date);
     // setDate('22-06-06');
     // onchangeText(date.format("yyyy/mm/dd"));
-    handleCondition(index, id, date);
+    handleCondition(id, date);
 
     hideDatePicker();
   };

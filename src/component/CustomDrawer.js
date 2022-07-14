@@ -48,7 +48,13 @@ const CustomDrawer = (props) => {
             </View>
 
         <View style={{padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
-            <TouchableOpacity onPress={()=>{}} style ={{paddingVertical:15}}>
+            <TouchableOpacity onPress={()=>{
+                // changeLogin({
+                // "email":" ", "password":" ",
+                // });
+                props.navigation.navigate('Login');
+
+            }} style ={{paddingVertical:15}}>
             <View style ={{flexDirection: 'row', alignItems:'center'}}>
                 <Image style={styles.image} source={logoutIcon} />
                 <Text>sign out</Text>

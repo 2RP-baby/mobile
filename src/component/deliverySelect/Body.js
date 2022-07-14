@@ -35,11 +35,11 @@ const Body = ({navigation}) => {
     return (
         <View style={styles.view}> 
             <InputInfo id="po_num"      labelContext="주문번호 (주문번호 입력)" replaceContext="466197-10" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="staff_name"     labelContext="주문신청자 *" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
-            <InputInfo id="staff_dept_code" labelContext="신청부서 *" replaceContext="PEZ21EQ" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="subinventory"    labelContext="Cost Center *" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="staff_name"     labelContext="주문신청자" replaceContext="이은행" handleCondition={handleDeliveryCondition} />
+            <InputInfo id="staff_dept_code" labelContext="신청부서" replaceContext="PEZ21EQ" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="subinventory"    labelContext="Cost Center" replaceContext="PSC12" handleCondition={handleDeliveryCondition}/>
             <InputInfo id="vendor_name"     labelContext="공급사" replaceContext="(주)포스코케미칼" handleCondition={handleDeliveryCondition}/>
-            <InputInfo id="item_name"       labelContext="Item Code *" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
+            <InputInfo id="item_name"       labelContext="Item Code" replaceContext="Q1109962" handleCondition={handleDeliveryCondition}/>
             
             <View style={styles.button}>
                 <Button title="주문조회"

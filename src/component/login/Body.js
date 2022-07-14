@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef, useState } from 'react';
 import {View, Button, StyleSheet, Alert, TouchableOpacity, Text} from 'react-native';
 import useRootData from '../../hooks/useRootData';
 import InputInfo from './common/InputInfo';
@@ -18,19 +18,34 @@ const Body = ({navigation}) => {
         changeLogin: loginStore.changeLogin,
     }));
 
+    const [idpw, setIdpw] = useState({
+        email:" ",
+        password:" ",
+    });
+
+    const inputRef = createRef();
+
 
     const handleLoginCondition = (key, value) => {
-        const tempCondition = { ...login };
+        const tempCondition = { ...idpw };
         tempCondition[key] = value;
         // setDeliveryCondition(tempCondition);
-        changeLogin(tempCondition);
+        setIdpw(tempCondition);
     };
 
     const getLoginInfo = async () => {
-        const data = await getToken(login);
+        const data = await getToken(idpw);
         console.log("login info : ", data);
         changeLogin(data);
+
+        // 초기화
+        setIdpw({
+            email:" ",
+            password:" ",
+        });
+        // inputRef.current.clear();
     };
+    console.log("idpw", idpw);
 
     return (
         <View style={styles.view}>
@@ -43,7 +58,7 @@ const Body = ({navigation}) => {
                 onPress={ () =>{ 
                     getLoginInfo();
                     navigation.navigate('Menu');
-                    Alert.alert(login.name+ "님 환영합니다! ");
+                    Alert.alert("로그인이 완료되었습니다! ");
                 }}
                 >
                 <Text style={styles.text}>로그인</Text>
