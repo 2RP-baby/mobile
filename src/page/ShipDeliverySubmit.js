@@ -94,7 +94,7 @@ const ShipDeliverySubmit = ({navigation}) => {
 
                 <View style ={styles.datePicker}>
                     {/* <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/> */}
-                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
+                    <InputCalendarInfo id="expected_receipt_date" labelContext="  도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
                     <View style ={styles.Picker}>
                         <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
                     </View>
@@ -119,8 +119,8 @@ const ShipDeliverySubmit = ({navigation}) => {
 
 const styles = StyleSheet.create({
     Picker : {
-        marginTop:20,
-        marginLeft:350,
+        marginTop:25,
+        marginLeft:600,
     },
     datePicker : {
         flexDirection:'row',
@@ -147,7 +147,8 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'25%',
+        height:'24%',
+        // backgroundColor: 'red',
     },
     ItemInfo:{
         alignItems: "center",

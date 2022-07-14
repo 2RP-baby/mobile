@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     header:{
         // flexDirection: 'column',
         // width: '100%',
-        height: '90%',
+        height: '80%',
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     },
     card1:{
         width: '90%',
+        height:'100%',
         // marginTop: 10,
         backgroundColor: '#005386',
         // backgroundColor: "rgba(0,83,134,0.5)",

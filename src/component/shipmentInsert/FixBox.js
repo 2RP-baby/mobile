@@ -25,16 +25,15 @@ const FixBox = () => {
     return (
         <View style={styles.header}>
             <Card style={styles.card1}>
-            <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
-            <Text style={styles.text}>요청 번호 : {deliveryInsertInfo[0].shipment_num}</Text>
-            <Text style={styles.text}>납품신청자 : {deliveryInsertInfo[0].staff_name}     납품 장소 : {deliveryInsertInfo[0].deliver_to_location}</Text>
-            <>
-            {Object.keys(checkedList).map((key, index)=>{
-                let list = checkedList[key];
-                total += (list.quantity_shipped)*(list.unit_price);
-            })}            
-            </> 
-            <Text style={styles.text}>총 금액 : {total} 원</Text>
+                <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}                                                    납품신청자 : {deliveryInsertInfo[0].staff_name} </Text>
+                <Text style={styles.text}>요청 번호 : {deliveryInsertInfo[0].shipment_num}                                                  납품 장소 : {deliveryInsertInfo[0].deliver_to_location}</Text>
+                <>
+                    {Object.keys(checkedList).map((key, index)=>{
+                        let list = checkedList[key];
+                        total += (list.quantity_shipped)*(list.unit_price);
+                    })}            
+                </> 
+                <Text style={styles.text}>총 금액 : {total} 원</Text>
             </Card>
         </View>
     );
@@ -48,17 +47,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        // margin:30,
     },
     card1:{
         width: '90%',
+        height: '113%',
         // marginTop: 10,
         backgroundColor: '#005386',
         // backgroundColor: "rgba(0,83,134,0.5)",
         // borderRadius
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        padding: 20,
+        padding: 30,
+        marginTop: -20,
+        // marginBottom: 20,
+        // padding:10,
         
     },
     text: {

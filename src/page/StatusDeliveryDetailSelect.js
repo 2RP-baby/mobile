@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
 
     },
     scroll:{
-        height:'110%',
+        height:'115%',
     },
     view1:{
         marginBottom: 10,
@@ -140,8 +140,20 @@ const styles = StyleSheet.create({
     card:{
         marginTop: 10,
     },
+    text:{
+        color: '#005386',
+        textDecorationLine: 'underline',
+        fontWeight: 'bold',
+        fontSize:23,
+    },
     containerRow:{
         flexDirection: 'row',
+    },
+    containerColumn:{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: "center",
+        marginBottom: 0,
     },
     textContainer:{
         width: '50%',
@@ -150,18 +162,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 10,
     },
-    text:{
-        color: '#005386',
-        textDecorationLine: 'underline',
-        fontWeight: 'bold',
-        fontSize:23,
-    },
-    // containerColumn:{
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     marginBottom: 0,
-    // },
     textContainer1:{
         width: '50%',
         height: 50,
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     text1: {
-        fontSize:18,
+        fontSize:16,
     },
     text2:{
         fontSize: 23,
@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40,
         marginBottom: 20,
         borderRadius:10,
     },

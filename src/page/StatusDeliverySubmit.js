@@ -16,44 +16,54 @@ const DeliverySubmit = ({navigation}) => {
             <View style={styles.ItemInfo}>
                 <ItemInfo/>
             </View>
-            <TouchableOpacity 
-                activeOpacity={0.8} 
-                style={styles.button} 
-                onPress={ () =>{ 
-                    navigation.navigate('Menu');
-                }}>
-                <Text style={styles.text}>메인으로</Text>
-            </TouchableOpacity>
+            <View style={styles.buttonWrap}>
+                <TouchableOpacity 
+                    activeOpacity={0.8} 
+                    style={styles.button} 
+                    onPress={ () =>{ 
+                        navigation.navigate('Menu');
+                    }}>
+                    <Text style={styles.text}>메인으로</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    header:{
+    head:{
         height:'100%',
         alignItems: "center",
+        flexDirection: 'column',
     },
     fix:{
         width:'100%',
-        height:'35%',
+        height:'30%',
         // backgroundColor:'yellow',
     },
     ItemInfo:{
         alignItems: "center",
-        height: '90%',
+        height: '63%',
         marginBottom: -500,
+
+    },
+    buttonWrap:{
+        alignItems: "center",
+        width: "80%",
+        height: "50%",
+        marginTop: 380,
 
     },
     button: {
         width: "80%",
-        height: 60,
+        height: "10%",
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
         marginTop: 130,
         marginBottom: 20,
         borderRadius:10,
-        marginLeft: 80,
+        marginLeft: 30,
     },
     text: {
         color: "#ffffff",

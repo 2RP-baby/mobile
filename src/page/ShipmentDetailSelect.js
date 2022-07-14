@@ -81,14 +81,12 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </Text>
                             </View>
                             <View style={styles.textContainer1}>
-                                <Text
-                                    >{searchedlist.comments}
-                                </Text>
+                                <Text style={styles.text1}>{searchedlist.comments}</Text>
                             </View>
                         </View>
                         <>
                         <View style={styles.textContainer2}>
-                            <Text>
+                            <Text style={styles.text3}>
                                 {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+ moment(searchedlist.send_date).format("yyyy-MM-DD")}
                             </Text>
                         </View>
@@ -127,9 +125,6 @@ const ShipmentDetailSelect = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-    card:{
-        marginTop: 10,
-    },
     view:{
         justifyContent: 'center',
         alignItems: "center",
@@ -138,11 +133,14 @@ const styles = StyleSheet.create({
 
     },
     scroll:{
-        height:'110%',
+        height:'113%',
     },
     view1:{
         marginBottom: 10,
         alignItems: "center",
+    },
+    card:{
+        marginTop: 10,
     },
     text:{
         color: '#005386',
@@ -185,13 +183,29 @@ const styles = StyleSheet.create({
         alignItems: "center",
         // borderWidth: 1,
     },
+    textContainer3:{
+        width: '100%',
+        height: 50,
+        alignItems: "center",
+    },
+    text1: {
+        fontSize:16,
+    },
+    text2:{
+        fontSize: 23,
+        fontWeight: 'bold',
+    },
+    text3:{
+        fontSize: 20,
+        // fontWeight: 'bold',
+    },
     button: {
         width: "30%",
         height: 60,
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40,
+        marginTop: 10,
         marginBottom: 20,
         borderRadius:10,
     },
