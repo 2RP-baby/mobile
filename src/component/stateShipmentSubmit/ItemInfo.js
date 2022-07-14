@@ -17,7 +17,7 @@ const ItemInfo = ({receiveData}) => {
         changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
     // console.log("receiveData.scc2List : ",receiveData.scc2List);
-    console.log("deliveryInsertInfo ~!!~", deliveryInsertInfo);
+    console.log("deliveryInsertInfo ~!!~", deliveryInsertInfo.item_description);
     // console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
     return (
@@ -28,7 +28,6 @@ const ItemInfo = ({receiveData}) => {
                 <Card style={styles.card}>
                 <View>
                     <Text style={styles.text1}>{insertList.item} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
-                    <Text style={styles.text2}>{insertList.item_description}</Text> 
                     <>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text3_label}>요청수량 : </Text>      

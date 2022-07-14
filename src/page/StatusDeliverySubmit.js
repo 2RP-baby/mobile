@@ -6,7 +6,7 @@ import FixBox from '../component/statusDeliverySubmit/FixBox';
 import ItemInfo from '../component/statusDeliverySubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
 
-const DeliverySubmit = () => {
+const DeliverySubmit = ({navigation}) => {
 
     return (
         <View style={styles.head}>
@@ -43,14 +43,15 @@ const styles = StyleSheet.create({
     },
     ItemInfo:{
         alignItems: "center",
-        height: '80%',
+        height: '63%',
         marginBottom: -500,
 
     },
     buttonWrap:{
+        alignItems: "center",
         width: "80%",
         height: "50%",
-        marginTop: 180,
+        marginTop: 380,
 
     },
     button: {
