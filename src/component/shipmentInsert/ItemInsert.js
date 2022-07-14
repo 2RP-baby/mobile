@@ -4,7 +4,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import useRootData from '../../hooks/useRootData';
 import InputInfo from './InputInfo';
 import {Card} from 'react-native-shadow-cards';
-
+import moment from 'moment';
 const ItemInsert = () => {
 
     // mobx
@@ -56,9 +56,8 @@ const ItemInsert = () => {
         delete tempCondition[index];
         changeCheckedList(tempCondition);
     };
-
+    
     // console.log("checkedList", checkedList);
-
     return (
         <ScrollView>
             <>
@@ -95,7 +94,7 @@ const ItemInsert = () => {
                         <InputInfo id="quantity_shipped" index={index} labelContext="출하수량 :" defaultValue={0} handleCondition={handleItemCondition} />
                         {/* <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} /> */}
                         <Text style={styles.text3_label}> 요청납기 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.need_by_date}</Text> 
+                        <Text style={styles.text3_context}>{moment(insertList.need_by_date).format("yyyy-MM-DD")}</Text> 
                     </View>
                     </>
                     <View style={styles.text3_warrap}>

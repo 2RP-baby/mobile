@@ -6,7 +6,7 @@ import FixBox from '../component/statusDeliverySubmit/FixBox';
 import ItemInfo from '../component/statusDeliverySubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
 
-const DeliverySubmit = () => {
+const DeliverySubmit = ({navigation}) => {
 
     return (
         <View style={styles.head}>

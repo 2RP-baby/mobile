@@ -4,7 +4,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { ScrollView } from 'react-native-gesture-handler';
 import useRootData from '../../hooks/useRootData';
 import { Card } from 'react-native-shadow-cards';
-
+import moment from 'moment';
 
 const ItemInfo = () => {
 
@@ -44,7 +44,7 @@ const ItemInfo = () => {
                         <Text style={styles.text3_label}>출하수량:</Text>      
                         <Text style={styles.text3_context}>{quantity_shipped}</Text>      
                         <Text style={styles.text3_label}>요청납기:</Text>      
-                        <Text style={styles.text3_context}>{need_by_date}</Text>  
+                        <Text style={styles.text3_context}>{moment(need_by_date).format("yyyy-MM-DD")}</Text>  
                     </View>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text4_label}>Comment:</Text>      
