@@ -36,7 +36,7 @@ const DeliverySubmit = ({navigation}) => {
             "comment" : "",  	                                // input
             "po_header_id" : deliveryInsertInfo[0].po_header_id,
             "po_release_id" : "",                               // 일단 비워두기
-            "subniventory" : "",                                // input
+            "subinventory" : "",                                // input
         },
 
         "scc2List" : scc2List,
@@ -88,7 +88,7 @@ const DeliverySubmit = ({navigation}) => {
             <View style ={styles.inputInfo}>
                 <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
-                <InputInfo id="subniventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="subinventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
             </View>
             <TouchableOpacity 
                 activeOpacity={0.8} 

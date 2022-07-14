@@ -15,7 +15,7 @@ const FixBox = () => {
         changeDeliveryInsertInfo: statusDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
 
-    // console.log("Submit deliveryInsertInfo 000000000 : ", deliveryInsertInfo[0]);
+    console.log("Submit deliveryInsertInfo 신청부서 scc1_subinventory : ", deliveryInsertInfo[0].scc1_subinventory);
 
     let total = 0;
     
@@ -52,7 +52,7 @@ const FixBox = () => {
 };
 const styles = StyleSheet.create({
     header:{
-        height: '90%',
+        height: '72%',
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     textvalue: {
-        width: '100%',
+        width: '110%',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',

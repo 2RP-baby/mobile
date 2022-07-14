@@ -87,7 +87,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </View>
                                 <>
                                 <View style={styles.textContainer2}>
-                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+moment(searchedlist.send_date).format("yyyy-MM-DD)")}</Text>
+                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+moment(searchedlist.send_date).format("yyyy-MM-DD")}</Text>
                                 </View>
                                 </>
                             </Card>
