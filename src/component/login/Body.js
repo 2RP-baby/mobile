@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from 'react';
+import React, { createRef, useState } from 'react';
 import {View, Button, StyleSheet, Alert, TouchableOpacity, Text} from 'react-native';
 import useRootData from '../../hooks/useRootData';
 import InputInfo from './common/InputInfo';
@@ -22,50 +22,31 @@ const Body = ({navigation}) => {
         email:" ",
         password:" ",
     });
-    
-    console.log("idpw : ",idpw);
+
+    const inputRef = createRef();
+
 
     const handleLoginCondition = (key, value) => {
         const tempCondition = { ...idpw };
         tempCondition[key] = value;
+        // setDeliveryCondition(tempCondition);
         setIdpw(tempCondition);
     };
-    const inputRef = createRef();
-    
+
     const getLoginInfo = async () => {
         const data = await getToken(idpw);
-        // setIdpw('');
-
         console.log("login info : ", data);
         changeLogin(data);
-        setIdpw({
-            email:" ",
-            password:" ",
-        });
-        inputRef.current.clear();
+
+        // 초기화
+        // inputRef.current.clear();
     };
-
-    // const[text, setText] = useState('');
-    // const onChange =(e) =>{
-    //     setText(e.target.value);
-    // }
-    // const onReset =()=>{
-    //     setText('');
-    // };
-
-    // useEffect(()=>{
-    //     setIdpw({
-    //         email:" ",
-    //         password:" ",
-    //     });
-
-    // },[]);
 
     return (
         <View style={styles.view}>
-            {/* <InputSelect/> */}
-            <InputInfo value = {idpw.email} id="email" labelContext="ID" replaceContext="ID를 입력하세요" handleCondition={handleLoginCondition}/>
-            <InputInfo value = {idpw.password} id="password" labelContext="PASSWORD" replaceContext="PASSWORD를 입력하세요" handleCondition={handleLoginCondition}/>
+            <InputSelect/>
+            <InputInfo id="email" labelContext="ID" replaceContext="ID를 입력하세요" handleCondition={handleLoginCondition}/>
+            <InputInfo id="password" labelContext="PASSWORD" replaceContext="PASSWORD를 입력하세요" handleCondition={handleLoginCondition}/>
             <TouchableOpacity 
                 activeOpacity={0.8} 
                 style={styles.button} 
