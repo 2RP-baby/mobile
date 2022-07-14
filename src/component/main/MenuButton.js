@@ -33,7 +33,7 @@ const MenuButton = ({navigation}) => {
                         Alert.alert("권한이 없습니다.");
                     }
                     else{
-                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                        navigation.navigate('SelectDeliverysrc', {screen: 'StatusDeliverySelect'});
                     }
                     }}>
                 <Text style={styles.text2}>납품신청현황</Text>
@@ -43,7 +43,7 @@ const MenuButton = ({navigation}) => {
             <TouchableOpacity style={styles.container2}
                 onPress={()=>{
                     if(login.authority=="ROLE_VENDOR"){
-                        navigation.navigate('InsertDeliverysrc', {screen: 'DeliverySelect'});
+                        navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'});
                     }
                     else{
                         Alert.alert("권한이 없습니다.");

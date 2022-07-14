@@ -63,7 +63,7 @@ const Body = ({navigation}) => {
 
     return (
         <View style={styles.view}>
-            <InputSelect/>
+            {/* <InputSelect/> */}
             <InputInfo value = {idpw.email} id="email" labelContext="ID" replaceContext="ID를 입력하세요" handleCondition={handleLoginCondition}/>
             <InputInfo value = {idpw.password} id="password" labelContext="PASSWORD" replaceContext="PASSWORD를 입력하세요" handleCondition={handleLoginCondition}/>
             <TouchableOpacity 

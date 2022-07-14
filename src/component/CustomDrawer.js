@@ -49,9 +49,9 @@ const CustomDrawer = (props) => {
 
         <View style={{padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
             <TouchableOpacity onPress={()=>{
-                changeLogin({
-                "email":" ", "password":" ",
-                });
+                // changeLogin({
+                // "email":" ", "password":" ",
+                // });
                 props.navigation.navigate('Login');
 
             }} style ={{paddingVertical:15}}>

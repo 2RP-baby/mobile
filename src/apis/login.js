@@ -6,6 +6,8 @@ export const getToken = async (sendData) => {
     try {
         const { data } = await serverAxios.post('/auth/login', sendData);
 
+        console.log("sendData", sendData);
+
         const dataToken = data.accessToken
         console.log("accessToken", dataToken);
 
