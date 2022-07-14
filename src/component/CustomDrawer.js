@@ -57,7 +57,7 @@ const CustomDrawer = (props) => {
             }} style ={{paddingVertical:15}}>
             <View style ={{flexDirection: 'row', alignItems:'center'}}>
                 <Image style={styles.image} source={logoutIcon} />
-                <Text>sign out</Text>
+                <Text>log out</Text>
             </View>    
             </TouchableOpacity>
         </View>

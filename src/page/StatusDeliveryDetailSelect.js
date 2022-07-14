@@ -4,7 +4,7 @@ import { getCurSearchList, getCurSearchInsertedOne } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 import {Card} from 'react-native-shadow-cards';
-
+import moment from 'moment';
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
@@ -87,7 +87,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </View>
                                 <View style={styles.textContainer3}>
                                     <Text style={styles.text3}>
-                                        {searchedlist.staff_dept_code +" /"+ searchedlist.po5_subinventory+ " /"+searchedlist.scc1_send_date+" /"+searchedlist.staff_name}
+                                        {searchedlist.staff_dept_code +" /"+ searchedlist.po5_subinventory+ " /"+ moment(searchedlist.scc1_send_date).format("yyyy-MM-DD") +" /"+searchedlist.staff_name}
                                     </Text>
                                 </View>
                             </>

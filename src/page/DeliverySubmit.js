@@ -69,6 +69,7 @@ const DeliverySubmit = ({navigation}) => {
                 style: "cancel"
             },
             { text: "네", onPress: () => {
+                Alert.alert("납품신청이 완료 되었습니다");
                 navigation.navigate('Menu');
                 InsertInfo(inputData);
             }}, //버튼 제목
