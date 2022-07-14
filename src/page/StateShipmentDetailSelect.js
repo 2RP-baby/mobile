@@ -5,7 +5,7 @@ import useRootData from '../hooks/useRootData';
 import {getShipmentInsertInfo,shipCurSearchList} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
-
+import moment from 'moment';
 const ShipmentDetailSelect = ({navigation}) => {
     const {
         // 전 페이지에서 select 한 결과
@@ -87,7 +87,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </View>
                                 <>
                                 <View style={styles.textContainer2}>
-                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}</Text>
+                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+moment(searchedlist.send_date).format("yyyy-MM-DD)")}</Text>
                                 </View>
                                 </>
                             </Card>

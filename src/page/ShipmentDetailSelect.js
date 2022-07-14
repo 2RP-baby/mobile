@@ -5,6 +5,7 @@ import useRootData from '../hooks/useRootData';
 import {getShipmentInsertInfo} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
+import moment from 'moment';
 
 const ShipmentDetailSelect = ({navigation}) => {
     const {
@@ -58,6 +59,7 @@ const ShipmentDetailSelect = ({navigation}) => {
         changeDeliveryInsertInfo(data);
     };  
 
+
     return (
         <View style={styles.view}>
             <ScrollView style ={styles.scroll}>
@@ -84,7 +86,9 @@ const ShipmentDetailSelect = ({navigation}) => {
                         </View>
                         <>
                         <View style={styles.textContainer2}>
-                            <Text style={styles.text3}> {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+searchedlist.send_date}</Text>
+                            <Text style={styles.text3}>
+                                {searchedlist.scc_amount +" /"+ searchedlist.staff_name+ " /"+searchedlist.deliver_to_location +" /"+ moment(searchedlist.send_date).format("yyyy-MM-DD")}
+                            </Text>
                         </View>
                         </>
                         </Card>

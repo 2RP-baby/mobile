@@ -5,12 +5,13 @@ import useRootData from '../hooks/useRootData';
 import {getDeliveryInsertInfo} from '../apis/scc';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
+import moment from 'moment';
 
 
 const DeliveryDetailSelect = ({navigation}) => {
     const {
         searchedList, 
-        changeSearchedList, 
+        changeSearchedList,
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
         callChangeApi,
@@ -98,7 +99,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                         </View>
                         <View style={styles.textContainer3}>
                             <Text style={styles.text3}>
-                                {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+searchedlist.promised_date+" /"+searchedlist.staff_name}
+                                {searchedlist.staff_dept_code +" /"+ searchedlist.subinventory+ " /"+moment(searchedlist.promised_date).format("yyyy-MM-DD") +" /"+searchedlist.staff_name}
                             </Text>
                         </View>
                         </>
@@ -158,9 +159,11 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:23,
+        // marginRight:150,
     },
     containerRow:{
         flexDirection: 'row',
+        justifyContent:'space-around'
     },
     containerColumn:{
         flexDirection: 'column',
@@ -169,7 +172,7 @@ const styles = StyleSheet.create({
         marginBottom: 0,
     },
     textContainer:{
-        width: '50%',
+        width: '30%',
         height: 50,
         justifyContent: 'center',
         alignItems: "center",

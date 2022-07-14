@@ -38,9 +38,11 @@ const styles = StyleSheet.create({
         borderWidth: 0.7,
         borderColor: '#005386',
         // padding: 10, 
-        fontSize: 10,
+        fontSize: 13,
         marginRight: 10,
         marginBottom: 10,
+        textAlign:'center',
+
     },
 })
 
