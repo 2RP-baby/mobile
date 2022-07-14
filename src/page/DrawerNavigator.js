@@ -13,7 +13,7 @@ import CustomDrawer from '../component/CustomDrawer';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-const DrawerNavigator = () => {
+const DrawerNavigator = ({navigation}) => {
   const ProfileScreen = () => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -26,7 +26,7 @@ const DrawerNavigator = () => {
   return(
     <Drawer.Navigator
     initialRouteName=" "
-    drawerContent={props =><CustomDrawer{...props}/>}
+    drawerContent={props =><CustomDrawer {...props}/>}
     screenOptions={{
         drawerPosition: 'right',
         drawerType: 'back',

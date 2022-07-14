@@ -47,6 +47,7 @@ const ShipDeliverySubmit = ({navigation}) => {
     const handleDeliveryCondition = (key, value) => {
         const tempCondition = { ...inputData };
         tempCondition["ship1"][key] = value;
+        console.log(tempCondition);
         setInputData(tempCondition);
     };
 
@@ -93,7 +94,7 @@ const ShipDeliverySubmit = ({navigation}) => {
 
                 <View style ={styles.datePicker}>
                     {/* <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/> */}
-                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.expected_receipt_date}/>  
+                    <InputCalendarInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
                     <View style ={styles.Picker}>
                         <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
                     </View>
