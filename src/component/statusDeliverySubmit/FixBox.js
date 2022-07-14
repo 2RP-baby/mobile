@@ -30,11 +30,7 @@ const FixBox = () => {
                         <Text style={styles.text}>납품 장소</Text>
                         <Text style={styles.text}>요청 특기사항</Text>
                         <Text style={styles.text}>신청부서(Code 입력)</Text>
-                    
                     </View>
-                
-                
-
                 {deliveryInsertInfo.map((value, index)=>{
                     // console.log(deliveryInsertInfo[index].po2_unit_price);
                     total += (deliveryInsertInfo[index].po2_unit_price)*(deliveryInsertInfo[index].scc2_quantity_ordered);
@@ -77,7 +73,7 @@ const styles = StyleSheet.create({
         width: 300,
     },
     text: {
-        width: '80%',
+        width: '100%',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',
@@ -85,7 +81,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     textvalue: {
-        width: '80%',
+        width: '100%',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',

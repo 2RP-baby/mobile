@@ -83,7 +83,7 @@ const ItemInsert = () => {
                     <Text style={styles.text2}>{insertList.description}</Text>     
                     <>
                     <View style={styles.text3_warrap}>
-                        <Text style={styles.text3_label}>주문수량 : </Text>      
+                        <Text style={styles.text3_label}>주문수량 : </Text><Text>   </Text> 
                         <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>      
                         <Text style={styles.text3_label}>요청수량 : </Text>      
                         <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>   
