@@ -37,13 +37,13 @@ const ShipmentDetailSelect = ({navigation}) => {
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
     const moreInfo = () => {
-        changeShipmentCondition({...shipmentCondition, page: shipmentCondition.page+1})
+        changeShipmentCondition({...shipmentCondition, page: ++shipmentCondition.page})
         // console.log("page++", shipmentCondition);
         selectMoreList();
     }
 
     const beforeInfo = () => {
-        changeShipmentCondition({...shipmentCondition, page: shipmentCondition.page-1})
+        changeShipmentCondition({...shipmentCondition, page: --shipmentCondition.page})
         // console.log("page--", deliveryCondition);
         selectMoreList();
     }
@@ -74,7 +74,8 @@ const ShipmentDetailSelect = ({navigation}) => {
                                         // await callChangeApi(searchedList.po_num);
                                         // console.log("searchedlist.po_num ::: ", searchedlist.po_num);
                                         await selectDeliveryInsert(searchedlist.po_num);
-                                        navigation.navigate('ShipmentInsert');
+                                        console.log("넘어가는 index~~", searchedlist.send_date);
+                                        navigation.navigate('ShipmentInsert',{date:searchedlist.send_date});
                                         }
                                     }
                                     >{searchedlist.po_num}

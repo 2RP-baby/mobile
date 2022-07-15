@@ -4,7 +4,7 @@ import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
 
-const ShipmentInsert = ({navigation}) => {
+const ShipmentInsert = ({navigation, route}) => {
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
@@ -12,7 +12,7 @@ const ShipmentInsert = ({navigation}) => {
         deliveryInsertInfo: shipDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: shipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
-    
+    console.log("index 잘 넘어 온가 보자???????", route.params.date);
     return (
         <View style={styles.header}>
             <View style={styles.fix}>
@@ -26,7 +26,7 @@ const ShipmentInsert = ({navigation}) => {
                         activeOpacity={0.8} 
                         style={styles.button1} 
                         onPress={ () =>{ 
-                            navigation.navigate('ShipDeliverySubmit'); 
+                            navigation.navigate('ShipDeliverySubmit',{date:route.params.date}); 
                         }}
                         >
                         <Text style={styles.text1}>다음단계</Text>

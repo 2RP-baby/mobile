@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert, TouchableOpacity} from 'react-native';
 import { getSearchList } from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
-import {getShipmentInsertInfo,shipCurSearchList} from '../apis/shipment';
+import {getShipmentInsertInfo,shipCurSearchList, getCurSearchInsertedOne} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
 import moment from 'moment';
@@ -61,6 +61,7 @@ const ShipmentDetailSelect = ({navigation}) => {
         const data = await getCurSearchInsertedOne(shipment_num);
         changeDeliveryInsertInfo(data);
     };
+    
     console.log("searchedList chullllllllhaaaaaa", searchedList);
     return (
         <View style={styles.view}>
@@ -74,7 +75,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                                             onPress={async () => {
                                                 // await callChangeApi(searchedList.po_num);
                                                 // console.log("searchedlist.po_num ::: ", searchedlist.po_num);
-                                                await selectDeliveryInsert(searchedlist.shipment_num);
+                                                await selectCurSearchInsertedOne(searchedlist.shipment_num);
                                                 navigation.navigate('StateShipDeliverySubmit');
                                                 }
                                             }
@@ -87,7 +88,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 </View>
                                 <>
                                 <View style={styles.textContainer2}>
-                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+moment(searchedlist.send_date).format("yyyy-MM-DD)")}</Text>
+                                    <Text style={styles.text2}> {searchedlist.subinventory +" /"+ searchedlist.contact_name+ " /"+searchedlist.deliver_to_location +" /"+moment(searchedlist.send_date).format("yyyy-MM-DD")}</Text>
                                 </View>
                                 </>
                             </Card>

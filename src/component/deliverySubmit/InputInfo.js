@@ -1,14 +1,16 @@
 import React from 'react';
 import { Text, StyleSheet, TextInput, View} from 'react-native';
 
-const InputInfo = ({id, labelContext, handleCondition}) => {
+
+const InputInfo = ({id, labelContext, handleCondition, value}) => {
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>{labelContext}</Text>
                 <TextInput
                     style={styles.input}
-                    onChange={event => handleCondition(id, event.nativeEvent.text)}/>
+                    onChange={event => handleCondition(id, event.nativeEvent.text)}
+                    value ={value}/>
             </View>
         </View>
     );
