@@ -68,9 +68,8 @@ const ShipmentDetailSelect = ({navigation}) => {
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}
                                     onPress={async () => {
-                                        // await selectDeliveryInsert(searchedlist.po_num);
                                         await selectDeliveryInsert(searchedlist.shipment_num);
-                                        navigation.navigate('ShipmentInsert');
+                                        navigation.navigate('ShipmentInsert',{date:searchedlist.send_date});
                                         }
                                     }
                                     >{searchedlist.shipment_num}

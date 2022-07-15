@@ -16,9 +16,6 @@ const ItemInfo = ({receiveData}) => {
         deliveryInsertInfo: StateShipDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
-    // console.log("receiveData.scc2List : ",receiveData.scc2List);
-    console.log("deliveryInsertInfo ~!!~", deliveryInsertInfo.item_uom);
-    // console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
     return (
         <ScrollView>

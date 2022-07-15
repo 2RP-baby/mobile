@@ -26,6 +26,7 @@ const FixBox = () => {
                     <View style={styles.view1}>
                         <Text style={styles.text}>납품 번호</Text>
                         <Text style={styles.text}>공급사 명</Text>
+                       
                         <Text style={styles.text}>총 금액</Text>
                         <Text style={styles.text}>납품 장소</Text>
                         <Text style={styles.text}>요청 특기사항</Text>
@@ -51,6 +52,7 @@ const FixBox = () => {
     );
 };
 const styles = StyleSheet.create({
+  
     header:{
         height: '72%',
         alignItems: "center",

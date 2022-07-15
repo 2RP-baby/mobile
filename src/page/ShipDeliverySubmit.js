@@ -8,7 +8,9 @@ import ItemInfo from '../component/shipmentSubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
 import DatePicker from '../component/shipmentSubmit/DatePicker';
 import InputCalendarInfo from '../component/shipmentSubmit/InputCalendarInfo';
-const ShipDeliverySubmit = ({navigation}) => {
+import moment from 'moment';
+
+const ShipDeliverySubmit = ({navigation,route}) => {
 
     const {
         // sccSearchOne의 결과
@@ -90,19 +92,23 @@ const ShipDeliverySubmit = ({navigation}) => {
                 <ItemInfo/>
             </View>
             <View style ={styles.inputInfo}>
-                <InputInfo id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
+                <View style ={styles.datePicker}>
+                    <InputInfo value = {moment(route.params.date).format("yyyy-MM-DD")} id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
+                    <View style ={styles.Picker}>
+                        <DatePicker id="shipped_date" handleCondition={handleDeliveryCondition}/>
+                    </View>
+                </View>
 
                 <View style ={styles.datePicker}>
-                    {/* <InputInfo id="expected_receipt_date" labelContext="도착예정일" handleCondition={handleDeliveryCondition}/> */}
                     <InputCalendarInfo id="expected_receipt_date" labelContext="  도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
                     <View style ={styles.Picker}>
                         <DatePicker id="expected_receipt_date" handleCondition={handleDeliveryCondition}/>
                     </View>
                 </View>
+
                 <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
-
             <TouchableOpacity 
                         activeOpacity={0.8} 
                         style={styles.button1} 
@@ -120,7 +126,7 @@ const ShipDeliverySubmit = ({navigation}) => {
 const styles = StyleSheet.create({
     Picker : {
         marginTop:25,
-        marginLeft:600,
+        marginLeft:280,
     },
     datePicker : {
         flexDirection:'row',

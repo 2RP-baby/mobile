@@ -60,6 +60,7 @@ const ShipmentDetailSelect = ({navigation}) => {
         const data = await getCurSearchInsertedOne(shipment_num);
         changeDeliveryInsertInfo(data);
     };
+    
     console.log("searchedList chullllllllhaaaaaa", searchedList);
     return (
         <View style={styles.view}>

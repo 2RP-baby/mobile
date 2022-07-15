@@ -4,7 +4,7 @@ import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
 
-const ShipmentInsert = ({navigation}) => {
+const ShipmentInsert = ({navigation, route}) => {
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
@@ -17,7 +17,6 @@ const ShipmentInsert = ({navigation}) => {
         changeCheckedList: shipCheckedListStore.changeCheckedList,
     }));
 
-
     const index = Object.keys(checkedList);
     console.log("checkedList11111111", checkedList);
     function checkListConfirm() {
@@ -29,7 +28,8 @@ const ShipmentInsert = ({navigation}) => {
             const element = checkedList[temp];
             console.log("element", element);
             if(element.quantity_shipped != 0 && (element.quantity_ordered>=element.quantity_shipped)){
-                navigation.navigate('ShipDeliverySubmit'); 
+                navigation.navigate('ShipDeliverySubmit',{date:route.params.date}); 
+
             }
             else if(element.quantity_shipped == 0){
                 Alert.alert('출하수량을 입력해 주세요')
@@ -42,7 +42,7 @@ const ShipmentInsert = ({navigation}) => {
         }
     }
 
-    
+
     return (
         <View style={styles.header}>
             <View style={styles.fix}>
@@ -56,7 +56,6 @@ const ShipmentInsert = ({navigation}) => {
                         activeOpacity={0.8} 
                         style={styles.button1} 
                         onPress={ () =>{ 
-                            // navigation.navigate('ShipDeliverySubmit'); 
                             checkListConfirm();
                         }}
                         >
