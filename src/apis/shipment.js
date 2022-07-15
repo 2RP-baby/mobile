@@ -16,7 +16,7 @@ export const getSearchList = async (test) => {
 
 export const getShipmentInsertInfo = async (num) => {
   try {
-    const sendData = {po_num : num};
+    const sendData = {shipment_num : num};
     const { data } = await serverAxios.post(`${PREFIX_URL}/shipSearchOne`, sendData);
     return data;
   } catch (err) {

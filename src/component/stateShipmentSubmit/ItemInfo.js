@@ -16,10 +16,6 @@ const ItemInfo = ({receiveData}) => {
         deliveryInsertInfo: StateShipDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
-    // console.log("receiveData.scc2List : ",receiveData.scc2List);
-    console.log("deliveryInsertInfo를 갖다가 한번 봐야쓰것네", deliveryInsertInfo);
-    console.log("deliveryInsertInfo.item_uom 이 빽에서 안넘어 오는거같은디????",deliveryInsertInfo.item_uom);
-    // console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
     return (
         <ScrollView>
@@ -34,7 +30,7 @@ const ItemInfo = ({receiveData}) => {
                         <Text style={styles.text3_label}>요청수량 : </Text>      
                         <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>      
                         <Text style={styles.text3_label}>요청납기 : </Text>      
-                        <Text style={styles.text3_context}>{moment(insertList.need_by_date).format("yyyy-MM-dd")}</Text> 
+                        <Text style={styles.text3_context}>{moment(insertList.need_by_date).format("yyyy-MM-DD")}</Text> 
                     </View>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text4_label}>Comment:</Text>      

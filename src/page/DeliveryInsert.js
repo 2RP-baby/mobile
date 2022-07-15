@@ -29,33 +29,21 @@ const DeliveryInsert = ({navigation}) => {
         for (let i = 0; i < index.length; i++) {
             const temp = index[i];
             const element = checkedList[temp];
-            const cnt=0;
             console.log("element", element);
             if(element.quantity_ordered!=0 && (element.remaining>=element.quantity_ordered)){
                 navigation.navigate('DeliverySubmit') 
             }
             else if(element.quantity_ordered==0){
                 Alert.alert('요청수량을 입력해 주세요')
-                navigation.navigate('DeliveryInsert') 
+                // navigation.navigate('DeliveryInsert') 
                 break;
             }
             else if(element.remaining<element.quantity_ordered){
                 Alert.alert('주문잔량을 초과 하였습니다');
-                navigation.navigate('DeliveryInsert') 
+                // navigation.navigate('DeliveryInsert') 
                 break;
             }
         }
-        // Object.keys(checkedList).map((key)=>{
-        //     console.log("checkedList2222222222button",checkedList);
-        //     let list = checkedList[key];
-            // if(list.quantity_ordered!=0){
-            //     navigation.navigate('DeliverySubmit')
-            // }
-            // else{
-            //     Alert.alert('요청수량을 입력해 주세요')
-            //     return false;
-            // }
-        // })
     }
     return (
         // <ScrollView>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {View, StyleSheet, Text, Button, Alert, TouchableOpacity} from 'react-native';
-import { getSearchList } from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
 import {getShipmentInsertInfo,shipCurSearchList, getCurSearchInsertedOne} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
