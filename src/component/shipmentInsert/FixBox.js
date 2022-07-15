@@ -5,9 +5,9 @@ import {Card} from 'react-native-shadow-cards';
 
 
 const FixBox = () => {
-    const data={
-        total:'590,000'
-    }
+    // const data={
+    //     total:'590,000'
+    // }
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
@@ -21,6 +21,9 @@ const FixBox = () => {
     }));
 
     let total = 0;
+    if (isNaN(total)) { // 값이 없어서 NaN값이 나올 경우
+        total = 0;
+    }
     
     return (
         <View style={styles.header}>

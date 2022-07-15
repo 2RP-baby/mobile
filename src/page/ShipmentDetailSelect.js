@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {TouchableOpacity, View, StyleSheet, Text, Button, Alert} from 'react-native';
-import { getSearchList } from '../apis/scc';
 import useRootData from '../hooks/useRootData';
-import {getShipmentInsertInfo} from '../apis/shipment';
+import {getShipmentInsertInfo, getSearchList} from '../apis/shipment';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Card} from 'react-native-shadow-cards';
 import moment from 'moment';
@@ -31,8 +30,6 @@ const ShipmentDetailSelect = ({navigation}) => {
 
         shipmentCondition: shipmentSelectStore.shipmentCondition.get(),
         changeShipmentCondition: shipmentSelectStore.changeShipmentCondition,
-        
-        
     }));
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
@@ -49,7 +46,7 @@ const ShipmentDetailSelect = ({navigation}) => {
     }
 
     const selectMoreList = async () => {
-        const data = await getCurSearchList(shipmentCondition);
+        const data = await getSearchList(shipmentCondition);
         // console.log("typeof list : ", typeof data);
         changeSearchedList(data);
     };

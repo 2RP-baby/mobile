@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity,Text,View, StyleSheet, Button} from 'react-native';
+import { TouchableOpacity,Text,View, StyleSheet, Button, Alert} from 'react-native';
 import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
@@ -8,10 +8,40 @@ const ShipmentInsert = ({navigation}) => {
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
-    } = useRootData(({shipDeliveryInsertStore}) => ({
+        checkedList,
+        changeCheckedList,
+    } = useRootData(({shipDeliveryInsertStore, shipCheckedListStore}) => ({
         deliveryInsertInfo: shipDeliveryInsertStore.deliveryInsertInfo.get(),
         changeDeliveryInsertInfo: shipDeliveryInsertStore.changeDeliveryInsertInfo,
+        checkedList: shipCheckedListStore.checkedList.get(),
+        changeCheckedList: shipCheckedListStore.changeCheckedList,
     }));
+
+
+    const index = Object.keys(checkedList);
+    console.log("checkedList11111111", checkedList);
+    function checkListConfirm() {
+        if(index.length==0){
+            Alert.alert("아이템을 체크해 주세요");
+        }
+        for (let i = 0; i < index.length; i++) {
+            const temp = index[i];
+            const element = checkedList[temp];
+            console.log("element", element);
+            if(element.quantity_shipped != 0 && (element.quantity_ordered>=element.quantity_shipped)){
+                navigation.navigate('ShipDeliverySubmit'); 
+            }
+            else if(element.quantity_shipped == 0){
+                Alert.alert('출하수량을 입력해 주세요')
+                break;
+            }
+            else if(element.quantity_ordered < element.quantity_shipped){
+                Alert.alert('요청수량을 초과 하였습니다');
+                break;
+            }
+        }
+    }
+
     
     return (
         <View style={styles.header}>
@@ -26,7 +56,8 @@ const ShipmentInsert = ({navigation}) => {
                         activeOpacity={0.8} 
                         style={styles.button1} 
                         onPress={ () =>{ 
-                            navigation.navigate('ShipDeliverySubmit'); 
+                            // navigation.navigate('ShipDeliverySubmit'); 
+                            checkListConfirm();
                         }}
                         >
                         <Text style={styles.text1}>다음단계</Text>

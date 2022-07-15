@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {TouchableOpacity, Text, View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
-import { getSearchList } from '../apis/shipment';
+import { getSearchList} from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
 
 const ShipmentSelect = ({navigation}) => {

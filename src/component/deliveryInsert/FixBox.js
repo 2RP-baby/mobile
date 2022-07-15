@@ -16,21 +16,13 @@ const FixBox = () => {
         checkedList: checkedListStore.checkedList.get(),
         changeCheckedList: checkedListStore.changeCheckedList,
     }));
-    // const [total, setTotal] = useState();
-    // const totalState = (a, b) => {
-    //     setTotal(a * b);
-    // }
-    // const [num, setNum] = useState(0);
-    // useEffect(()=>{
-
-    // }, [num])
+    
     let total = 0;
     if (isNaN(total)) { // 값이 없어서 NaN값이 나올 경우
         total = 0;
        }
     
     return (
-        
         <View style={styles.header}>
             <Card style={styles.card1}>
                 <Text style={styles.text}>주문 번호 : {deliveryInsertInfo[0].po_num}</Text>
