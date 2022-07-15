@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     text2: {
-        height: 35,
+        height: 45,
         fontSize: 18,
         color: '#000000',
         marginLeft:10,

@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
     },
     datePicker : {
         width:'100%',
-
         flexDirection:'row',
+        marginLeft: -3,
     },
     button1: {
         width: "80%",

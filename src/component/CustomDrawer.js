@@ -8,6 +8,7 @@ import logoutIcon from '../../assets/icon/logout.png'
 import useRootData from '../hooks/useRootData';
 
 const CustomDrawer = (props) => {
+// const CustomDrawer = ({props, navigation}) => {
 
     const {
         login,
@@ -49,10 +50,8 @@ const CustomDrawer = (props) => {
 
         <View style={{padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
             <TouchableOpacity onPress={()=>{
-                // changeLogin({
-                // "email":" ", "password":" ",
-                // });
                 props.navigation.navigate('Login');
+                // navigation.navigate('Login');
 
             }} style ={{paddingVertical:15}}>
             <View style ={{flexDirection: 'row', alignItems:'center'}}>

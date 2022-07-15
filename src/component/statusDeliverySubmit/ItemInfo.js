@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     text2: {
-        height: 35,
+        height: 45,
         fontSize: 18,
         color: '#000000',
         marginLeft:10,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         height: 35,
         width: '25%',
         fontSize: 18,
-        color: '#005386',
+        color: '#000000',
     },
     text4_label: {
         height: 35,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         height: 35,
         width: '75%',
         fontSize: 18,
-        color: '#005386',
+        color: '#000000',
         // backgroundColor: 'red',
     },
 })

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         // backgroundColor: 'red',
         width: '88%',
+        marginLeft:-2,
         // borderWidth: 3
     },
     label: {

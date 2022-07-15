@@ -48,7 +48,7 @@ const ShipmentInsert = ({navigation, route}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <View marginTop={30}>
+            <View>
                 <ItemInsert/>
             </View>
             <TouchableOpacity 

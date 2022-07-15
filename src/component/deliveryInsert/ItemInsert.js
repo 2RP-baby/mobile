@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         color: '#005386',
     },
     text2: {
-        height: 35,
+        height: 45,
         fontSize: 18,
         color: '#000000',
     },

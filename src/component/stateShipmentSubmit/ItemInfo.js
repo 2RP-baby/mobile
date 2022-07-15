@@ -28,7 +28,9 @@ const ItemInfo = ({receiveData}) => {
                     <>
                     <View style={styles.text3_warrap}>
                         <Text style={styles.text3_label}>요청수량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>      
+                        <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text> 
+                        <Text style={styles.text3_label}>출하수량 : </Text>      
+                        <Text style={styles.text3_context}>{insertList.quantity_shipped}</Text>      
                         <Text style={styles.text3_label}>요청납기 : </Text>      
                         <Text style={styles.text3_context}>{moment(insertList.need_by_date).format("yyyy-MM-DD")}</Text> 
                     </View>
@@ -75,28 +77,28 @@ const styles = StyleSheet.create({
     },
     text3_label: {
         height: 35,
-        width: '24%',
+        width: '11%',
         fontSize: 18,
         color: '#005386',
     },
     text3_context: {
         height: 35,
-        width: '25%',
+        width: '24%',
         fontSize: 18,
-        color: '#005386',
+        color: '#000000',
     },
     text4_label: {
         height: 35,
-        width: '25%',
+        width: '11%',
         fontSize: 18,
         color: '#005386',
         marginRight: 5,
     },
     text4_context: {
         height: 35,
-        width: '50%',
+        width: '20%',
         fontSize: 18,
-        color: '#005386',
+        color: '#000000',
     },
 })
 
