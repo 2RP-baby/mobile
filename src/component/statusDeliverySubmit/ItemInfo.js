@@ -52,6 +52,7 @@ const ItemInfo = () => {
 
 const styles = StyleSheet.create({
     header:{
+        // marginTop: 5,
         marginLeft: 10,
         marginBottom: 5,
         marginRight:10,
@@ -65,9 +66,10 @@ const styles = StyleSheet.create({
         color: '#005386',
         marginLeft:10,
         marginTop:10,
+        fontWeight:'bold',
     },
     text2: {
-        height: 45,
+        height: 54,
         fontSize: 18,
         color: '#000000',
         marginLeft:10,
@@ -75,12 +77,14 @@ const styles = StyleSheet.create({
     text3_warrap: {
         flexDirection: 'row',
         marginLeft:10,
+        marginTop: 10,
     },
     text3_label: {
         height: 35,
         width: '24%',
         fontSize: 18,
         color: '#005386',
+        fontWeight:'bold',
     },
     text3_context: {
         height: 35,
@@ -94,6 +98,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#005386',
         marginRight: -10,
+        fontWeight:'bold',
     },
     text4_context: {
         height: 35,

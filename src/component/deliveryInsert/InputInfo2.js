@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
         height: 35,
         width: '18%',
         fontSize: 18,
-        color: '#000000',
+        color: '#005386',
+        fontWeight:'bold',
+
         // backgroundColor: 'orange',
         // marginRight: 5,
     },

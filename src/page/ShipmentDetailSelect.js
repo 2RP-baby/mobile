@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
     },
     scroll:{
-        height:'113%',
+        height:'115%',
     },
     view1:{
         marginBottom: 10,
@@ -142,9 +142,11 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:23,
+        // marginRight:150,
     },
     containerRow:{
         flexDirection: 'row',
+        justifyContent:'space-around'
     },
     containerColumn:{
         flexDirection: 'column',
@@ -153,11 +155,13 @@ const styles = StyleSheet.create({
         marginBottom: 0,
     },
     textContainer:{
-        width: '50%',
+        width: '30%',
         height: 50,
         justifyContent: 'center',
         alignItems: "center",
         marginTop: 10,
+        marginLeft: 50,
+
     },
     textContainer1:{
         width: '50%',
@@ -185,14 +189,20 @@ const styles = StyleSheet.create({
     },
     text1: {
         fontSize:16,
+        fontWeight:'bold',
+        color: '#000000',
     },
     text2:{
         fontSize: 23,
         fontWeight: 'bold',
+        color: '#000000',
+
     },
     text3:{
-        fontSize: 20,
-        // fontWeight: 'bold',
+        fontSize: 17,
+        // color: '#000000',
+
+        fontWeight: 'bold',
     },
     button: {
         width: "30%",
@@ -200,7 +210,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#005386",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 10,
         marginBottom: 20,
         borderRadius:10,
     },

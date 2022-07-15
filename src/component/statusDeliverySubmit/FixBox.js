@@ -25,8 +25,9 @@ const FixBox = () => {
                 <View style={styles.view}>
                     <View style={styles.view1}>
                         <Text style={styles.text}>납품 번호</Text>
-                        <Text style={styles.text}>공급사 명</Text>
-                       
+                        <View style={styles.text_vendor}>
+                            <Text style={styles.text}>공급사 명</Text>
+                        </View>
                         <Text style={styles.text}>총 금액</Text>
                         <Text style={styles.text}>납품 장소</Text>
                         <Text style={styles.text}>요청 특기사항</Text>
@@ -39,7 +40,9 @@ const FixBox = () => {
 
                 <View style={styles.view1}>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_shipment_num}</Text>
-                    <Text style={styles.textvalue}>{deliveryInsertInfo[0].vendor_name}</Text>
+                    <View style={styles.text_vendor}>
+                        <Text style={styles.textvalue}>{deliveryInsertInfo[0].vendor_name}</Text>
+                    </View>
                     <Text style={styles.textvalue}>{total}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_deliver_to_location}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_comment}</Text>
@@ -82,8 +85,14 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
     },
+    text_vendor:{
+        height:70,
+        // alignItems: "center",
+        justifyContent: "center",
+    },
     textvalue: {
         width: '110%',
+        // backgroundColor: 'red',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',

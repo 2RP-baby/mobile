@@ -31,7 +31,7 @@ const DeliverySubmit = ({navigation}) => {
     const [inputData, setInputData] = useState({
         "scc1" : {
             "vendor_site_id" : deliveryInsertInfo[0].vendor_id,
-            "employee_number" : 1685,  	                        //로그인한 사람(staffId)
+            "employee_number" : 3228,  	                        //로그인한 사람(staffId) // TODO: 로그인한 사람 ID 넣어줘야됨
             "deliver_to_location" : "",	                        // input
             "comment" : "",  	                                // input
             "po_header_id" : deliveryInsertInfo[0].po_header_id,

@@ -94,34 +94,30 @@ const ItemInsert = () => {
                         <View>
                             <Text style={styles.text1}>{insertList.item_name} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
                             <Text style={styles.text2}>{insertList.item_description}</Text>     
-                        <>
-                            <View style={styles.text3_warrap__}>
-                                <Text style={styles.text3_label}>주문수량 : </Text><Text>  </Text>    
-                                <Text style={styles.text3_context}>{insertList.quantity}</Text>      
-                                <Text style={styles.text3_label}>주문잔량 : </Text>      
-                                <Text style={styles.text3_context}>{insertList.remaining}</Text>   
-                            </View>
-                        </>
-                        <>
+                            <>
+                                <View style={styles.text3_warrap__}>
+                                    <Text style={styles.text3_label}>주문수량 : </Text><Text>  </Text>    
+                                    <Text style={styles.text3_context}>{insertList.quantity}</Text>      
+                                    <Text style={styles.text3_label}>주문잔량 : </Text>      
+                                    <Text style={styles.text3_context}>{insertList.remaining}</Text>   
+                                </View>
+                            </>
+                            <>
+                                <View style={styles.text3_warrap}>
+                                    <InputInfo id="quantity_ordered" index={index} labelContext="요청수량:" defaultValue={0} handleCondition={handleItemCondition} /><Text>  </Text>
+                                    <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기:" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
+                                    {/* <Text style={styles.label}>요청납기 :</Text>
+                                    <Text style={styles.text3_context}>{date}</Text> */}
+                                    <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
+                                    {/* <DatePicker/> */}
+                                </View>
+                            </>
                             <View style={styles.text3_warrap}>
-                                <InputInfo id="quantity_ordered" index={index} labelContext="요청수량:" defaultValue={0} handleCondition={handleItemCondition} /><Text>  </Text>
-                                <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기:" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
-                                {/* <Text style={styles.label}>요청납기 :</Text>
-                                <Text style={styles.text3_context}>{date}</Text> */}
-                                <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>
-                                {/* <DatePicker/> */}
+                                <InputInfo2 id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
                             </View>
-                        </>
-                        <View style={styles.text3_warrap}>
-                            <InputInfo2 id="comment" index={index} labelContext="Comment" handleCondition={handleItemCondition} />
-                            {/* <Text style={styles.text3_label}>Comment :</Text>   
-                            <TextInput style={styles.input2}
-                                onChange={e => handleItemCondition(index, e.nativeEvent.text)}
-                                /> */}
                         </View>
-                    </View>
-                </Card>
-            </View>
+                    </Card>
+                </View>
             ))}
         </ScrollView>
     );
@@ -152,17 +148,22 @@ const styles = StyleSheet.create({
     text1: {
         height: 30,
         fontSize: 20,
+        fontWeight:'bold',
         color: '#005386',
     },
     text2: {
-        height: 45,
+        height: 54,
+        width: 660,
         fontSize: 18,
+        // fontWeight:'bold',
         color: '#000000',
+        // marginBottom: 10,
     },
     text3_warrap__: {
         flexDirection: 'row',
         width: '90%',
-        marginBottom: 17,
+        marginBottom: 10,
+        marginTop: 10,
     },
     text3_warrap: {
         flexDirection: 'row',
@@ -173,7 +174,8 @@ const styles = StyleSheet.create({
         height: 35,
         width: '22%',
         fontSize: 18,
-        color: '#000000',
+        color: '#005386',
+        fontWeight:'bold',
         marginRight: 15,
     },
     text3_context: {

@@ -32,13 +32,13 @@ const DeliverySubmit = ({navigation}) => {
 
 const styles = StyleSheet.create({
     head:{
-        height:'100%',
+        height:'112%',
         alignItems: "center",
         flexDirection: 'column',
     },
     fix:{
         width:'100%',
-        height:'30%',
+        height:'35%',
         // backgroundColor:'yellow',
     },
     ItemInfo:{

@@ -204,14 +204,20 @@ const styles = StyleSheet.create({
     },
     text1: {
         fontSize:16,
+        fontWeight:'bold',
+        color: '#000000',
     },
     text2:{
         fontSize: 23,
         fontWeight: 'bold',
+        color: '#000000',
+
     },
     text3:{
-        fontSize: 20,
-        // fontWeight: 'bold',
+        fontSize: 17,
+        // color: '#000000',
+
+        fontWeight: 'bold',
     },
     button: {
         width: "30%",

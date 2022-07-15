@@ -30,17 +30,18 @@ const DeliveryInsert = ({navigation}) => {
             const temp = index[i];
             const element = checkedList[temp];
             console.log("element", element);
-            if(element.quantity_ordered!=0 && (element.remaining>=element.quantity_ordered)){
+            if(element.quantity_ordered!=0 && (element.remaining>=element.quantity_ordered) && element.need_by_date != null ){
                 navigation.navigate('DeliverySubmit') 
             }
             else if(element.quantity_ordered==0){
                 Alert.alert('요청수량을 입력해 주세요')
-                // navigation.navigate('DeliveryInsert') 
                 break;
             }
             else if(element.remaining<element.quantity_ordered){
                 Alert.alert('주문잔량을 초과 하였습니다');
-                // navigation.navigate('DeliveryInsert') 
+                break;
+            } else if(element.need_by_date==null){
+                Alert.alert('요청납기를 입력해 주세요');
                 break;
             }
         }
