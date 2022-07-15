@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {TouchableOpacity, Text, View, StyleSheet, Button} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
-import { getSearchList } from '../apis/shipment';
+import { getSearchList} from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
 
 const ShipmentSelect = ({navigation}) => {
@@ -38,7 +38,8 @@ const ShipmentSelect = ({navigation}) => {
 
     return (
         <View style={styles.view1}>
-            <InputInfo id="deliver_to_location"      labelContext="납품장소" replaceContext="QMA21 (deliver_to_location)" handleCondition={handleShipmentCondition}/>
+            <InputInfo id="shipment_num"      labelContext="납품번호" replaceContext="466197-10" handleCondition={handleShipmentCondition}/>
+            <InputInfo id="deliver_to_location"      labelContext="납품장소" replaceContext="QMA21" handleCondition={handleShipmentCondition}/>
             <InputInfo id="staff_name"              labelContext="납품신청자" replaceContext="이은행" handleCondition={handleShipmentCondition} />
             <InputInfo id="cost_center"             labelContext="Cost Center (Code 입력)" replaceContext="PSC12" handleCondition={handleShipmentCondition}/>
             <InputInfo id="item_name"               labelContext="Item Code (Code 입력)" replaceContext="Q1109962" handleCondition={handleShipmentCondition}/>

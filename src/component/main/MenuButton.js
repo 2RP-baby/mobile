@@ -43,10 +43,11 @@ const MenuButton = ({navigation}) => {
             <TouchableOpacity style={styles.container2}
                 onPress={()=>{
                     if(login.authority=="ROLE_VENDOR"){
-                        navigation.navigate('InsertShipmentsrc', {screen: 'ShipmentSelect'});
+                        // navigation.navigate('InsertShipmentsrc', {screen: 'ShipmentSelect'});
                     }
                     else{
-                        Alert.alert("권한이 없습니다.");
+                        navigation.navigate('InsertShipmentsrc', {screen: 'ShipmentSelect'});
+                        // Alert.alert("권한이 없습니다.");
                     }
                     }}>
                 <Text style={styles.text2}>출하등록</Text>
@@ -54,10 +55,11 @@ const MenuButton = ({navigation}) => {
             <TouchableOpacity style={styles.container1}
                 onPress={()=>{
                     if(login.authority=="ROLE_VENDOR"){
-                        navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'});
+                        // navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'});
                     }
                     else{
-                        Alert.alert("권한이 없습니다.");
+                        navigation.navigate('SelectShipmentsrc', {screen: 'StateShipmentSelect'});
+                        // Alert.alert("권한이 없습니다.");
                     }
                     }}>
                 <Text style={styles.text1}>출하현황</Text>
