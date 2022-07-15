@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
