@@ -98,19 +98,21 @@ const styles = StyleSheet.create({
         width: '25%',
         fontSize: 18,
         color: '#005386',
+        marginLeft: 15,
     },
     text4_label: {
         height: 35,
-        width: '25%',
+        width: '13%',
         fontSize: 18,
         color: '#005386',
         marginRight: 5,
     },
     text4_context: {
         height: 35,
-        width: '50%',
+        width: '80%',
         fontSize: 18,
         color: '#005386',
+        // backgroundColor: 'yellow',
     },
 })
 

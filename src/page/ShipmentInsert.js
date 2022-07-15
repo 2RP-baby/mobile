@@ -51,7 +51,6 @@ const ShipmentInsert = ({navigation, route}) => {
             <View marginTop={30}>
                 <ItemInsert/>
             </View>
-
             <TouchableOpacity 
                         activeOpacity={0.8} 
                         style={styles.button1} 
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'23%',
+        height:'20%',
     },
 })
 

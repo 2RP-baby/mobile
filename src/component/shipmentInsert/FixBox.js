@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     header:{
         // flexDirection: 'column',
         // width: '100%',
-        height: '90%',
+        height: '85%',
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     card1:{
         width: '90%',
-        height: '113%',
+        height: '107%',
         flexDirection:'row',
 
         // marginTop: 10,
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
         // borderRadius
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
-        padding: 30,
-        marginTop: -20,
+        padding: 20,
+        marginTop: -10,
         // marginBottom: 20,
         // padding:10,
         

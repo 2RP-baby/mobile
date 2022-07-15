@@ -31,8 +31,7 @@ const DatePicker = ({id, handleCondition}) => {
       <TouchableOpacity
               onPress={showDatePicker} >
               <Image style={styles.image} source={calendar}/>
-        </TouchableOpacity>
-
+      </TouchableOpacity>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
@@ -46,7 +45,6 @@ const styles = StyleSheet.create({
     image: {
         width: 30,
         height: 30,
-        marginRight:20,
     },
   })
 export default DatePicker;

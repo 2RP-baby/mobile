@@ -93,12 +93,8 @@ const ShipDeliverySubmit = ({navigation,route}) => {
             </View>
             <View style ={styles.inputInfo}>
                 <View style ={styles.datePicker}>
-                    <InputInfo value = {moment(route.params.date).format("yyyy-MM-DD")} id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
-                    <View style ={styles.Picker}>
-                        <DatePicker id="shipped_date" handleCondition={handleDeliveryCondition}/>
-                    </View>
+                    <InputInfo value = {moment(route.params.date).format("  yyyy-MM-DD")} id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
                 </View>
-
                 <View style ={styles.datePicker}>
                     <InputCalendarInfo id="expected_receipt_date" labelContext="  도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
                     <View style ={styles.Picker}>
@@ -125,10 +121,13 @@ const ShipDeliverySubmit = ({navigation,route}) => {
 
 const styles = StyleSheet.create({
     Picker : {
+        width:'100%',
         marginTop:25,
-        marginLeft:280,
+        marginLeft:20,
     },
     datePicker : {
+        width:'100%',
+
         flexDirection:'row',
     },
     button1: {

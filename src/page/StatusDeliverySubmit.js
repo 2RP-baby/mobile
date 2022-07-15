@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
     },
     ItemInfo:{
         alignItems: "center",
-        height: '63%',
+        height: '70%',
+        marginTop: -70,
         marginBottom: -500,
-
+        // backgroundColor: 'yellow',
     },
     buttonWrap:{
         alignItems: "center",

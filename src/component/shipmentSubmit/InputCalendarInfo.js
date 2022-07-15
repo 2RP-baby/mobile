@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
     head:{
         flexDirection: 'column',
         // backgroundColor: 'red',
-        // // height: 100,
-        // width: '50%',
+        width: '88%',
         // borderWidth: 3
     },
     label: {
@@ -47,8 +46,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#C8C8C8',
         fontSize: 20,
-        width: '390%',
-        maxWidth:400,
+        width: '100%',
+        // maxWidth:400,
         // width: '830%',
         height: 40,
         borderRadius:10,
