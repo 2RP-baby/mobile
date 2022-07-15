@@ -17,7 +17,8 @@ const ItemInfo = ({receiveData}) => {
         changeDeliveryInsertInfo: StateShipDeliveryInsertStore.changeDeliveryInsertInfo,
     }));
     // console.log("receiveData.scc2List : ",receiveData.scc2List);
-    console.log("deliveryInsertInfo ~!!~", deliveryInsertInfo.item_description);
+    console.log("deliveryInsertInfo를 갖다가 한번 봐야쓰것네", deliveryInsertInfo);
+    console.log("deliveryInsertInfo.item_uom 이 빽에서 안넘어 오는거같은디????",deliveryInsertInfo.item_uom);
     // console.log("receiveData.scc2List[0].quantity_ordered : ",receiveData.scc2List[0].quantity_ordered);
 
     return (

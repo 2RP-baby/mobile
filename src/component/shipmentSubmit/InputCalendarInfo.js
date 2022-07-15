@@ -47,13 +47,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#C8C8C8',
         fontSize: 20,
-        width: '830%',
+        width: '390%',
+        maxWidth:400,
         // width: '830%',
         height: 40,
         borderRadius:10,
         backgroundColor:'#ffffff',
         marginBottom:10,
         marginLeft:10,
+        padding:10,
+
     },
     text: {
         color: '#000000',

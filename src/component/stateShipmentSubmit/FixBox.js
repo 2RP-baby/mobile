@@ -35,7 +35,7 @@ const FixBox = () => {
                     // console.log(deliveryInsertInfo[index].po2_unit_price);
                     total += (deliveryInsertInfo[index].unit_price)*(deliveryInsertInfo[index].quantity_ordered);
                 })}            
-
+                
                 <View style={styles.view1}>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].shipment_num}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].staff_name}</Text>
