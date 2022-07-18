@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, View, StyleSheet, Button, Alert, TextInput, Text} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { insertSccDeliveryInfo } from '../apis/scc';
+import { insertSccDeliveryInfo, getNumberFormat } from '../apis/scc';
 import FixBox from '../component/deliveryInsert/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/deliverySubmit/ItemInfo';

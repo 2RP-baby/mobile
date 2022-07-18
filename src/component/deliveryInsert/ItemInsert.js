@@ -29,13 +29,6 @@ const ItemInsert = () => {
     const handleItemCondition = (index, id, value) => {
         const tempCondition = { ...itemCondition };
         tempCondition[index][id] = value;
-        // tempCondition[index][value] = value;
-        // tempCondition.index.value = value;
-
-        // console.log("id : ", id);
-        // console.log("value : ", value);
-        // console.log("index : ", index);
-        // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
@@ -169,6 +162,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '90%',
         // marginBottom: 20,
+        
     },
     text3_label: {
         height: 35,

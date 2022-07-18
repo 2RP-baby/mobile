@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { insertSccDeliveryInfo } from '../apis/shipment';
 import FixBox from '../component/shipmentInsert/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
+import InputInfo2 from '../component/deliverySubmit/InputInfo2';
 import ItemInfo from '../component/shipmentSubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
 import DatePicker from '../component/shipmentSubmit/DatePicker';
@@ -93,7 +94,7 @@ const ShipDeliverySubmit = ({navigation,route}) => {
             </View>
             <View style ={styles.inputInfo}>
                 <View style ={styles.datePicker}>
-                    <InputInfo value = {moment(route.params.date).format("  yyyy-MM-DD")} id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
+                    <InputInfo2 value = {moment(route.params.date).format("  yyyy-MM-DD")} id="shipped_date" labelContext="출하일자" handleCondition={handleDeliveryCondition}/>
                 </View>
                 <View style ={styles.datePicker}>
                     <InputCalendarInfo id="expected_receipt_date" labelContext="  도착예정일" handleCondition={handleDeliveryCondition} date ={inputData.ship1.expected_receipt_date}/>  
@@ -122,7 +123,7 @@ const ShipDeliverySubmit = ({navigation,route}) => {
 const styles = StyleSheet.create({
     Picker : {
         width:'100%',
-        marginTop:25,
+        marginTop:31,
         marginLeft:20,
     },
     datePicker : {

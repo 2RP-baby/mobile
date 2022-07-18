@@ -27,7 +27,7 @@ const ItemInfo = ({receiveData}) => {
                     <Text style={styles.text1}>{insertList.item} / {insertList.item_uom} / {insertList.unit_price} 원 </Text>
                     <>
                     <View style={styles.text3_warrap}>
-                        <Text style={styles.text3_label}>요청수량 : </Text>      
+                        <Text style={styles.text3_label}>납품수량 : </Text>      
                         <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text> 
                         <Text style={styles.text3_label}>출하수량 : </Text>      
                         <Text style={styles.text3_context}>{insertList.quantity_shipped}</Text>      
@@ -51,6 +51,7 @@ const ItemInfo = ({receiveData}) => {
 
 const styles = StyleSheet.create({
     header:{
+        // marginTop: 5,
         marginLeft: 10,
         marginBottom: 5,
         marginRight:10,
@@ -64,9 +65,10 @@ const styles = StyleSheet.create({
         color: '#005386',
         marginLeft:10,
         marginTop:10,
+        fontWeight:'bold',
     },
     text2: {
-        height: 35,
+        height: 54,
         fontSize: 18,
         color: '#000000',
         marginLeft:10,
@@ -74,31 +76,38 @@ const styles = StyleSheet.create({
     text3_warrap: {
         flexDirection: 'row',
         marginLeft:10,
+        marginTop: 10,
     },
     text3_label: {
         height: 35,
-        width: '11%',
+        width: '15%',
         fontSize: 18,
         color: '#005386',
+        fontWeight:'bold',
     },
     text3_context: {
         height: 35,
-        width: '24%',
+        // backgroundColor:'yellow',
+        width: '17%',
         fontSize: 18,
         color: '#000000',
     },
     text4_label: {
         height: 35,
-        width: '11%',
+        width: '16%',
         fontSize: 18,
         color: '#005386',
-        marginRight: 5,
+        marginRight: -10,
+        fontWeight:'bold',
     },
     text4_context: {
         height: 35,
-        width: '20%',
+        width: '75%',
         fontSize: 18,
         color: '#000000',
+        textAlign:'left',
+        paddingLeft:10,
+        // backgroundColor: 'yellow',
     },
 })
 

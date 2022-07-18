@@ -106,6 +106,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#000000',
         // backgroundColor: 'red',
+        textAlign:'left',
+        paddingLeft:10,
     },
 })
 

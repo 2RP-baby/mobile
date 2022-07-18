@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import useRootData from '../../hooks/useRootData';
 import {Card} from 'react-native-shadow-cards';
+import { getNumberFormat } from '../../apis/scc';
+
 
 const FixBox = () => {
     
@@ -33,7 +35,7 @@ const FixBox = () => {
                     total += (list.quantity_ordered)*(list.unit_price);
                 })}            
                 </> 
-                <Text style={styles.text}>총 금액 : {total} 원</Text>
+                <Text style={styles.text}>총 금액 : {getNumberFormat(total)} 원</Text>
             </Card>
         </View>
     

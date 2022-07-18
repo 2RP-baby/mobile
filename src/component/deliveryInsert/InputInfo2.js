@@ -43,8 +43,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,
-        textAlign:'center',
         padding:3,
+        textAlign:'left',
+        paddingLeft:10,
     },
 })
 

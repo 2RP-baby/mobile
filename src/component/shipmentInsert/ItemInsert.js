@@ -26,10 +26,6 @@ const ItemInsert = () => {
     const handleItemCondition = (index, id, value) => {
         const tempCondition = { ...itemCondition };
         tempCondition[index][id] = value;
-        // console.log("id : ", id);
-        // console.log("value : ", value);
-        // console.log("index : ", index);
-        // itemCondition[index].key = value;
         setItemCondition(tempCondition);
 
         // check list 다시 불러오기
@@ -83,10 +79,10 @@ const ItemInsert = () => {
                     <Text style={styles.text2}>{insertList.description}</Text>     
                     <>
                     <View style={styles.text3_warrap}>
-                        <Text style={styles.text3_label}>주문수량 : </Text><Text>   </Text> 
+                        <Text style={styles.text3_label}>납품수량 : </Text><Text>  </Text> 
                         <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>      
-                        <Text style={styles.text3_label}>요청수량 : </Text>      
-                        <Text style={styles.text3_context}>{insertList.quantity_ordered}</Text>   
+                        <Text style={styles.text3_label}>납품잔량 :</Text>      
+                        <Text style={styles.text3_context}>{insertList.remaining}</Text>   
                     </View>
                     </>
                     <>
@@ -98,8 +94,8 @@ const ItemInsert = () => {
                     </View>
                     </>
                     <View style={styles.text3_warrap}>
-                        <Text style={styles.text3_label}>Comment : </Text>      
-                        <Text style={styles.text3_context}>{insertList.comment}</Text> 
+                        <Text style={styles.text4_label}>Comment : </Text>      
+                        <Text style={styles.text4_context}>{insertList.comment}</Text> 
                     </View>
                 </View>
                 </Card>
@@ -112,10 +108,7 @@ const ItemInsert = () => {
 
 const styles = StyleSheet.create({
     header:{
-        // flexDirection: 'row',
         marginTop: 5,
-        // borderWidth:2,
-        // borderColor:"rgba(0,83,134,0.5)",
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 5,
@@ -127,7 +120,6 @@ const styles = StyleSheet.create({
     check:{
         width: '5%',
         justifyContent : 'flex-start',
-        // backgroundColor: '#676767',
         marginRight: 5,
         marginLeft: 10,
         marginTop: 5,
@@ -135,28 +127,34 @@ const styles = StyleSheet.create({
     text1: {
         height: 30,
         fontSize: 20,
+        fontWeight:'bold',
         color: '#005386',
+        marginBottom: 5,
     },
     text2: {
-        height: 45,
+        height: 54,
+        width: 660,
         fontSize: 18,
         color: '#000000',
+        marginBottom: 5,
     },
     text3_warrap__: {
         flexDirection: 'row',
         width: '90%',
-        marginBottom: 17,
+        marginBottom: 10,
+        marginTop: 10,
     },
     text3_warrap: {
         flexDirection: 'row',
         width: '90%',
-        // marginBottom: 20,
+        marginBottom: 5,
     },
     text3_label: {
         height: 35,
         width: '22%',
         fontSize: 18,
-        color: '#000000',
+        color: '#005386',
+        fontWeight:'bold',
         marginRight: 15,
     },
     text3_context: {
@@ -165,11 +163,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#000000',
     },
+    text4_label: {
+        height: 35,
+        width: '22%',
+        fontSize: 18,
+        color: '#005386',
+        fontWeight:'bold',
+        marginRight: 15,
+    },
+    text4_context: {
+        height: 35,
+        width: '80%',
+        fontSize: 18,
+        color: '#000000',
+    },
     input1:{
         height: 30,
         width: '20%',
-        // borderWidth: 0.7,
-        // borderColor: '#005386',
         fontSize: 18,
         marginRight: 10,
         marginBottom: 10,

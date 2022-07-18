@@ -123,6 +123,8 @@ const styles = StyleSheet.create({
         width: '75%',
         fontSize: 18,
         color: '#000000',
+        textAlign:'left',
+        paddingLeft:10,
         // backgroundColor: 'red',
     },
 })

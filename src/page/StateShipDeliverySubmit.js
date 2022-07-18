@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     ItemInfo:{
         alignItems: "center",
         height: '75%',
-        marginBottom: -500,
+        marginBottom: -460,
+        marginTop: -30,
 
     },
     buttonWrap:{

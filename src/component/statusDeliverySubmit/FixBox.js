@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Card } from 'react-native-shadow-cards';
+import { getNumberFormat } from '../../apis/scc';
 import useRootData from '../../hooks/useRootData';
 
 
@@ -43,7 +44,7 @@ const FixBox = () => {
                     <View style={styles.text_vendor}>
                         <Text style={styles.textvalue}>{deliveryInsertInfo[0].vendor_name}</Text>
                     </View>
-                    <Text style={styles.textvalue}>{total}</Text>
+                    <Text style={styles.textvalue}>{getNumberFormat(total)}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_deliver_to_location}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_comment}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_subinventory}</Text>
@@ -55,7 +56,6 @@ const FixBox = () => {
     );
 };
 const styles = StyleSheet.create({
-  
     header:{
         height: '72%',
         alignItems: "center",
@@ -98,6 +98,8 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         marginTop: 10,
         marginLeft: 10,
+        textAlign:'left',
+        paddingLeft:10,
     },
 })
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import useRootData from '../../hooks/useRootData';
 import { Card } from 'react-native-shadow-cards';
+import { getNumberFormat } from '../../apis/scc';
 
 const FixBox = () => {
     
@@ -22,35 +23,25 @@ const FixBox = () => {
             <Card style={styles.card}>
                 <View style={styles.view}>
                     <View style={styles.view1}>
-                        <Text style={styles.text}>출하번호 :</Text>
-                        <Text style={styles.text}>납품담당자 :</Text>
-                        <Text style={styles.text}>납품 장소 :</Text>
-                        <Text style={styles.text}>총 금액 :</Text>
-                    
+                        <Text style={styles.text}>출하번호 :     {deliveryInsertInfo[0].shipment_num}</Text>
+                        <Text style={styles.text}>납품담당자 :  {deliveryInsertInfo[0].staff_name}</Text>
                     </View>
-                
-                
-
-                {deliveryInsertInfo.map((value, index)=>{
-                    // console.log(deliveryInsertInfo[index].po2_unit_price);
-                    total += (deliveryInsertInfo[index].unit_price)*(deliveryInsertInfo[index].quantity_ordered);
-                })}            
-                
-                <View style={styles.view1}>
-                    <Text style={styles.textvalue}>{deliveryInsertInfo[0].shipment_num}</Text>
-                    <Text style={styles.textvalue}>{deliveryInsertInfo[0].staff_name}</Text>
-                    <Text style={styles.textvalue}>{deliveryInsertInfo[0].deliver_to_location}</Text>
-                    <Text style={styles.textvalue}>{total + " 원"}</Text>
+                    {deliveryInsertInfo.map((value, index)=>{
+                        // console.log(deliveryInsertInfo[index].po2_unit_price);
+                        total += (deliveryInsertInfo[index].unit_price)*(deliveryInsertInfo[index].quantity_ordered);
+                    })}            
+                    <View style={styles.view2}>
+                        <Text style={styles.text}>납품 장소 : {deliveryInsertInfo[0].deliver_to_location}</Text>
+                        <Text style={styles.text}>총 금액 :    {getNumberFormat(total) + " 원"}</Text>
+                    </View>
                 </View>
-                </View>
-
             </Card>
         </View>
     );
 };
 const styles = StyleSheet.create({
     header:{
-        height: '90%',
+        height: '70%',
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
@@ -58,6 +49,7 @@ const styles = StyleSheet.create({
     },
     card:{
         width: '90%',
+        height: '100%',
         backgroundColor: '#005386',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
@@ -68,23 +60,39 @@ const styles = StyleSheet.create({
     },
     view1:{
         flexDirection: 'column',
-        width: 300,
+        width: '100%',
+        // backgroundColor:'red',
+        marginRight: -300,
+    },
+    view2:{
+        flexDirection:'column',
+        width: '100%',
+
     },
     text: {
-        width: '80%',
+        width: '50%',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',
         marginTop: 10,
         marginLeft: 10,
+        // backgroundColor:'yellow',
+    },
+    text_vendor:{
+        height:70,
+        // alignItems: "center",
+        justifyContent: "center",
     },
     textvalue: {
-        width: '80%',
+        width: '40%',
+        // backgroundColor: 'red',
         // height: '23%',
         fontSize: 20,
         color: '#ffffff',
         marginTop: 10,
-        marginLeft: -150,
+        marginLeft: 10,
+        textAlign:'left',
+        paddingLeft:10,
     },
 })
 

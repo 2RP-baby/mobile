@@ -83,3 +83,8 @@ export const getCurSearchInsertedOne = async (num) => {
 };
 
 
+// 금액 , 표기
+export const getNumberFormat = (value) => {
+  return value ? value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") : "0";
+};
+

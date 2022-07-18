@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         marginBottom:10,
         padding:3,
         textAlign:'left',
-        paddingLeft:13,
+        paddingLeft:3,
     },
 })
 

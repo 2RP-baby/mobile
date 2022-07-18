@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import useRootData from '../../hooks/useRootData';
 import {Card} from 'react-native-shadow-cards';
+import { getNumberFormat } from '../../apis/scc';
 
 
 const FixBox = () => {
-    // const data={
-    //     total:'590,000'
-    // }
+    
     const {
         deliveryInsertInfo,
         changeDeliveryInsertInfo,
@@ -37,7 +36,7 @@ const FixBox = () => {
                             total += (list.quantity_shipped)*(list.unit_price);
                         })}            
                     </> 
-                    <Text style={styles.text}>총 금액 : {total} 원</Text>
+                    <Text style={styles.text}>총 금액 : {getNumberFormat(total)} 원</Text>
                 </View>
                 <View style={styles.view2}>
                     <Text style={styles.text}>납품신청자 : {deliveryInsertInfo[0].staff_name}</Text>
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
     header:{
         // flexDirection: 'column',
         // width: '100%',
-        height: '85%',
+        height: '89%',
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
