@@ -26,7 +26,10 @@ const DrawerNavigator = ({navigation}) => {
       changeLogin: loginStore.changeLogin,
   }));
 
+  
   return(
+    <>
+    {(login.authority==null)?<></>:true}
     <Drawer.Navigator
     initialRouteName=" "
     drawerContent={(props) =><CustomDrawer {...props}/>}
@@ -37,10 +40,8 @@ const DrawerNavigator = ({navigation}) => {
         drawerStyle: {
           backgroundColor: '#fff',
           width: 240,
-          
         },
         drawerItemStyle: {
-
         },
         // 제스처
         gestureEnabled: false,
@@ -52,26 +53,22 @@ const DrawerNavigator = ({navigation}) => {
       }}
         >
       <Drawer.Screen name=" "  component={Stack} />
-      <Drawer.Screen
-       name="Home"
-       component={Menu} 
-       options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={homeIcon} />
-          ),
-        }} 
-      />
+      
+
 
       {
-        (login.authority=="ROLE_VENDOR")?
+        (login.authority=="ROLE_USER")?
+        <>
         <Drawer.Screen
-        name="출하등록" 
-        component={InsertShipmentsrc} 
+        name="Home"
+        component={Menu} 
         options={{
-           drawerIcon: ()=>(
-             <Image style={styles.image} source={penIcon} />
-           ),
-         }}/>:
+            drawerIcon: ()=>(
+              <Image style={styles.image} source={homeIcon} />
+            ),
+          }} 
+        />
+
         <Drawer.Screen
           name="납품신청" 
           component={InsertDeliverysrc} 
@@ -81,18 +78,6 @@ const DrawerNavigator = ({navigation}) => {
               ),
             }} 
           />
-      }
-
-      {
-        (login.authority=="ROLE_VENDOR")?
-        <Drawer.Screen
-        name="출하현황" 
-        component={SelectShipmentsrc} 
-        options={{
-          drawerIcon: ()=>(
-            <Image style={styles.image} source={searchIcon} />
-          ),
-        }}/>:
         <Drawer.Screen
           name="납품신청현황" 
           component={SelectDeliverysrc} 
@@ -102,8 +87,47 @@ const DrawerNavigator = ({navigation}) => {
               ),
             }} 
           />
+       
+         </>
+         :true
+       
+      }
+
+      {
+        (login.authority=="ROLE_VENDOR")?
+        <>
+        <Drawer.Screen
+          name="Home"
+          component={Menu} 
+          options={{
+              drawerIcon: ()=>(
+                <Image style={styles.image} source={homeIcon} />
+              ),
+            }} 
+          />
+           <Drawer.Screen
+        name="출하등록" 
+        component={InsertShipmentsrc} 
+        options={{
+           drawerIcon: ()=>(
+             <Image style={styles.image} source={penIcon} />
+           ),
+         }}/>
+         <Drawer.Screen
+         name="출하현황" 
+         component={SelectShipmentsrc} 
+         options={{
+           drawerIcon: ()=>(
+             <Image style={styles.image} source={searchIcon} />
+           ),
+         }}/>
+         
+         
+          </>
+          :true
       }
     </Drawer.Navigator>
+    </>
   );
 };
 
