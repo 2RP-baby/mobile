@@ -6,6 +6,8 @@ import FixBox from '../component/deliveryInsert/FixBox';
 import InputInfo from '../component/deliverySubmit/InputInfo';
 import ItemInfo from '../component/deliverySubmit/ItemInfo';
 import useRootData from '../hooks/useRootData';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 const DeliverySubmit = ({navigation}) => {
 
@@ -82,14 +84,20 @@ const DeliverySubmit = ({navigation}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            <View style={styles.ItemInfo}>
-                <ItemInfo/>
-            </View>
-            <View style ={styles.inputInfo}>
-                <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
-                <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
-                <InputInfo id="subinventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
-            </View>
+            <ScrollView>
+                <KeyboardAwareScrollView>
+                    <View style={styles.ItemInfo}>
+                        <ItemInfo/>
+                    </View>
+                    <>
+                    <View style ={styles.inputInfo}>
+                        <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
+                        <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
+                        <InputInfo id="subinventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
+                    </View>
+                    </>
+                </KeyboardAwareScrollView>
+            </ScrollView>
             <TouchableOpacity 
                 activeOpacity={0.8} 
                 style={styles.button1} 
@@ -105,24 +113,29 @@ const DeliverySubmit = ({navigation}) => {
 
 const styles = StyleSheet.create({
     header:{
-        height:'75%',
-        marginBottom: 400,
+        height:'100%',
+        // marginBottom: 100,
         alignItems: "center",
+        // position: 'absolute', 
     },
     fix:{
         width:'100%',
-        height:'25%',
+        height: 200,
     },
     ItemInfo:{
         alignItems: "center",
-        height: '70%',
+        // height: 530,
+        height: '50%',
         // backgroundColor:'yellow',
+        // flex:3,
     },
     inputInfo:{
         width: '100%',
-        // alignItems: "center",
-        marginTop: 10,
-        marginLeft: '4%',
+        height: '27%',
+        marginLeft: '2%',
+        marginTop: 150,
+        marginBottom:60,
+        justifyContent:'flex-end',
     },
     button1: {
         width: "80%",

@@ -86,12 +86,13 @@ const ShipDeliverySubmit = ({navigation,route}) => {
         );  
     }
     return (
-        // <ScrollView>
-        // <KeyboardAwareScrollView>
+        <>
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
             </View>
+        <ScrollView>
+        <KeyboardAwareScrollView>
             <View style={styles.ItemInfo}>
                 <ItemInfo/>
             </View>
@@ -109,6 +110,8 @@ const ShipDeliverySubmit = ({navigation,route}) => {
                 <InputInfo id="contact_name" labelContext="출하담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
+            </KeyboardAwareScrollView>
+            </ScrollView>
             <TouchableOpacity 
                         activeOpacity={0.8} 
                         style={styles.button1} 
@@ -119,8 +122,7 @@ const ShipDeliverySubmit = ({navigation,route}) => {
                         <Text style={styles.text1}>POSCO 전송</Text>
             </TouchableOpacity>
         </View>
-        // </KeyboardAwareScrollView>
-        // </ScrollView>
+        </>
     );
 };
 
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
     },
     header:{
-        height:'75%',
+        height:'95%',
         marginBottom: 400,
         alignItems: "center",
     },
@@ -162,15 +164,19 @@ const styles = StyleSheet.create({
     },
     ItemInfo:{
         alignItems: "center",
-        height: 530,
+        height: '50%',
+        // height: 530,
         // backgroundColor:'yellow',
         // marginTop:30,
     },
     inputInfo:{
         width: '100%',
-        height: 300,
-        marginLeft: '4%',
-        marginTop: 20,
+        height: '27%',
+        marginLeft: '2%',
+        marginTop: 180,
+        marginBottom:40,
+        justifyContent:'flex-end',
+
     },
     button:{
         width: 100,

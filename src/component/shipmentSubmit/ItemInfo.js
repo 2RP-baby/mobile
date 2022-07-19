@@ -21,8 +21,7 @@ const ItemInfo = () => {
     // console.log("4 page : ", checkedList);
 
     return (
-        <ScrollView>
-            {/* <KeyboardAwareScrollView> */}
+        <>
             {Object.keys(checkedList).map((key,index)=>{
                 let list = checkedList[key];
                 let item_name = list.item
@@ -57,8 +56,7 @@ const ItemInfo = () => {
                 </View>
                 )
             })}
-            {/* </KeyboardAwareScrollView> */}
-        </ScrollView>
+        </>
 
     );
 };

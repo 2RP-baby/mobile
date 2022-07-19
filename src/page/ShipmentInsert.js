@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity,Text,View, StyleSheet, Button, Alert} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
@@ -49,7 +50,6 @@ const ShipmentInsert = ({navigation, route}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
-            
             <View>
                 <ItemInsert/>
             </View>

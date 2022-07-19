@@ -27,7 +27,6 @@ const ItemInfo = () => {
     //     console.log(key, " : -> ", list);
 
     return (
-        <ScrollView>
             <>
             {Object.keys(checkedList).map((key,index)=>{
                 let list = checkedList[key];
@@ -63,7 +62,6 @@ const ItemInfo = () => {
                 )
             })}
             </>
-        </ScrollView>
 
     );
 };
