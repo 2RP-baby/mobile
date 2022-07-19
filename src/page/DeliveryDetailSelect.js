@@ -53,16 +53,9 @@ const DeliveryDetailSelect = ({navigation}) => {
         const data = await getSearchList(deliveryCondition);
         // console.log("typeof list : ", typeof data);
         console.log("data result : ", data);
+        data.length=0 ? console.log("비었다") : console.log("있다");
         changeSearchedList(data);
     };
-
-    // const selectBeforeList = async () => {
-    //     const data = await getSearchList({...deliveryCondition, page: deliveryCondition.page-1});
-    //     // console.log("typeof list : ", typeof data);
-    //     console.log("data result------page : ", deliveryCondition.page);
-    //     console.log("data result------ : ", data);
-    //     changeSearchedList(data);
-    // };
 
     const selectDeliveryInsert =  async (po_num) => {
         const data = await getDeliveryInsertInfo(po_num);
@@ -108,7 +101,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                 ))
             }
             </ScrollView>
-            
+                <Text style={styles.pageText}>  현재 페이지 : {deliveryCondition.page}  </Text>
             <View flexDirection='row'  >
                 {deliveryCondition.page==1 ? true : 
                 <TouchableOpacity 
@@ -126,8 +119,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                     style={styles.button} 
                     onPress={ () =>{ 
                         moreInfo();
-                    }}
-                    >
+                    }}>
                     <Text style={styles.buttonText}>다음페이지</Text>
                 </TouchableOpacity> 
             </View>
@@ -140,9 +132,8 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 30,
-        marginBottom:100,
-
+        marginTop: 10,
+        marginBottom:120,
     },
     scroll:{
         height:'115%',
@@ -159,6 +150,15 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:23,
+        // marginRight:150,
+    }, 
+    pageText:{
+        color: '#005386',
+        // textDecorationLine: 'underline',
+        fontWeight: 'bold',
+        fontSize:15,
+        marginTop: 10,
+        marginBottom: 10,
         // marginRight:150,
     },
     containerRow:{

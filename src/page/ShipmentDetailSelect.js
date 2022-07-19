@@ -91,6 +91,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                 ))
             }
             </ScrollView>
+                <Text style={styles.pageText}>  현재 페이지 : {shipmentCondition.page} </Text>
 
             <View flexDirection='row'  >
                 {shipmentCondition.page==1 ? true : 
@@ -123,9 +124,8 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 30,
-        marginBottom:100,
-
+        marginTop: 10,
+        marginBottom:120,
     },
     scroll:{
         height:'115%',
@@ -142,6 +142,15 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:23,
+        // marginRight:150,
+    },
+    pageText:{
+        color: '#005386',
+        // textDecorationLine: 'underline',
+        fontWeight: 'bold',
+        fontSize:15,
+        marginTop: 10,
+        marginBottom: 10,
         // marginRight:150,
     },
     containerRow:{

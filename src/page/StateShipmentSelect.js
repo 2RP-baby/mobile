@@ -3,6 +3,9 @@ import {View, StyleSheet, Button, TouchableOpacity, Text} from 'react-native';
 import InputInfo from '../component/deliverySelect/InputInfo';
 import { shipCurSearchList } from '../apis/shipment';
 import useRootData from '../hooks/useRootData';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { ScrollView } from 'react-native-gesture-handler';
+
 
 const ShipmentSelect = ({navigation}) => {
 
@@ -38,6 +41,10 @@ const ShipmentSelect = ({navigation}) => {
     };
 
     return (
+        <ScrollView>
+            <KeyboardAwareScrollView>
+
+            
         <View style={styles.view1}>
             <InputInfo id="shipment_num"      labelContext="출하번호" replaceContext="QMA21 (deliver_to_location)" handleCondition={handleShipmentCondition}/>
             <InputInfo id="deliver_to_location"      labelContext="납품장소" replaceContext="QMA21 (deliver_to_location)" handleCondition={handleShipmentCondition}/>
@@ -51,10 +58,14 @@ const ShipmentSelect = ({navigation}) => {
                 onPress={ () =>{ 
                     selectShipmentList();
                     navigation.navigate('StateShipmentDetailSelect');
+                    changeShipmentCondition({...shipmentCondition, page: 1})
+
                 }}>
                 <Text style={styles.text}>주문조회</Text>
             </TouchableOpacity>
         </View>
+        </KeyboardAwareScrollView>
+        </ScrollView>
     );
 };
 

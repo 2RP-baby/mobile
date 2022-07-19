@@ -96,6 +96,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                 ))
             }
             </ScrollView>
+                <Text style={styles.pageText}>  현재 페이지 : {deliveryCondition.page}  </Text>
             <View flexDirection='row'  >
                 {deliveryCondition.page==1 ? true : 
                 <TouchableOpacity 
@@ -126,8 +127,8 @@ const styles = StyleSheet.create({
     view:{
         justifyContent: 'center',
         alignItems: "center",
-        marginTop: 30,
-        marginBottom:100,
+        marginTop: 10,
+        marginBottom:120,
 
     },
     scroll:{
@@ -145,6 +146,15 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold',
         fontSize:23,
+        // marginRight:150,
+    },
+    pageText:{
+        color: '#005386',
+        // textDecorationLine: 'underline',
+        fontWeight: 'bold',
+        fontSize:15,
+        marginTop: 10,
+        marginBottom: 10,
         // marginRight:150,
     },
     containerRow:{
