@@ -42,7 +42,7 @@ const ShipmentSelect = ({navigation}) => {
             <InputInfo id="shipment_num"      labelContext="출하번호" replaceContext="QMA21 (deliver_to_location)" handleCondition={handleShipmentCondition}/>
             <InputInfo id="deliver_to_location"      labelContext="납품장소" replaceContext="QMA21 (deliver_to_location)" handleCondition={handleShipmentCondition}/>
             <InputInfo id="contact_name"              labelContext="출하담당자" replaceContext="이은행" handleCondition={handleShipmentCondition} />
-            <InputInfo id="subinventory"             labelContext="Cost Center (Code 입력)" replaceContext="PSC12" handleCondition={handleShipmentCondition}/>
+            <InputInfo id="subinventory"             labelContext="납품신청부서(Code 입력)" replaceContext="PSC12" handleCondition={handleShipmentCondition}/>
             <InputInfo id="item_name"               labelContext="Item Code (Code 입력)" replaceContext="Q1109962" handleCondition={handleShipmentCondition}/>
            
             <TouchableOpacity 
