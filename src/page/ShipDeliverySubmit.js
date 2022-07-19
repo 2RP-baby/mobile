@@ -10,6 +10,7 @@ import useRootData from '../hooks/useRootData';
 import DatePicker from '../component/shipmentSubmit/DatePicker';
 import InputCalendarInfo from '../component/shipmentSubmit/InputCalendarInfo';
 import moment from 'moment';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const ShipDeliverySubmit = ({navigation,route}) => {
 
@@ -31,10 +32,11 @@ const ShipDeliverySubmit = ({navigation,route}) => {
     // checkedList : json -> 배열
     // console.log("checkedList :!!!!~~~", Object.values(checkedList));
     const ship2List = Object.values(checkedList);
+    // console.log("deliveryInsertInfo!!!!", deliveryInsertInfo[0].shipment_num.substr(1, 3));
     
     const [inputData, setInputData] = useState({
         "ship1" : {
-            "vendor_site_id" : "6666",   // 로그인한 공급사 id
+            "vendor_site_id" : deliveryInsertInfo[0].shipment_num.substr(1, 3),   // 로그인한 공급사 id
             "contact_name" : "",  	                         // input
             "deliver_to_location" : deliveryInsertInfo[0].deliver_to_location,    
             "note_to_receiver" : "",  	                                // input
@@ -84,7 +86,8 @@ const ShipDeliverySubmit = ({navigation,route}) => {
         );  
     }
     return (
-        <ScrollView>
+        // <ScrollView>
+        // <KeyboardAwareScrollView>
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
@@ -103,7 +106,7 @@ const ShipDeliverySubmit = ({navigation,route}) => {
                     </View>
                 </View>
 
-                <InputInfo id="contact_name" labelContext="납품담당자" handleCondition={handleDeliveryCondition}/>
+                <InputInfo id="contact_name" labelContext="출하담당자" handleCondition={handleDeliveryCondition}/>
                 <InputInfo id="note_to_receiver" labelContext="특기사항" handleCondition={handleDeliveryCondition}/>
             </View>
             <TouchableOpacity 
@@ -116,7 +119,8 @@ const ShipDeliverySubmit = ({navigation,route}) => {
                         <Text style={styles.text1}>POSCO 전송</Text>
             </TouchableOpacity>
         </View>
-        </ScrollView>
+        // </KeyboardAwareScrollView>
+        // </ScrollView>
     );
 };
 
@@ -153,20 +157,20 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'24%',
+        height: 160,
         // backgroundColor: 'red',
     },
     ItemInfo:{
         alignItems: "center",
-        height: '70%',
+        height: 530,
         // backgroundColor:'yellow',
-        marginTop:30,
+        // marginTop:30,
     },
     inputInfo:{
         width: '100%',
-        // alignItems: "center",
-        marginTop: -120,
+        height: 300,
         marginLeft: '4%',
+        marginTop: 20,
     },
     button:{
         width: 100,

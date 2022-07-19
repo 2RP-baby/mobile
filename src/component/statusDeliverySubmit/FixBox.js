@@ -44,7 +44,7 @@ const FixBox = () => {
                     <View style={styles.text_vendor}>
                         <Text style={styles.textvalue}>{deliveryInsertInfo[0].vendor_name}</Text>
                     </View>
-                    <Text style={styles.textvalue}>{getNumberFormat(total)}</Text>
+                    <Text style={styles.textvalue}>{getNumberFormat(total)} 원</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_deliver_to_location}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_comment}</Text>
                     <Text style={styles.textvalue}>{deliveryInsertInfo[0].scc1_subinventory}</Text>

@@ -87,7 +87,7 @@ const DeliveryDetailSelect = ({navigation}) => {
                                 </View>
                                 <View style={styles.textContainer3}>
                                     <Text style={styles.text3}>
-                                        {searchedlist.staff_dept_code +" /"+ searchedlist.po5_subinventory+ " /"+ moment(searchedlist.scc1_send_date).format("yyyy-MM-DD") +" /"+searchedlist.staff_name}
+                                        {searchedlist.staff_name + " / " +searchedlist.staff_dept_code +" / "+ searchedlist.po5_subinventory+ " / "+ moment(searchedlist.scc1_send_date).format("yyyy-MM-DD")}
                                     </Text>
                                 </View>
                             </>

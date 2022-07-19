@@ -87,7 +87,7 @@ const ItemInsert = () => {
                     </>
                     <>
                     <View style={styles.text3_warrap}>
-                        <InputInfo id="quantity_shipped" index={index} labelContext="출하수량 :" defaultValue={0} handleCondition={handleItemCondition} />
+                        <InputInfo id="quantity_shipped" index={index} labelContext="출하수량* :" defaultValue={0} handleCondition={handleItemCondition} />
                         {/* <InputInfo id="need_by_date" index={index} labelContext="요청납기 :" handleCondition={handleItemCondition} /> */}
                         <Text style={styles.text3_label}> 요청납기 : </Text>      
                         <Text style={styles.text3_context}>{moment(insertList.need_by_date).format("yyyy-MM-DD")}</Text> 

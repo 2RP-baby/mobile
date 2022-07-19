@@ -97,8 +97,8 @@ const ItemInsert = () => {
                             </>
                             <>
                                 <View style={styles.text3_warrap}>
-                                    <InputInfo id="quantity_ordered" index={index} labelContext="요청수량:" defaultValue={0} handleCondition={handleItemCondition} /><Text>  </Text>
-                                    <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기:" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
+                                    <InputInfo id="quantity_ordered" index={index} labelContext="요청수량*:" defaultValue={0} handleCondition={handleItemCondition} /><Text>  </Text>
+                                    <InputCalendarInfo id="need_by_date" index={index} labelContext="요청납기*:" handleCondition={handleItemCondition} date ={insertList.need_by_date}/>
                                     {/* <Text style={styles.label}>요청납기 :</Text>
                                     <Text style={styles.text3_context}>{date}</Text> */}
                                     <DatePicker id="need_by_date" index={index} handleCondition={handleItemCondition}/>

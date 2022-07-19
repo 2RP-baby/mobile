@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'35%',
+        height:'35.5%',
         // backgroundColor:'yellow',
     },
     ItemInfo:{
         alignItems: "center",
-        height: '70%',
-        marginTop: -70,
+        height: '56.3%',
+        marginTop: -100,
         marginBottom: -500,
         // backgroundColor: 'yellow',
     },

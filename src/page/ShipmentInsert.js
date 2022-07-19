@@ -18,6 +18,7 @@ const ShipmentInsert = ({navigation, route}) => {
     }));
 
     const index = Object.keys(checkedList);
+    console.log("index.length", index.length);
     console.log("checkedList11111111", checkedList);
     function checkListConfirm() {
         if(index.length==0){
@@ -31,7 +32,7 @@ const ShipmentInsert = ({navigation, route}) => {
                 navigation.navigate('ShipDeliverySubmit',{date:route.params.date}); 
 
             }
-            else if(element.quantity_shipped == 0){
+            else if(element.quantity_shipped == null || element.quantity_shipped =="" ){
                 Alert.alert('출하수량을 입력해 주세요')
                 break;
             }
@@ -48,6 +49,7 @@ const ShipmentInsert = ({navigation, route}) => {
             <View style={styles.fix}>
                 <FixBox/>
             </View>
+            
             <View>
                 <ItemInsert/>
             </View>

@@ -5,6 +5,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import useRootData from '../../hooks/useRootData';
 import { Card } from 'react-native-shadow-cards';
 import moment from 'moment';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 const ItemInfo = () => {
 
@@ -20,6 +22,7 @@ const ItemInfo = () => {
 
     return (
         <ScrollView>
+            {/* <KeyboardAwareScrollView> */}
             {Object.keys(checkedList).map((key,index)=>{
                 let list = checkedList[key];
                 let item_name = list.item
@@ -54,6 +57,7 @@ const ItemInfo = () => {
                 </View>
                 )
             })}
+            {/* </KeyboardAwareScrollView> */}
         </ScrollView>
 
     );
