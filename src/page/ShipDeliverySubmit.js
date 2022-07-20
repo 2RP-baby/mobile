@@ -63,28 +63,33 @@ const ShipDeliverySubmit = ({navigation,route}) => {
     // 납품신청 버튼
     const InsertInfo =  async (sendData) => {
         const data = await insertSccDeliveryInfo(sendData);
-        // console.log(data);
-        data ? goAlert() :  Alert.alert("POSCO 전송이 실패되었습니다.")
+        goAlert(data)
     };  
 
-    const goAlert = () =>{
+    const goAlert = (data) =>{
         Alert.alert(                   
         "POSCO전송이 정상적으로 완료되었습니다",                 // 첫번째 text: 타이틀 제목
-        "출하현황에서 출하정보를 조회하세요 ",   // 두번째 text: 그 밑에 작은 제목
+        "생성된 출하번호는 " + data + " 입니다. 출하현황에서 출하정보를 조회하세요 ",   // 두번째 text: 그 밑에 작은 제목
         [                              // 버튼 배열
-            // {
-            //     text: "아니요",                              // 버튼 제목
-            //     onPress: () => console.log("아니라는데"),     //onPress 이벤트시 콘솔창에 로그를 찍는다
-            //     style: "cancel"
-            // },
             { text: "확인", onPress: () => {
                 navigation.navigate('Menu');
-                // InsertInfo(inputData);
-            }}, //버튼 제목
+            }}, 
         ],
         { cancelable: false }
         );  
     }
+
+    function checkListConfirm() {
+        if(inputData.ship1.contact_name!="" && inputData.ship1.expected_receipt_date!="" && inputData.ship1.note_to_receiver!="" ){
+            console.log("null아님");
+            InsertInfo(inputData);
+        }else{
+            Alert.alert("도착 예정일, 출하 담당자, 특기사항을 모두 입력해주세요");
+            // console.log("$$$", inputData.ship1.contact_name);
+        }
+    }
+
+
     return (
         <>
         <View style={styles.header}>
@@ -116,7 +121,7 @@ const ShipDeliverySubmit = ({navigation,route}) => {
                         activeOpacity={0.8} 
                         style={styles.button1} 
                         onPress={ () =>{ 
-                            InsertInfo(inputData);
+                            checkListConfirm();
                         }}
                         >
                         <Text style={styles.text1}>POSCO 전송</Text>

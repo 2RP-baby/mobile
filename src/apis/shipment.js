@@ -31,7 +31,7 @@ export const insertSccDeliveryInfo = async (sendData) => {
   try {
     const { data } = await serverAxios.post(`${PREFIX_URL}/shipInsertOne`, sendData);
     console.log("insert 후 반환된 결과 : ", data);
-    return true;
+    return data;
   } catch (err) {
     console.log("fail", err);
     console.log("status", error.response.status);

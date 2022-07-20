@@ -57,43 +57,50 @@ const DeliverySubmit = ({navigation}) => {
     // 납품신청 버튼
     const InsertInfo =  async (sendData) => {
         const data = await insertSccDeliveryInfo(sendData);
-        // console.log(data);
-    };  
+        goAlert(data);
+    };
 
-    const goAlert = () =>{
+    const goAlert = (data) =>{
         Alert.alert(                   
-        "납품 신청을 하시겠습니까?",                 // 첫번째 text: 타이틀 제목
-        "신청 완료 후 메뉴 페이지로 이동합니다. ",   // 두번째 text: 그 밑에 작은 제목
+        "납품신청이 정상적으로 완료되었습니다",                 // 첫번째 text: 타이틀 제목
+        "생성된 납품번호는 " + data + " 입니다. 납품현황에서 납품정보를 조회하세요 ",   // 두번째 text: 그 밑에 작은 제목
         [                              // 버튼 배열
-            {
-                text: "아니요",                              // 버튼 제목
-                onPress: () => console.log("아니라는데"),     //onPress 이벤트시 콘솔창에 로그를 찍는다
-                style: "cancel"
-            },
-            { text: "네", onPress: () => {
-                Alert.alert("납품신청이 완료 되었습니다");
+            { text: "확인", onPress: () => {
                 navigation.navigate('Menu');
-                InsertInfo(inputData);
-            }}, //버튼 제목
+            }}, 
         ],
         { cancelable: false }
         );  
     }
+
+
+
+    function checkListConfirm(){
+        if(inputData.scc1.deliver_to_location==""||inputData.scc1.comment==""||inputData.scc1.subinventory==""){
+            Alert.alert("필수 입력 사항을 입력해주세요"); 
+        }
+        else{
+            InsertInfo(inputData);
+        }
+    }
+
+
+
     return (
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
             </View>
             <ScrollView>
-                <KeyboardAwareScrollView>
+                <KeyboardAwareScrollView enableOnAndroid={true} enableAutomaticScroll={(Platform.OS === 'ios')}>
                     <View style={styles.ItemInfo}>
                         <ItemInfo/>
                     </View>
                     <>
                     <View style ={styles.inputInfo}>
-                        <InputInfo id="deliver_to_location" labelContext="납품장소" handleCondition={handleDeliveryCondition}/>
-                        <InputInfo id="comment" labelContext="요청 특기사항" handleCondition={handleDeliveryCondition}/>
-                        <InputInfo id="subinventory" labelContext="신청부서 (Code 입력)" handleCondition={handleDeliveryCondition}/>
+                        <InputInfo id="deliver_to_location" labelContext="납품장소*" handleCondition={handleDeliveryCondition}/>
+                        <InputInfo id="comment" labelContext="요청 특기사항*" handleCondition={handleDeliveryCondition}/>
+                        <InputInfo id="subinventory" labelContext="신청부서* (Code 입력)" handleCondition={handleDeliveryCondition}/>
                     </View>
                     </>
                 </KeyboardAwareScrollView>
@@ -102,7 +109,7 @@ const DeliverySubmit = ({navigation}) => {
                 activeOpacity={0.8} 
                 style={styles.button1} 
                 onPress={ () =>{ 
-                    goAlert();
+                    checkListConfirm();
                 }}
                 >
                 <Text style={styles.text1}>납품신청</Text>
