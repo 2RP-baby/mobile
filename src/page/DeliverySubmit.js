@@ -92,7 +92,7 @@ const DeliverySubmit = ({navigation}) => {
                 <FixBox/>
             </View>
             <ScrollView>
-                <KeyboardAwareScrollView enableOnAndroid={true} enableAutomaticScroll={(Platform.OS === 'ios')}>
+                <KeyboardAwareScrollView>
                     <View style={styles.ItemInfo}>
                         <ItemInfo/>
                     </View>
@@ -159,29 +159,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight:'bold',
     },
-    // button:{
-    //     width: 100,
-    //     height: 40,
-    //     justifyContent: 'center',
-    //     alignItems: "center",
-    //     borderRadius: 50,
-    //     marginTop: 7,
-    //     // fontSize: 20,
-    // },
-    // text: {
-    //     fontSize: 18,
-    //     color: '#000000',
-    //     marginTop: 5,
-    // },
-    // input:{
-    //     borderWidth: 1,
-    //     borderColor: '#005386',
-    //     padding: 10, 
-    //     fontSize: 15,
-    //     width: 200,
-    //     height: 40,
-    //     marginTop: 5,
-    // },
 })
 
 export default DeliverySubmit;

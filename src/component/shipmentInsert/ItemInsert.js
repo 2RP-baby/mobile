@@ -55,7 +55,6 @@ const ItemInsert = () => {
     
     // console.log("checkedList", checkedList);
     return (
-        <ScrollView>
             <>
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
@@ -102,7 +101,6 @@ const ItemInsert = () => {
             </View>
             ))}
             </>
-        </ScrollView>
     );
 };
 

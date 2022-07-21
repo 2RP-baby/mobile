@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity,Text,View, StyleSheet, Button, Alert} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { TouchableOpacity,Text,View, StyleSheet, Button, Alert, ScrollView} from 'react-native';
 import FixBox from '../component/shipmentInsert/FixBox';
 import ItemInsert from '../component/shipmentInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const ShipmentInsert = ({navigation, route}) => {
     const {
@@ -46,6 +46,8 @@ const ShipmentInsert = ({navigation, route}) => {
 
 
     return (
+        <ScrollView>
+            <KeyboardAwareScrollView>
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
@@ -64,6 +66,8 @@ const ShipmentInsert = ({navigation, route}) => {
             </TouchableOpacity>
             
         </View>
+        </KeyboardAwareScrollView>
+        </ScrollView>
     );
 };
 
@@ -85,16 +89,11 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'17%',
+        marginBottom:20,
     },
     header:{
         alignItems: "center",
         height:'73%',
-        marginBottom: 500,
-    },
-    fix:{
-        width:'100%',
-        height:'20%',
     },
 })
 

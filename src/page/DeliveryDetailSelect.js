@@ -51,10 +51,10 @@ const DeliveryDetailSelect = ({navigation}) => {
     const selectMoreList = async () => {
         console.log("deliveryCondition.page", deliveryCondition.page);
         const data = await getSearchList(deliveryCondition);
+        changeSearchedList(data);
         // console.log("typeof list : ", typeof data);
         console.log("data result : ", data);
-        data.length=0 ? console.log("비었다") : console.log("있다");
-        changeSearchedList(data);
+        // data.length=0 ? console.log("비었다") : console.log("있다");
     };
 
     const selectDeliveryInsert =  async (po_num) => {

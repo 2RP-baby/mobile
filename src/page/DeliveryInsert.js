@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity,View, StyleSheet, Button, Text,Alert} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { TouchableOpacity,View, StyleSheet, Button, Text,Alert, ScrollView} from 'react-native';
 import FixBox from '../component/deliveryInsert/FixBox';
 import ItemInsert from '../component/deliveryInsert/ItemInsert';
 import useRootData from '../hooks/useRootData';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const DeliveryInsert = ({navigation}) => {
     // const input = 1;
@@ -29,8 +29,8 @@ const DeliveryInsert = ({navigation}) => {
             const temp = index[i];
             const element = checkedList[temp];
             console.log("element", element);
-            // if(element.quantity_ordered!=0 && element.remaining>=element.quantity_ordered && element.need_by_date!=null ){
-            if(element.quantity_ordered!=0 && element.remaining>=element.quantity_ordered && element.need_by_date!="" ){
+            
+            if(element.quantity_ordered!=0 && element.remaining>=element.quantity_ordered && element.need_by_date!=null){
                 navigation.navigate('DeliverySubmit') 
             }
             else if(element.quantity_ordered==0){
@@ -39,14 +39,15 @@ const DeliveryInsert = ({navigation}) => {
             }else if(element.remaining<element.quantity_ordered){
                 Alert.alert('주문잔량을 초과 하였습니다');
                 break;
-            }else if(element.need_by_date==""){
+            }else if(element.need_by_date==null){
                 Alert.alert('요청납기를 입력해 주세요');
                 break;
             }
         }
     }
     return (
-        // <ScrollView>
+        <ScrollView>
+            <KeyboardAwareScrollView>
         <View style={styles.header}>
             <View style={styles.fix}>
                 <FixBox/>
@@ -65,7 +66,8 @@ const DeliveryInsert = ({navigation}) => {
                 </TouchableOpacity>
             
         </View>
-        // </ScrollView>
+        </KeyboardAwareScrollView>
+        </ScrollView>
     );
 };
 
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop:15,
-        marginBottom: 20,
+        // marginBottom: 20,
         borderRadius:10,
     },
     text1: {
@@ -87,19 +89,15 @@ const styles = StyleSheet.create({
     },
     fix:{
         width:'100%',
-        height:'17%',
+        marginBottom:20,
+        // height:'8%',
+        // height:100,
     },
     header:{
         alignItems: "center",
         height:'73%',
-        marginBottom: 500,
+        marginBottom: 10,
     },
-    fix:{
-        width:'100%',
-        height:'25%',
-    },
-   
-    
 })
 
 export default DeliveryInsert;

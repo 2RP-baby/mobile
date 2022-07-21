@@ -39,12 +39,6 @@ const Body = ({navigation}) => {
         console.log("login info : ", data);
         changeLogin(data);
 
-        // 초기화
-        setIdpw({
-            email:" ",
-            password:" ",
-        });
-        // inputRef.current.clear();
     };
     console.log("idpw", idpw);
 

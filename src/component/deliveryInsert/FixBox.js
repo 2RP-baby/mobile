@@ -45,11 +45,13 @@ const styles = StyleSheet.create({
     header:{
         // flexDirection: 'column',
         // width: '100%',
-        height: '80%',
+        // height: '70%',
+        height: 150,
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
+        // marginBottom: -50,
         // margin:30,
     },
     card1:{

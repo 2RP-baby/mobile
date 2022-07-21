@@ -48,9 +48,8 @@ const FixBox = () => {
 };
 const styles = StyleSheet.create({
     header:{
-        // flexDirection: 'column',
-        // width: '100%',
-        height: '89%',
+        // height: '89%',
+        height: 150,
         alignItems: "center",
         backgroundColor: '#ffffff',
         borderBottomLeftRadius: 20,
@@ -60,18 +59,11 @@ const styles = StyleSheet.create({
         width: '90%',
         height: '107%',
         flexDirection:'row',
-
-        // marginTop: 10,
         backgroundColor: '#005386',
-        // backgroundColor: "rgba(0,83,134,0.5)",
-        // borderRadius
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         padding: 20,
         marginTop: -10,
-        // marginBottom: 20,
-        // padding:10,
-        
     },
     view1:{
         flexDirection:'column',
@@ -84,7 +76,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '23%',
         fontSize: 20,
-        // color: '#000000',
         color: '#ffffff',
         marginTop: 10,
         marginLeft: 10,

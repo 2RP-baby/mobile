@@ -19,8 +19,11 @@ const ShipmentDetailSelect = ({navigation}) => {
 
         // 더보기
         shipmentCondition,
-        changeShipmentCondition
-    } = useRootData(({shipSearchedListStore, shipDeliveryInsertStore, shipmentSelectStore}) => ({
+        changeShipmentCondition,
+
+        checkedList,
+        changeCheckedList,
+    } = useRootData(({shipSearchedListStore, shipDeliveryInsertStore, shipmentSelectStore, shipCheckedListStore}) => ({
         searchedList: shipSearchedListStore.searchedList.get(),
         changeSearchedList: shipSearchedListStore.changeSearchedList,
 
@@ -30,6 +33,9 @@ const ShipmentDetailSelect = ({navigation}) => {
 
         shipmentCondition: shipmentSelectStore.shipmentCondition.get(),
         changeShipmentCondition: shipmentSelectStore.changeShipmentCondition,
+
+        checkedList: shipCheckedListStore.checkedList.get(),
+        changeCheckedList: shipCheckedListStore.changeCheckedList,
     }));
 
     // 더보기 버튼 클릭시 DeleverySelect 페이지에서 보낸 condition의 page를 ++하기
@@ -69,6 +75,7 @@ const ShipmentDetailSelect = ({navigation}) => {
                                 <Text style={styles.text}
                                     onPress={async () => {
                                         await selectDeliveryInsert(searchedlist.shipment_num);
+                                        changeCheckedList({});
                                         navigation.navigate('ShipmentInsert',{date:searchedlist.send_date});
                                         }
                                     }

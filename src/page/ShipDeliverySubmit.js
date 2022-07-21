@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 5,
-        // marginBottom: 20,
+        marginBottom: -20,
         borderRadius:10,
     },
     text1: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     },
     header:{
         height:'95%',
-        marginBottom: 400,
+        // marginBottom: 400,
         alignItems: "center",
     },
     fix:{
@@ -178,19 +178,10 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '27%',
         marginLeft: '2%',
-        marginTop: 180,
-        marginBottom:40,
+        marginTop: 150,
+        marginBottom:60,
         justifyContent:'flex-end',
 
-    },
-    button:{
-        width: 100,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: "center",
-        borderRadius: 50,
-        marginTop: 7,
-        // fontSize: 20,
     },
     text: {
         fontSize: 18,

@@ -68,7 +68,7 @@ const ItemInsert = () => {
     // console.log("!!!! : ", itemCondition)
 
     return (
-        <ScrollView>
+        <>
             {deliveryInsertInfo.map((insertList, index)=>(
                 <View key={index} style={styles.header}>
                     <Card style={styles.card}>
@@ -112,7 +112,7 @@ const ItemInsert = () => {
                     </Card>
                 </View>
             ))}
-        </ScrollView>
+        </>
     );
 };
 
